@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Super Theo & Flutter — Character Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#1B1F3B;--sky:#6EC6F5;--lav:#C3A9F5;--sun:#FFD166;--pink:#FF8FAB;--mint:#6FDEBC;--coral:#FF6B6B;}
+body{font-family:'Baloo 2',cursive;background:linear-gradient(160deg,#f0f4ff,#fdf0ff,#fff8e8);min-height:100vh;padding:40px 20px;}
+h1{text-align:center;font-family:'Fredoka One',cursive;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--navy);margin-bottom:8px;}
+.sub{text-align:center;font-size:1rem;color:#888;margin-bottom:12px;}
+.dl-all-wrap{text-align:center;margin-bottom:36px;}
+.dl-all-btn{display:inline-block;padding:14px 36px;border-radius:50px;border:none;background:linear-gradient(135deg,var(--navy),#2a1a5e);color:white;font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;box-shadow:0 8px 24px rgba(27,31,59,.25);transition:all .25s;}
+.dl-all-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(27,31,59,.4);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1200px;margin:0 auto;}
+.card{background:white;border-radius:28px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.08);transition:transform .3s;}
+.card:hover{transform:translateY(-6px);}
+.card-top{padding:30px 20px 20px;text-align:center;position:relative;}
+.card-top svg{display:block;margin:0 auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.15));}
+.card-body{padding:20px 24px 28px;}
+.card-body h2{font-family:'Fredoka One',cursive;font-size:1.4rem;margin-bottom:2px;}
+.card-body .role{font-size:.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
+.card-body p{font-size:.95rem;line-height:1.7;color:#555;margin-bottom:14px;}
+.powers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.power{padding:5px 12px;border-radius:20px;font-size:.78rem;font-weight:700;}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:50px;border:2px solid;font-family:'Baloo 2',cursive;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .25s;background:transparent;}
+.dl-btn:hover{transform:translateY(-2px);}
+.hero-bg{background:linear-gradient(160deg,#e8f4fd,#daf0ff);}
+.theo-bg{background:linear-gradient(160deg,#fff8e8,#ffe8d5);}
+.theo-name{color:#e08a3a;} .theo-role{color:var(--sun);} .theo-power{background:#fff8e8;color:#e08a3a;}
+.theo-dl{border-color:#e08a3a;color:#e08a3a;} .theo-dl:hover{background:#e08a3a;color:white;}
+.hero-name{color:var(--sky);} .hero-role{color:var(--lav);} .hero-power{background:#e8f4fd;color:var(--sky);}
+.hero-dl{border-color:var(--sky);color:var(--sky);} .hero-dl:hover{background:var(--sky);color:white;}
+.flutter-bg{background:linear-gradient(160deg,#f3eaff,#ffe8f3);}
+.flutter-name{color:var(--lav);} .flutter-role{color:var(--pink);} .flutter-power{background:#f3eaff;color:var(--lav);}
+.flutter-dl{border-color:var(--lav);color:var(--lav);} .flutter-dl:hover{background:var(--lav);color:white;}
+.dad-bg{background:linear-gradient(160deg,#fff8e8,#ffecd2);}
+.dad-name{color:#c49000;} .dad-role{color:var(--sun);} .dad-power{background:#fff8e8;color:#c49000;}
+.dad-dl{border-color:var(--sun);color:#c49000;} .dad-dl:hover{background:var(--sun);color:#7a5200;}
+.villain-bg{background:linear-gradient(160deg,#ffe8e8,#fff0e0);}
+.villain-name{color:var(--coral);} .villain-role{color:#cc5555;} .villain-power{background:#ffe8e8;color:var(--coral);}
+.villain-dl{border-color:var(--coral);color:var(--coral);} .villain-dl:hover{background:var(--coral);color:white;}
+.siren-bg{background:linear-gradient(160deg,#fff0e0,#ffe8f3);}
+.siren-name{color:#ff9f43;} .siren-role{color:var(--coral);}
+.siren-dl{border-color:#ff9f43;color:#ff9f43;} .siren-dl:hover{background:#ff9f43;color:white;}
+.mask-bg{background:linear-gradient(160deg,#f0f0f0,#e8e8ee);}
+.mask-name{color:#555;} .mask-role{color:#888;}
+.mask-dl{border-color:#888;color:#555;} .mask-dl:hover{background:#555;color:white;}
+.iso-bg{background:linear-gradient(160deg,#e8e0f8,#ddd8f0);}
+.iso-name{color:#6a5acd;} .iso-role{color:#8a7aed;}
+.iso-dl{border-color:#6a5acd;color:#6a5acd;} .iso-dl:hover{background:#6a5acd;color:white;}
+.section-label{text-align:center;font-family:'Fredoka One',cursive;font-size:1.5rem;color:var(--navy);margin:40px 0 20px;padding-top:20px;}
+</style>
+</head>
+<body>
+<h1>📖 Super Theo & Flutter — Character Gallery</h1>
+<div class="sub">Every hero and villain — illustrated & downloadable!</div>
+<div class="dl-all-wrap"><button class="dl-all-btn" onclick="downloadAll()">⬇️ Download All Characters (PNG)</button></div>
+
+<div class="section-label">🦸 The Heroes 💙</div>
+<div class="grid">
+
+<!-- THEODORE (Regular Boy) -->
+<div class="card"><div class="card-top theo-bg">
+<svg id="svg-theodore" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#ffe8d5"/>
+<!-- Warm park background -->
+<ellipse cx="140" cy="310" rx="120" ry="30" fill="#a8d8a0" opacity=".3"/>
+<circle cx="50" cy="280" r="20" fill="#8fc98a" opacity=".2"/>
+<circle cx="230" cy="270" r="25" fill="#8fc98a" opacity=".15"/>
+<!-- Little clouds -->
+<ellipse cx="60" cy="50" rx="22" ry="12" fill="white" opacity=".4"/>
+<ellipse cx="75" cy="48" rx="16" ry="10" fill="white" opacity=".35"/>
+<ellipse cx="200" cy="40" rx="20" ry="11" fill="white" opacity=".35"/>
+<ellipse cx="215" cy="38" rx="14" ry="9" fill="white" opacity=".3"/>
+<!-- Sun -->
+<circle cx="240" cy="45" r="18" fill="#FFD166" opacity=".35"/>
+
+<!-- Body - cute t-shirt -->
+<rect x="105" y="185" width="70" height="75" rx="14" fill="#FF8FAB"/>
+<!-- Shirt stripe -->
+<rect x="105" y="210" width="70" height="14" rx="0" fill="#ff7a9e" opacity=".5"/>
+<!-- Little star on shirt -->
+<text x="140" y="205" text-anchor="middle" font-size="18" fill="rgba(255,255,255,.5)" font-family="Arial,sans-serif">★</text>
+
+<!-- Arms -->
+<rect x="82" y="190" width="24" height="48" rx="12" fill="#FF8FAB" transform="rotate(-12,94,214)"/>
+<rect x="174" y="190" width="24" height="48" rx="12" fill="#FF8FAB" transform="rotate(12,186,214)"/>
+<!-- Hands -->
+<circle cx="78" cy="240" r="11" fill="#D4A06A"/>
+<circle cx="202" cy="240" r="11" fill="#D4A06A"/>
+
+<!-- Shorts -->
+<rect x="112" y="255" width="24" height="32" rx="8" fill="#5B8DB8"/>
+<rect x="144" y="255" width="24" height="32" rx="8" fill="#5B8DB8"/>
+
+<!-- Legs -->
+<rect x="116" y="280" width="16" height="28" rx="8" fill="#D4A06A"/>
+<rect x="148" y="280" width="16" height="28" rx="8" fill="#D4A06A"/>
+
+<!-- Shoes - regular sneakers -->
+<ellipse cx="124" cy="312" rx="16" ry="10" fill="#e74c3c"/>
+<rect x="108" y="303" width="32" height="11" rx="5" fill="#e74c3c"/>
+<rect x="110" y="303" width="28" height="5" rx="2" fill="white" opacity=".4"/>
+<ellipse cx="156" cy="312" rx="16" ry="10" fill="#e74c3c"/>
+<rect x="140" y="303" width="32" height="11" rx="5" fill="#e74c3c"/>
+<rect x="142" y="303" width="28" height="5" rx="2" fill="white" opacity=".4"/>
+
+<!-- Neck -->
+<rect x="128" y="170" width="24" height="18" rx="8" fill="#D4A06A"/>
+
+<!-- Head -->
+<ellipse cx="140" cy="120" rx="52" ry="58" fill="#D4A06A"/>
+
+<!-- Hair - curly and full -->
+<path d="M88,108 Q90,55 140,45 Q190,55 192,108 Q185,72 140,62 Q95,72 88,108" fill="#3E2723"/>
+<circle cx="105" cy="58" r="10" fill="#3E2723"/>
+<circle cx="120" cy="50" r="11" fill="#3E2723"/>
+<circle cx="140" cy="46" r="12" fill="#3E2723"/>
+<circle cx="160" cy="50" r="11" fill="#3E2723"/>
+<circle cx="175" cy="58" r="10" fill="#3E2723"/>
+<!-- Extra curls -->
+<circle cx="93" cy="70" r="8" fill="#3E2723"/>
+<circle cx="187" cy="70" r="8" fill="#3E2723"/>
+
+<!-- Eyes - big, warm, curious -->
+<ellipse cx="120" cy="115" rx="15" ry="17" fill="white"/>
+<ellipse cx="160" cy="115" rx="15" ry="17" fill="white"/>
+<ellipse cx="122" cy="118" rx="9.5" ry="11" fill="#3E2723"/>
+<ellipse cx="162" cy="118" rx="9.5" ry="11" fill="#3E2723"/>
+<!-- Eye sparkle — big wonder eyes -->
+<circle cx="126" cy="112" r="4.5" fill="white"/>
+<circle cx="166" cy="112" r="4.5" fill="white"/>
+<circle cx="119" cy="122" r="2.5" fill="white"/>
+<circle cx="159" cy="122" r="2.5" fill="white"/>
+
+<!-- Warm gentle smile -->
+<path d="M122,142 Q140,156 158,142" stroke="#2D2D3A" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+<!-- Rosy cheeks -->
+<ellipse cx="100" cy="132" rx="11" ry="8" fill="#FF8FAB" opacity=".3"/>
+<ellipse cx="180" cy="132" rx="11" ry="8" fill="#FF8FAB" opacity=".3"/>
+
+<!-- Spinning wheel toy in hand -->
+<circle cx="202" cy="236" r="14" fill="none" stroke="#FFD166" stroke-width="3"/>
+<circle cx="202" cy="236" r="3" fill="#FFD166"/>
+<line x1="202" y1="222" x2="202" y2="226" stroke="#FFD166" stroke-width="2"/>
+<line x1="202" y1="246" x2="202" y2="250" stroke="#FFD166" stroke-width="2"/>
+<line x1="188" y1="236" x2="192" y2="236" stroke="#FFD166" stroke-width="2"/>
+<line x1="212" y1="236" x2="216" y2="236" stroke="#FFD166" stroke-width="2"/>
+</svg>
+</div><div class="card-body">
+<h2 class="theo-name">Theodore</h2><div class="role theo-role">The Boy Who Sees the World Differently</div>
+<p>A 3-year-old boy from New York with big curious eyes and the warmest smile. Theodore is non-verbal and on the autism spectrum. He notices patterns in clouds, hears music in rain, and sees beauty in spinning wheels. He is extraordinary — just as he is.</p>
+<div class="powers"><span class="power theo-power">👀 Sees What Others Miss</span><span class="power theo-power">🎵 Hears the World's Music</span><span class="power theo-power">💛 Heart Full of Wonder</span><span class="power theo-power">🌀 Loves Spinning Things</span></div>
+<button class="dl-btn theo-dl" onclick="downloadChar('svg-theodore','Theodore')">⬇ Download PNG</button>
+</div></div>
+
+<!-- SUPER THEO -->
+<div class="card"><div class="card-top hero-bg">
+<svg id="svg-super-theo" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#daf0ff"/>
+<circle cx="40" cy="30" r="3" fill="#FFD166" opacity=".6"/><circle cx="240" cy="50" r="2.5" fill="#C3A9F5" opacity=".5"/><circle cx="60" cy="280" r="2" fill="#6EC6F5" opacity=".4"/><circle cx="220" cy="300" r="3" fill="#FFD166" opacity=".5"/>
+<path d="M95,175 C80,220 60,280 55,330 L140,290 L225,330 C220,280 200,220 185,175" fill="url(#cG)" opacity=".85"/>
+<defs><linearGradient id="cG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="25%" stop-color="#FFD166"/><stop offset="50%" stop-color="#6FDEBC"/><stop offset="75%" stop-color="#6EC6F5"/><stop offset="100%" stop-color="#C3A9F5"/></linearGradient><linearGradient id="sG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6EC6F5"/><stop offset="100%" stop-color="#C3A9F5"/></linearGradient></defs>
+<rect x="105" y="165" width="70" height="90" rx="12" fill="url(#sG)"/>
+<path d="M120,185 h15 v-5 a5,5 0 0,1 10,0 v5 h15 v15 h5 a5,5 0 0,1 0,10 h-5 v15 h-15 v5 a5,5 0 0,1 -10,0 v-5 h-15 v-15 h-5 a5,5 0 0,1 0,-10 h5z" fill="rgba(255,255,255,.2)"/>
+<rect x="80" y="172" width="25" height="55" rx="12" fill="url(#sG)" transform="rotate(-10,92,200)"/>
+<rect x="175" y="172" width="25" height="55" rx="12" fill="url(#sG)" transform="rotate(10,188,200)"/>
+<circle cx="82" cy="232" r="12" fill="#D4A06A"/><circle cx="198" cy="232" r="12" fill="#D4A06A"/>
+<rect x="112" y="248" width="24" height="50" rx="10" fill="url(#sG)"/><rect x="144" y="248" width="24" height="50" rx="10" fill="url(#sG)"/>
+<ellipse cx="124" cy="302" rx="18" ry="12" fill="#6EC6F5"/><rect x="106" y="290" width="36" height="14" rx="6" fill="#6EC6F5"/>
+<ellipse cx="156" cy="302" rx="18" ry="12" fill="#C3A9F5"/><rect x="138" y="290" width="36" height="14" rx="6" fill="#C3A9F5"/>
+<rect x="127" y="152" width="26" height="18" rx="8" fill="#D4A06A"/>
+<ellipse cx="140" cy="115" rx="52" ry="58" fill="#D4A06A"/>
+<path d="M88,105 Q90,55 140,48 Q190,55 192,105 Q185,75 140,68 Q95,75 88,105" fill="#3E2723"/>
+<circle cx="120" cy="58" r="10" fill="#3E2723"/><circle cx="140" cy="52" r="11" fill="#3E2723"/><circle cx="160" cy="58" r="10" fill="#3E2723"/>
+<ellipse cx="120" cy="112" rx="14" ry="16" fill="white"/><ellipse cx="160" cy="112" rx="14" ry="16" fill="white"/>
+<ellipse cx="122" cy="114" rx="9" ry="10" fill="#2D2D3A"/><ellipse cx="162" cy="114" rx="9" ry="10" fill="#2D2D3A"/>
+<circle cx="126" cy="108" r="4" fill="white"/><circle cx="166" cy="108" r="4" fill="white"/>
+<circle cx="119" cy="118" r="2" fill="white"/><circle cx="159" cy="118" r="2" fill="white"/>
+<path d="M120,138 Q140,155 160,138" stroke="#2D2D3A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="102" cy="130" rx="10" ry="7" fill="#FF8FAB" opacity=".35"/><ellipse cx="178" cy="130" rx="10" ry="7" fill="#FF8FAB" opacity=".35"/>
+<circle cx="140" cy="195" r="14" fill="rgba(255,255,255,.3)" stroke="white" stroke-width="2"/>
+<text x="140" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="white" font-family="Arial,sans-serif">S</text>
+</svg>
+</div><div class="card-body">
+<h2 class="hero-name">Super Theo</h2><div class="role hero-role">The Spectrum Guardian</div>
+<p>Born when the Spectrum Orb chose a boy who sees the world differently. Puzzle-piece suit, rainbow cape, mismatched boots — different is extraordinary!</p>
+<div class="powers"><span class="power hero-power">🎯 Hyperfocus Beam</span><span class="power hero-power">🛡️ Empathy Shield</span><span class="power hero-power">🔍 Detail Vision</span><span class="power hero-power">💎 Truth Pulse</span></div>
+<button class="dl-btn hero-dl" onclick="downloadChar('svg-super-theo','Super-Theo')">⬇ Download PNG</button>
+</div></div>
+
+<!-- FLUTTER -->
+<div class="card"><div class="card-top flutter-bg">
+<svg id="svg-flutter" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#f3eaff"/>
+<circle cx="50" cy="60" r="4" fill="#FFD166" opacity=".7"/><circle cx="230" cy="80" r="3" fill="#FF8FAB" opacity=".6"/><circle cx="80" cy="290" r="3.5" fill="#6EC6F5" opacity=".5"/><circle cx="200" cy="280" r="2.5" fill="#C3A9F5" opacity=".6"/><circle cx="140" cy="310" r="3" fill="#6FDEBC" opacity=".5"/>
+<defs><radialGradient id="wLU" cx="60%" cy="40%"><stop offset="0%" stop-color="#E8D5FF"/><stop offset="60%" stop-color="#C3A9F5"/><stop offset="100%" stop-color="#9B7FD4"/></radialGradient><radialGradient id="wRU" cx="40%" cy="40%"><stop offset="0%" stop-color="#D5F0FF"/><stop offset="60%" stop-color="#6EC6F5"/><stop offset="100%" stop-color="#4AA8D8"/></radialGradient><radialGradient id="wLL" cx="60%" cy="40%"><stop offset="0%" stop-color="#FFE0F0"/><stop offset="60%" stop-color="#FF8FAB"/><stop offset="100%" stop-color="#E06688"/></radialGradient><radialGradient id="wRL" cx="40%" cy="40%"><stop offset="0%" stop-color="#D5FFE8"/><stop offset="60%" stop-color="#6FDEBC"/><stop offset="100%" stop-color="#4CC49A"/></radialGradient></defs>
+<ellipse cx="85" cy="120" rx="62" ry="50" fill="url(#wLU)" opacity=".88"/>
+<ellipse cx="75" cy="115" rx="25" ry="18" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/><circle cx="65" cy="110" r="8" fill="rgba(255,255,255,.25)"/>
+<ellipse cx="195" cy="120" rx="62" ry="50" fill="url(#wRU)" opacity=".88"/>
+<ellipse cx="205" cy="115" rx="25" ry="18" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/><circle cx="215" cy="110" r="8" fill="rgba(255,255,255,.25)"/>
+<ellipse cx="95" cy="185" rx="45" ry="38" fill="url(#wLL)" opacity=".82"/>
+<ellipse cx="185" cy="185" rx="45" ry="38" fill="url(#wRL)" opacity=".82"/>
+<ellipse cx="140" cy="165" rx="16" ry="55" fill="#2D2D3A"/>
+<ellipse cx="140" cy="105" rx="20" ry="22" fill="#2D2D3A"/>
+<ellipse cx="131" cy="100" rx="8" ry="9" fill="white"/><ellipse cx="149" cy="100" rx="8" ry="9" fill="white"/>
+<ellipse cx="132" cy="102" rx="5.5" ry="6" fill="#C3A9F5"/><ellipse cx="150" cy="102" rx="5.5" ry="6" fill="#6EC6F5"/>
+<circle cx="134" cy="98" r="2.5" fill="white"/><circle cx="152" cy="98" r="2.5" fill="white"/>
+<path d="M133,112 Q140,120 147,112" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+<line x1="132" y1="84" x2="118" y2="55" stroke="#2D2D3A" stroke-width="3" stroke-linecap="round"/>
+<line x1="148" y1="84" x2="162" y2="55" stroke="#2D2D3A" stroke-width="3" stroke-linecap="round"/>
+<circle cx="118" cy="55" r="9" fill="#FFD166" opacity=".8"/><circle cx="162" cy="55" r="9" fill="#FFD166" opacity=".8"/>
+<line x1="132" y1="215" x2="125" y2="240" stroke="#2D2D3A" stroke-width="3" stroke-linecap="round"/><line x1="137" y1="218" x2="133" y2="245" stroke="#2D2D3A" stroke-width="3" stroke-linecap="round"/><line x1="143" y1="218" x2="147" y2="245" stroke="#2D2D3A" stroke-width="3" stroke-linecap="round"/><line x1="148" y1="215" x2="155" y2="240" stroke="#2D2D3A" stroke-width="3" stroke-linecap="round"/>
+</svg>
+</div><div class="card-body">
+<h2 class="flutter-name">Flutter</h2><div class="role flutter-role">The Spectrum Butterfly — Theo's One & Only Sidekick</div>
+<p>Born from the same Spectrum Orb, Flutter's wings shimmer with every color of the rainbow. She guides Theo, calms him, and leaves sparkles wherever she flies!</p>
+<div class="powers"><span class="power flutter-power">🌊 Calm Aura</span><span class="power flutter-power">✨ Sparkle Trail</span><span class="power flutter-power">🧭 Spectrum Sense</span><span class="power flutter-power">💫 Joy Boost</span></div>
+<button class="dl-btn flutter-dl" onclick="downloadChar('svg-flutter','Flutter')">⬇ Download PNG</button>
+</div></div>
+
+<!-- DADDY ANTHONY -->
+<div class="card"><div class="card-top dad-bg">
+<svg id="svg-daddy-anthony" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#ffecd2"/>
+<rect x="100" y="185" width="80" height="100" rx="14" fill="#3B5998"/>
+<path d="M118,185 L140,210 L162,185" fill="#2C4578"/><circle cx="140" cy="218" r="3" fill="rgba(255,255,255,.3)"/><circle cx="140" cy="238" r="3" fill="rgba(255,255,255,.3)"/><circle cx="140" cy="258" r="3" fill="rgba(255,255,255,.3)"/>
+<rect x="75" y="190" width="28" height="60" rx="14" fill="#3B5998" transform="rotate(-8,89,220)"/>
+<rect x="177" y="190" width="28" height="60" rx="14" fill="#3B5998" transform="rotate(8,191,220)"/>
+<circle cx="76" cy="254" r="14" fill="#C68B5B"/><circle cx="204" cy="254" r="14" fill="#C68B5B"/>
+<rect x="126" y="162" width="28" height="28" rx="10" fill="#C68B5B"/>
+<ellipse cx="140" cy="120" rx="52" ry="56" fill="#C68B5B"/>
+<path d="M88,110 Q90,62 140,52 Q190,62 192,110 Q186,80 140,72 Q94,80 88,110" fill="#1a1a1a"/>
+<path d="M115,148 Q140,172 165,148 Q160,162 140,168 Q120,162 115,148" fill="#1a1a1a" opacity=".6"/>
+<ellipse cx="120" cy="116" rx="12" ry="13" fill="white"/><ellipse cx="160" cy="116" rx="12" ry="13" fill="white"/>
+<ellipse cx="122" cy="118" rx="7" ry="8" fill="#3E2723"/><ellipse cx="162" cy="118" rx="7" ry="8" fill="#3E2723"/>
+<circle cx="125" cy="113" r="3" fill="white"/><circle cx="165" cy="113" r="3" fill="white"/>
+<path d="M106,100 Q120,94 134,100" stroke="#1a1a1a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<path d="M146,100 Q160,94 174,100" stroke="#1a1a1a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<path d="M120,142 Q140,158 160,142" stroke="#2D2D3A" stroke-width="3" fill="none" stroke-linecap="round"/>
+<line x1="140" y1="185" x2="140" y2="215" stroke="#aaa" stroke-width="1.5"/><rect x="132" y="212" width="16" height="10" rx="3" fill="#ccc" stroke="#aaa" stroke-width="1"/>
+</svg>
+</div><div class="card-body">
+<h2 class="dad-name">Daddy Anthony</h2><div class="role dad-role">Theodore's Father — Army Veteran & Advocate</div>
+<p>A brave, loving father who never once saw his son as broken. "You are not less. You are more." He built Theodore's World so no parent ever feels alone.</p>
+<div class="powers"><span class="power dad-power">💙 Unconditional Love</span><span class="power dad-power">🛡️ Fierce Protector</span><span class="power dad-power">📢 Autism Advocate</span></div>
+<button class="dl-btn dad-dl" onclick="downloadChar('svg-daddy-anthony','Daddy-Anthony')">⬇ Download PNG</button>
+</div></div>
+</div>
+
+<div class="section-label">🦹 The Villains (The Conformists) ⚡</div>
+<div class="grid">
+
+<!-- DR NORM -->
+<div class="card"><div class="card-top villain-bg">
+<svg id="svg-dr-norm" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#fff0e0"/>
+<ellipse cx="140" cy="300" rx="130" ry="40" fill="#ccc" opacity=".15"/>
+<rect x="90" y="175" width="100" height="120" rx="14" fill="#e8e8e8" stroke="#ccc" stroke-width="2"/>
+<line x1="140" y1="190" x2="140" y2="295" stroke="#ddd" stroke-width="2"/>
+<rect x="100" y="240" width="30" height="20" rx="4" fill="none" stroke="#ccc" stroke-width="1.5"/><rect x="150" y="240" width="30" height="20" rx="4" fill="none" stroke="#ccc" stroke-width="1.5"/>
+<rect x="65" y="180" width="28" height="65" rx="14" fill="#e8e8e8"/><rect x="187" y="180" width="28" height="65" rx="14" fill="#e8e8e8"/>
+<circle cx="79" cy="250" r="14" fill="#b8ffd0"/><circle cx="201" cy="250" r="14" fill="#b8ffd0"/>
+<rect x="192" y="225" width="18" height="28" rx="3" fill="rgba(200,200,200,.5)" stroke="#aaa" stroke-width="1.5"/><rect x="194" y="235" width="14" height="16" rx="2" fill="#bbb" opacity=".5"/>
+<rect x="127" y="158" width="26" height="22" rx="8" fill="#f0d0b0"/>
+<ellipse cx="140" cy="110" rx="50" ry="55" fill="#f0d0b0"/>
+<path d="M95,95 Q100,60 140,55 Q180,60 185,95 Q175,75 140,70 Q105,75 95,95" fill="#888"/>
+<path d="M92,100 Q90,110 92,120" stroke="#888" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M188,100 Q190,110 188,120" stroke="#888" stroke-width="5" fill="none" stroke-linecap="round"/>
+<circle cx="120" cy="108" r="18" fill="none" stroke="#555" stroke-width="3"/><circle cx="160" cy="108" r="18" fill="none" stroke="#555" stroke-width="3"/>
+<line x1="138" y1="108" x2="142" y2="108" stroke="#555" stroke-width="3"/><line x1="100" y1="105" x2="92" y2="102" stroke="#555" stroke-width="2.5"/><line x1="180" y1="105" x2="188" y2="102" stroke="#555" stroke-width="2.5"/>
+<ellipse cx="120" cy="108" rx="6" ry="5" fill="white"/><ellipse cx="160" cy="108" rx="6" ry="5" fill="white"/>
+<ellipse cx="121" cy="109" rx="3.5" ry="4" fill="#555"/><ellipse cx="161" cy="109" rx="3.5" ry="4" fill="#555"/>
+<path d="M106,90 Q115,85 135,92" stroke="#555" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M174,90 Q165,85 145,92" stroke="#555" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M118,135 Q130,145 140,142 Q150,145 162,135" stroke="#555" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>
+</div><div class="card-body">
+<h2 class="villain-name">Dr. Norm</h2><div class="role villain-role">The Conformist — Leader of the Villains</div>
+<p>Believes "different is dangerous." Wants every child the same with his Normality Serum and Cannon. Deep down, just scared of being different himself.</p>
+<div class="powers"><span class="power villain-power">🧪 Normality Serum</span><span class="power villain-power">💥 Normality Cannon</span><span class="power villain-power">🔬 Conformity Science</span></div>
+<button class="dl-btn villain-dl" onclick="downloadChar('svg-dr-norm','Dr-Norm')">⬇ Download PNG</button>
+</div></div>
+
+<!-- SENSORY SIREN -->
+<div class="card"><div class="card-top siren-bg">
+<svg id="svg-sensory-siren" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#ffe8f3"/>
+<circle cx="140" cy="160" r="80" fill="none" stroke="#ff9f43" stroke-width="1.5" opacity=".12"/><circle cx="140" cy="160" r="110" fill="none" stroke="#ff9f43" stroke-width="1" opacity=".06"/>
+<defs><linearGradient id="sD" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff6b6b"/><stop offset="100%" stop-color="#ff9f43"/></linearGradient></defs>
+<path d="M100,185 L80,310 L110,280 L120,320 L140,275 L160,320 L170,280 L200,310 L180,185Z" fill="url(#sD)"/>
+<rect x="68" y="185" width="24" height="55" rx="12" fill="#d4a0d4" transform="rotate(-20,80,210)"/><rect x="188" y="185" width="24" height="55" rx="12" fill="#d4a0d4" transform="rotate(20,200,210)"/>
+<circle cx="60" cy="240" r="16" fill="#444" stroke="#666" stroke-width="2"/><circle cx="60" cy="240" r="8" fill="#222"/><circle cx="60" cy="240" r="3" fill="#555"/>
+<circle cx="220" cy="240" r="16" fill="#444" stroke="#666" stroke-width="2"/><circle cx="220" cy="240" r="8" fill="#222"/><circle cx="220" cy="240" r="3" fill="#555"/>
+<rect x="128" y="158" width="24" height="20" rx="8" fill="#d4a0d4"/>
+<ellipse cx="140" cy="110" rx="48" ry="54" fill="#d4a0d4"/>
+<path d="M92,90 L75,40 L110,70 L100,25 L135,65 L140,20 L145,65 L180,25 L170,70 L205,40 L188,90" fill="#ff6b6b"/>
+<path d="M100,85 L90,50 L120,75 L115,35 L140,68 L165,35 L160,75 L190,50 L180,85" fill="#ff9f43"/>
+<ellipse cx="120" cy="108" rx="14" ry="12" fill="white"/><ellipse cx="160" cy="108" rx="14" ry="12" fill="white"/>
+<ellipse cx="122" cy="109" rx="7" ry="8" fill="#ff6b6b"/><ellipse cx="162" cy="109" rx="7" ry="8" fill="#ff6b6b"/>
+<circle cx="124" cy="106" r="3" fill="white"/><circle cx="164" cy="106" r="3" fill="white"/>
+<path d="M104,92 L136,98" stroke="#cc3333" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M176,92 L144,98" stroke="#cc3333" stroke-width="4" fill="none" stroke-linecap="round"/>
+<ellipse cx="140" cy="138" rx="18" ry="14" fill="#222"/><path d="M125,135 Q140,128 155,135" fill="#cc3333"/>
+</svg>
+</div><div class="card-body">
+<h2 class="siren-name">Sensory Siren</h2><div class="role siren-role">Queen of Overwhelm</div>
+<p>Blasts sounds and flashing lights so painful that children crumble. Represents the real sensory challenges autistic kids face every day.</p>
+<div class="powers"><span class="power villain-power">📢 Sonic Screech</span><span class="power villain-power">💥 Sensory Overload</span><span class="power villain-power">⚡ Flash Blitz</span></div>
+<button class="dl-btn siren-dl" onclick="downloadChar('svg-sensory-siren','Sensory-Siren')">⬇ Download PNG</button>
+</div></div>
+
+<!-- MASK MASTER -->
+<div class="card"><div class="card-top mask-bg">
+<svg id="svg-mask-master" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#e8e8ee"/>
+<g opacity=".2" transform="translate(40,40) rotate(-15)"><ellipse rx="18" ry="22" fill="white" stroke="#aaa" stroke-width="1.5"/><circle cx="-6" cy="-4" r="4" fill="#ddd"/><circle cx="6" cy="-4" r="4" fill="#ddd"/></g>
+<g opacity=".15" transform="translate(230,60) rotate(10)"><ellipse rx="15" ry="18" fill="white" stroke="#aaa" stroke-width="1.5"/><circle cx="-5" cy="-3" r="3" fill="#ddd"/><circle cx="5" cy="-3" r="3" fill="#ddd"/></g>
+<g opacity=".18" transform="translate(60,280) rotate(5)"><ellipse rx="16" ry="20" fill="white" stroke="#aaa" stroke-width="1.5"/><circle cx="-5" cy="-4" r="3.5" fill="#ddd"/><circle cx="5" cy="-4" r="3.5" fill="#ddd"/></g>
+<defs><linearGradient id="clG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a3a4a"/><stop offset="100%" stop-color="#1a1a2a"/></linearGradient></defs>
+<path d="M80,170 C70,220 55,280 50,340 L230,340 C225,280 210,220 200,170Z" fill="url(#clG)"/>
+<path d="M90,175 L140,145 L190,175 L185,195 L140,165 L95,195Z" fill="#444"/>
+<path d="M85,170 Q90,80 140,65 Q190,80 195,170 Q170,140 140,130 Q110,140 85,170" fill="#2D2D3A"/>
+<ellipse cx="140" cy="130" rx="42" ry="48" fill="white" stroke="#ccc" stroke-width="2"/>
+<ellipse cx="120" cy="122" rx="14" ry="16" fill="#1a1a2a"/><ellipse cx="160" cy="122" rx="14" ry="16" fill="#1a1a2a"/>
+<circle cx="120" cy="122" r="4" fill="#666" opacity=".4"/><circle cx="160" cy="122" r="4" fill="#666" opacity=".4"/>
+<line x1="125" y1="150" x2="155" y2="150" stroke="#ccc" stroke-width="2" stroke-linecap="round"/>
+<circle cx="80" cy="250" r="12" fill="#888"/><circle cx="200" cy="250" r="12" fill="#888"/>
+<g transform="translate(195,225) rotate(15)"><ellipse rx="20" ry="24" fill="white" stroke="#ccc" stroke-width="2"/><ellipse cx="-7" cy="-5" rx="5" ry="6" fill="#eee" stroke="#ccc" stroke-width="1"/><ellipse cx="7" cy="-5" rx="5" ry="6" fill="#eee" stroke="#ccc" stroke-width="1"/></g>
+</svg>
+</div><div class="card-body">
+<h2 class="mask-name">Mask Master</h2><div class="role mask-role">The Identity Thief</div>
+<p>Places blank white masks on children so they forget who they really are. Represents the pressure kids feel to hide their true selves.</p>
+<div class="powers"><span class="power villain-power">🎭 Blank Masks</span><span class="power villain-power">🌫️ Identity Erase</span><span class="power villain-power">👤 Shadow Creep</span></div>
+<button class="dl-btn mask-dl" onclick="downloadChar('svg-mask-master','Mask-Master')">⬇ Download PNG</button>
+</div></div>
+
+<!-- THE ISOLATOR -->
+<div class="card"><div class="card-top iso-bg">
+<svg id="svg-the-isolator" viewBox="0 0 280 340" width="280" height="340" xmlns="http://www.w3.org/2000/svg">
+<rect width="280" height="340" rx="20" fill="#ddd8f0"/>
+<rect x="30" y="80" width="4" height="200" rx="2" fill="#6a5acd" opacity=".15"/><rect x="60" y="60" width="3" height="240" rx="1.5" fill="#6a5acd" opacity=".1"/><rect x="215" y="70" width="4" height="220" rx="2" fill="#6a5acd" opacity=".12"/><rect x="245" y="90" width="3" height="200" rx="1.5" fill="#6a5acd" opacity=".08"/>
+<defs><linearGradient id="iB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a3a7a"/><stop offset="100%" stop-color="#1a0a3a"/></linearGradient></defs>
+<path d="M95,180 C80,230 70,290 80,340 L200,340 C210,290 200,230 185,180Z" fill="url(#iB)"/>
+<path d="M80,340 C75,320 82,300 78,280" stroke="#6a5acd" stroke-width="3" fill="none" opacity=".3"/><path d="M200,340 C205,320 198,300 202,280" stroke="#6a5acd" stroke-width="3" fill="none" opacity=".3"/>
+<path d="M95,200 C60,210 40,230 30,260" stroke="#4a3a7a" stroke-width="16" fill="none" stroke-linecap="round" opacity=".8"/>
+<path d="M185,200 C220,210 240,230 250,260" stroke="#4a3a7a" stroke-width="16" fill="none" stroke-linecap="round" opacity=".8"/>
+<circle cx="30" cy="262" r="14" fill="#6a5acd" opacity=".5"/><circle cx="250" cy="262" r="14" fill="#6a5acd" opacity=".5"/>
+<ellipse cx="140" cy="120" rx="50" ry="58" fill="#2a1a4a"/>
+<path d="M88,130 Q85,60 140,45 Q195,60 192,130 Q180,90 140,80 Q100,90 88,130" fill="#1a0a3a"/>
+<ellipse cx="118" cy="118" rx="16" ry="14" fill="#0a0020"/><ellipse cx="162" cy="118" rx="16" ry="14" fill="#0a0020"/>
+<circle cx="118" cy="118" r="6" fill="#8a6aed" opacity=".8"/><circle cx="162" cy="118" r="6" fill="#8a6aed" opacity=".8"/>
+<ellipse cx="140" cy="148" rx="14" ry="8" fill="#0a0020"/>
+</svg>
+</div><div class="card-body">
+<h2 class="iso-name">The Isolator</h2><div class="role iso-role">Architect of Loneliness</div>
+<p>A dark, ethereal being who builds invisible walls between people. Represents the loneliness and isolation autistic children often experience.</p>
+<div class="powers"><span class="power villain-power">🕳️ Invisible Walls</span><span class="power villain-power">💔 Connection Break</span><span class="power villain-power">🌑 Void of Silence</span></div>
+<button class="dl-btn iso-dl" onclick="downloadChar('svg-the-isolator','The-Isolator')">⬇ Download PNG</button>
+</div></div>
+
+</div>
+<div style="text-align:center;margin:48px 0 20px;color:#aaa;font-size:.85rem;">Theodore's World — Character Gallery 💙</div>
+
+<script>
+function downloadChar(svgId, name) {
+ var svg = document.getElementById(svgId);
+ var svgData = new XMLSerializer().serializeToString(svg);
+ var canvas = document.createElement('canvas');
+ canvas.width = 840; canvas.height = 1020;
+ var ctx = canvas.getContext('2d');
+ var img = new Image();
+ var blob = new Blob([svgData], {type:'image/svg+xml;charset=utf-8'});
+ var url = URL.createObjectURL(blob);
+ img.onload = function() {
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0,0,840,1020);
+  ctx.drawImage(img,0,0,840,1020);
+  URL.revokeObjectURL(url);
+  var a = document.createElement('a');
+  a.href = canvas.toDataURL('image/png');
+  a.download = name + '.png';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+ };
+ img.src = url;
+}
+function downloadAll() {
+ var chars = [['svg-theodore','Theodore'],['svg-super-theo','Super-Theo'],['svg-flutter','Flutter'],['svg-daddy-anthony','Daddy-Anthony'],['svg-dr-norm','Dr-Norm'],['svg-sensory-siren','Sensory-Siren'],['svg-mask-master','Mask-Master'],['svg-the-isolator','The-Isolator']];
+ var i = 0;
+ function next() { if(i<chars.length){downloadChar(chars[i][0],chars[i][1]);i++;setTimeout(next,700);} }
+ next();
+}
+</script>
+</body>
+</html>
