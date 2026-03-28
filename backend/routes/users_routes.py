@@ -29,14 +29,6 @@ def list_users(skip: int = 0, limit: int = 20, db: Session = Depends(get_db)):
     return [user_public(u) for u in users]
 
 
-@router.get("/{user_id}")
-def get_user(user_id: int, db: Session = Depends(get_db)):
-    user = db.query(models.User).filter_by(id=user_id).first()
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    return user_public(user)
-
-
 class UpdateProfileRequest(BaseModel):
     name:     Optional[str] = None
     role:     Optional[str] = None
@@ -44,6 +36,7 @@ class UpdateProfileRequest(BaseModel):
     location: Optional[str] = None
 
 
+# /me routes MUST come before /{user_id} so FastAPI doesn't treat "me" as an int
 @router.patch("/me")
 def update_profile(
     req: UpdateProfileRequest,
@@ -56,6 +49,24 @@ def update_profile(
     if req.location is not None: current_user.location = req.location
     db.commit()
     return user_public(current_user)
+
+
+@router.get("/me/connections")
+def my_connections(
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(auth.get_current_user),
+):
+    conn_ids = [c.connected_user_id for c in current_user.connections]
+    users = db.query(models.User).filter(models.User.id.in_(conn_ids)).all()
+    return [user_public(u) for u in users]
+
+
+@router.get("/{user_id}")
+def get_user(user_id: int, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter_by(id=user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user_public(user)
 
 
 @router.post("/{user_id}/connect")
@@ -82,13 +93,3 @@ def toggle_connect(
         db.add(models.Connection(user_id=current_user.id, connected_user_id=user_id))
         db.commit()
         return {"connected": True}
-
-
-@router.get("/me/connections")
-def my_connections(
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(auth.get_current_user),
-):
-    conn_ids = [c.connected_user_id for c in current_user.connections]
-    users = db.query(models.User).filter(models.User.id.in_(conn_ids)).all()
-    return [user_public(u) for u in users]

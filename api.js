@@ -4,7 +4,7 @@
  * Loaded before the main site script.
  */
 
-const API_BASE = "http://localhost:8000";  // Change to your deployed backend URL
+const API_BASE = "https://theodores-world-api.onrender.com";
 
 // ─── Auth Token ──────────────────────────────────────────────────────────────
 const TW = {
