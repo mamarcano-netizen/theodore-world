@@ -48,9 +48,12 @@ def speak(req: TTSRequest):
 
     try:
         resp = requests.post(ELEVENLABS_URL, headers=headers, json=body, timeout=15, stream=True)
-        resp.raise_for_status()
+        if not resp.ok:
+            error_body = resp.text[:500]
+            print(f"ElevenLabs error {resp.status_code}: {error_body}")
+            raise HTTPException(status_code=502, detail=f"ElevenLabs {resp.status_code}: {error_body}")
     except requests.exceptions.RequestException as e:
-        raise HTTPException(status_code=502, detail=f"TTS error: {str(e)}")
+        raise HTTPException(status_code=502, detail=f"TTS connection error: {str(e)}")
 
     return StreamingResponse(
         resp.iter_content(chunk_size=4096),
