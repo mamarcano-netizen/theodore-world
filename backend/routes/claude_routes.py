@@ -13,22 +13,42 @@ Endpoints:
 import os
 import json
 import re
+import requests
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
-import anthropic
 from auth import get_current_user, get_optional_user
 import models
 
 router = APIRouter(prefix="/api/claude", tags=["claude"])
 
-def get_client():
+MODEL = "claude-sonnet-4-6"
+ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
+
+
+def claude(system: str, messages: list, max_tokens: int = 800) -> str:
+    """Call Anthropic API directly via requests — no SDK dependency."""
     key = os.getenv("ANTHROPIC_API_KEY")
     if not key or key.startswith("your-"):
         raise HTTPException(status_code=503, detail="Claude AI not configured")
-    return anthropic.Anthropic(api_key=key, timeout=60.0)
 
-MODEL = "claude-sonnet-4-6"
+    headers = {
+        "x-api-key": key,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json",
+    }
+    body = {
+        "model": MODEL,
+        "max_tokens": max_tokens,
+        "system": system,
+        "messages": messages,
+    }
+    try:
+        resp = requests.post(ANTHROPIC_URL, headers=headers, json=body, timeout=60)
+        resp.raise_for_status()
+        return resp.json()["content"][0]["text"]
+    except requests.exceptions.RequestException as e:
+        raise HTTPException(status_code=502, detail=f"Claude connection error: {str(e)}")
 
 
 def parse_json(text: str):
@@ -48,8 +68,6 @@ class ChatRequest(BaseModel):
 
 @router.post("/chat")
 def theodore_chat(req: ChatRequest, current_user: Optional[models.User] = Depends(get_optional_user)):
-    client = get_client()
-
     if req.mode == "child":
         system = """You are Theodore, a friendly, warm, and gentle character from Theodore's World —
 a website that helps families understand autism. You speak in simple, encouraging, and positive language
@@ -64,14 +82,7 @@ find resources, and feel supported. Speak like a supportive friend who also know
 Reference real strategies from occupational therapy, ABA, speech therapy, and family support when relevant."""
 
     messages = req.history[-10:] + [{"role": "user", "content": req.message}]
-
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=600,
-        system=system,
-        messages=messages,
-    )
-    return {"reply": response.content[0].text}
+    return {"reply": claude(system, messages, max_tokens=600)}
 
 
 # ─── Content Moderation ──────────────────────────────────────────────────────
@@ -82,35 +93,22 @@ class ModerateRequest(BaseModel):
 
 @router.post("/moderate")
 def moderate_content(req: ModerateRequest, current_user: models.User = Depends(get_current_user)):
-    client = get_client()
-
     system = """You are a content moderation assistant for Theodore's World, a family-friendly
 autism support community. Your job is to review posts before they go live.
 
 Respond ONLY with valid JSON in this exact format:
-{
-  "safe": true or false,
-  "reason": "brief explanation if not safe, empty string if safe",
-  "severity": "none" | "low" | "high"
-}
+{"safe": true, "reason": "", "severity": "none"}
 
 Flag content that contains: hate speech, harassment, explicit content, dangerous medical advice,
 spam, or anything inappropriate for children and vulnerable families.
 Do NOT flag: venting about autism challenges, emotional posts, criticism of institutions,
 strong language used respectfully, or sensitive personal stories shared in good faith."""
 
-    response = client.messages.create(
-        model="claude-haiku-4-5-20251001",  # Use fast/cheap model for moderation
-        max_tokens=150,
-        system=system,
-        messages=[{"role": "user", "content": f"Review this community post:\n\n{req.content}"}],
-    )
-
     try:
-        result = parse_json(response.content[0].text)
-    except json.JSONDecodeError:
+        text = claude(system, [{"role": "user", "content": f"Review this post:\n\n{req.content}"}], max_tokens=150)
+        result = parse_json(text)
+    except Exception:
         result = {"safe": True, "reason": "", "severity": "none"}
-
     return result
 
 
@@ -124,39 +122,17 @@ class QuizRequest(BaseModel):
 
 @router.post("/quiz")
 def generate_quiz(req: QuizRequest, current_user: models.User = Depends(get_current_user)):
-    client = get_client()
-
     system = """You are an educational content creator for Theodore's World, an autism awareness platform.
-Generate quiz questions that are accurate, kind, and educational.
+Respond ONLY with a valid JSON array, no markdown:
+[{"question":"...","options":["A","B","C","D"],"correct":0,"explanation":"..."}]"""
 
-Respond ONLY with valid JSON as an array:
-[
-  {
-    "question": "...",
-    "options": ["A", "B", "C", "D"],
-    "correct": 0,
-    "explanation": "Brief, kind explanation of why this is correct."
-  }
-]
-The "correct" field is the 0-based index of the correct option in the options array."""
-
-    prompt = f"""Create {req.count} {req.level}-level quiz questions about: {req.topic}
-
-For autism-related topics, be accurate and compassionate.
-Questions should educate and build understanding, not stereotype."""
-
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=2000,
-        system=system,
-        messages=[{"role": "user", "content": prompt}],
-    )
+    prompt = f"Create {req.count} {req.level}-level quiz questions about: {req.topic}. Be accurate and compassionate."
 
     try:
-        questions = parse_json(response.content[0].text)
-    except json.JSONDecodeError:
+        text = claude(system, [{"role": "user", "content": prompt}], max_tokens=2000)
+        questions = parse_json(text)
+    except Exception:
         raise HTTPException(status_code=500, detail="Failed to generate quiz questions")
-
     return {"questions": questions}
 
 
@@ -171,47 +147,17 @@ class LearningPathRequest(BaseModel):
 
 @router.post("/learning-path")
 def learning_path(req: LearningPathRequest, current_user: models.User = Depends(get_current_user)):
-    client = get_client()
+    system = """You are a learning guide for Theodore's World. Create a personalized 4-step path.
+Respond ONLY with valid JSON, no markdown:
+{"greeting":"...","steps":[{"step":1,"section":"...","action":"...","why":"..."}]}"""
 
-    system = """You are a learning guide for Theodore's World. Based on a user's profile,
-create a personalized 4-step learning path through the website's features.
-
-The site has these sections: Home (hero), Our Story (family journey), Autism 101 (educational cards),
-Games (emotion recognition, memory matching, breathing exercise), Community (forum posts),
-Videos (curated YouTube content), Kids Zone (character profiles, sensory info),
-Tips & Resources (parent/school/sensory/social tips).
-
-Respond ONLY with valid JSON:
-{
-  "greeting": "Short personal welcome message (1-2 sentences)",
-  "steps": [
-    {
-      "step": 1,
-      "section": "section name",
-      "action": "specific thing to do",
-      "why": "why this is right for them"
-    }
-  ]
-}"""
-
-    prompt = f"""Create a learning path for:
-- Relationship to autism: {req.relationship}
-- Experience level: {req.experience}
-- Interested in: {', '.join(req.interests)}
-- Age group: {req.age_group}"""
-
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=800,
-        system=system,
-        messages=[{"role": "user", "content": prompt}],
-    )
+    prompt = f"Profile: relationship={req.relationship}, experience={req.experience}, interests={req.interests}, age={req.age_group}"
 
     try:
-        path = parse_json(response.content[0].text)
-    except json.JSONDecodeError:
+        text = claude(system, [{"role": "user", "content": prompt}], max_tokens=800)
+        path = parse_json(text)
+    except Exception:
         raise HTTPException(status_code=500, detail="Failed to generate learning path")
-
     return path
 
 
@@ -224,26 +170,11 @@ class StoryRequest(BaseModel):
 
 @router.post("/story")
 def story_companion(req: StoryRequest, current_user: models.User = Depends(get_current_user)):
-    client = get_client()
+    system = """You are a gentle story companion for Theodore's World. Engage the user in warm,
+thoughtful reflection after reading. Keep responses short (2-4 sentences) and age-appropriate."""
 
-    system = """You are a gentle story companion for Theodore's World. After a user reads part of
-Theodore's family story about autism, you engage them in thoughtful, warm reflection.
-Ask follow-up questions, validate their feelings, and help them connect the story to their own life.
-Keep responses short (2-4 sentences), warm, and age-appropriate. Avoid clinical language."""
-
-    prompt = f"""The user just read: "{req.story_section}"
-Their reflection: "{req.reflection}"
-
-Respond with a warm, thoughtful reply that deepens their understanding."""
-
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=300,
-        system=system,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    return {"reply": response.content[0].text}
+    prompt = f'They read: "{req.story_section}". Their thought: "{req.reflection}". Respond warmly.'
+    return {"reply": claude(system, [{"role": "user", "content": prompt}], max_tokens=300)}
 
 
 # ─── Parent Support Chat ──────────────────────────────────────────────────────
@@ -255,31 +186,10 @@ class ParentChatRequest(BaseModel):
 
 @router.post("/parent-chat")
 def parent_support(req: ParentChatRequest, current_user: models.User = Depends(get_current_user)):
-    client = get_client()
-
-    system = """You are a private, compassionate support companion for parents and caregivers of
-children with autism on Theodore's World. This is a safe space where parents can ask questions
-they might be embarrassed to ask publicly.
-
-You provide:
-- Emotional validation and support
-- Evidence-based information about autism
-- Practical strategies from OT, speech therapy, ABA
-- Help navigating school systems (IEPs, 504 plans)
-- Sensory processing guidance
-- Sibling relationship advice
-
-Always acknowledge feelings first, then provide information.
-If something sounds like a crisis or emergency, gently suggest professional resources.
+    system = """You are a compassionate support companion for parents of children with autism on
+Theodore's World. Provide emotional validation, evidence-based autism info, practical strategies
+from OT/speech therapy/ABA, and help with IEPs and school systems. Always acknowledge feelings first.
 Never diagnose or replace professional medical advice."""
 
     messages = req.history[-10:] + [{"role": "user", "content": req.message}]
-
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=800,
-        system=system,
-        messages=messages,
-    )
-
-    return {"reply": response.content[0].text}
+    return {"reply": claude(system, messages, max_tokens=800)}

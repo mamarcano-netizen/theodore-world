@@ -5,5 +5,5 @@ python-jose[cryptography]
 bcrypt
 python-multipart
 python-dotenv
-anthropic
+requests
 pydantic[email]
