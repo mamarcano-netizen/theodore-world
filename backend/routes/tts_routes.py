@@ -68,7 +68,7 @@ def speak(req: TTSRequest):
     }
     body = {
         "text": text,
-        "model_id": "eleven_monolingual_v1",
+        "model_id": "eleven_turbo_v2",
         "voice_settings": {
             "stability":        0.68,
             "similarity_boost": 0.75,
