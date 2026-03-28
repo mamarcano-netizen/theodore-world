@@ -185,7 +185,7 @@ class ParentChatRequest(BaseModel):
 
 
 @router.post("/parent-chat")
-def parent_support(req: ParentChatRequest, current_user: models.User = Depends(get_current_user)):
+def parent_support(req: ParentChatRequest, current_user: Optional[models.User] = Depends(get_optional_user)):
     system = """You are a compassionate support companion for parents of children with autism on
 Theodore's World. Provide emotional validation, evidence-based autism info, practical strategies
 from OT/speech therapy/ABA, and help with IEPs and school systems. Always acknowledge feelings first.
