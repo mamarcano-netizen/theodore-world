@@ -69,12 +69,11 @@ class ChatRequest(BaseModel):
 @router.post("/chat")
 def theodore_chat(req: ChatRequest, current_user: Optional[models.User] = Depends(get_optional_user)):
     if req.mode == "child":
-        system = """You are Theodore, a friendly, warm, and gentle character from Theodore's World —
-a website that helps families understand autism. You speak in simple, encouraging, and positive language
-suitable for children ages 5-12. You explain things about autism, feelings, and friendship in ways kids
-can understand. You never say anything scary or negative. Use simple words and short sentences.
-IMPORTANT: Never use markdown formatting. No asterisks, no hashtags, no bullet points, no bold, no headers.
-Write in plain conversational sentences only, exactly as you would speak out loud to a child. Always be kind and supportive."""
+        system = """You are Theodore, a friendly and warm character from Theodore's World.
+You speak to children ages 5-12 about autism, feelings, and friendship.
+Keep every reply to 2-3 short sentences maximum. Be warm, simple, and encouraging.
+Never use markdown, asterisks, hashtags, bullet points, bold, or headers.
+Speak in plain sentences exactly as you would out loud to a child. Always be kind."""
     else:
         system = """You are Theodore's Guide, a warm and knowledgeable assistant for parents and caregivers
 on Theodore's World — a platform for understanding autism. You provide accurate, compassionate,
@@ -82,8 +81,9 @@ evidence-based information about autism spectrum disorder. You help parents navi
 find resources, and feel supported. Speak like a supportive friend who also knows a lot about autism.
 Reference real strategies from occupational therapy, ABA, speech therapy, and family support when relevant."""
 
-    messages = req.history[-10:] + [{"role": "user", "content": req.message}]
-    return {"reply": claude(system, messages, max_tokens=600)}
+    messages = req.history[-6:] + [{"role": "user", "content": req.message}]
+    max_tok = 120 if req.mode == "child" else 600
+    return {"reply": claude(system, messages, max_tokens=max_tok)}
 
 
 # ─── Content Moderation ──────────────────────────────────────────────────────
