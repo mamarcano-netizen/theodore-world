@@ -6,11 +6,40 @@ Endpoint:
 """
 
 import os
+import re
 import logging
 import requests
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
+
+
+def clean_for_speech(text: str) -> str:
+    """Strip markdown and symbols that sound bad when spoken aloud."""
+    # Remove emojis
+    text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u1E00-\u1EFF]', '', text)
+    # Remove markdown bold/italic
+    text = re.sub(r'\*{1,3}(.*?)\*{1,3}', r'\1', text)
+    text = re.sub(r'_{1,2}(.*?)_{1,2}', r'\1', text)
+    # Remove markdown headers (# ## ###)
+    text = re.sub(r'#+\s*', '', text)
+    # Remove markdown links [text](url)
+    text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
+    # Remove backticks
+    text = re.sub(r'`+', '', text)
+    # Remove bullet points and dashes at line start
+    text = re.sub(r'^\s*[-•*]\s+', '', text, flags=re.MULTILINE)
+    # Remove URLs
+    text = re.sub(r'https?://\S+', '', text)
+    # Replace multiple newlines with a pause (period + space)
+    text = re.sub(r'\n{2,}', '. ', text)
+    # Replace single newlines with a space
+    text = re.sub(r'\n', ' ', text)
+    # Remove leftover hashtags
+    text = re.sub(r'#\S*', '', text)
+    # Clean up extra spaces
+    text = re.sub(r' {2,}', ' ', text).strip()
+    return text
 
 router = APIRouter(prefix="/api/tts", tags=["tts"])
 
@@ -32,7 +61,7 @@ def speak(req: TTSRequest):
 
     logger.warning(f"TTS called — key present: {bool(key)}, key prefix: {key[:8]}...")
 
-    text = req.text.strip()[:500]
+    text = clean_for_speech(req.text)[:500]
 
     headers = {
         "xi-api-key": key,
