@@ -15,29 +15,27 @@ from pydantic import BaseModel
 
 
 def clean_for_speech(text: str) -> str:
-    """Strip markdown and symbols that sound bad when spoken aloud."""
-    # Remove emojis
-    text = re.sub(r'[^\x00-\x7F\u00C0-\u024F\u1E00-\u1EFF]', '', text)
-    # Remove markdown bold/italic
-    text = re.sub(r'\*{1,3}(.*?)\*{1,3}', r'\1', text)
-    text = re.sub(r'_{1,2}(.*?)_{1,2}', r'\1', text)
-    # Remove markdown headers (# ## ###)
-    text = re.sub(r'#+\s*', '', text)
-    # Remove markdown links [text](url)
-    text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
-    # Remove backticks
-    text = re.sub(r'`+', '', text)
-    # Remove bullet points and dashes at line start
-    text = re.sub(r'^\s*[-•*]\s+', '', text, flags=re.MULTILINE)
+    """Strip ALL markdown and non-speech symbols before sending to TTS."""
+    # Remove emojis and non-latin unicode
+    text = re.sub(r'[^\x00-\x7F\u00C0-\u024F]', '', text)
     # Remove URLs
     text = re.sub(r'https?://\S+', '', text)
-    # Replace multiple newlines with a pause (period + space)
+    # Remove markdown links — keep the label
+    text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
+    # Remove markdown headers
+    text = re.sub(r'#+\s*', '', text)
+    # Remove bold and italic (any combo of * and _)
+    text = re.sub(r'[\*_]{1,3}', '', text)
+    # Remove backticks and code blocks
+    text = re.sub(r'`+', '', text)
+    # Remove bullet/list markers at line start
+    text = re.sub(r'^\s*[-•>\*\d+\.]\s+', '', text, flags=re.MULTILINE)
+    # Remove standalone special chars that get read aloud
+    text = re.sub(r'[#&|<>~^\\]', '', text)
+    # Replace multiple newlines with a natural pause
     text = re.sub(r'\n{2,}', '. ', text)
-    # Replace single newlines with a space
     text = re.sub(r'\n', ' ', text)
-    # Remove leftover hashtags
-    text = re.sub(r'#\S*', '', text)
-    # Clean up extra spaces
+    # Collapse extra spaces
     text = re.sub(r' {2,}', ' ', text).strip()
     return text
 
