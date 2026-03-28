@@ -26,7 +26,7 @@ def get_client():
     key = os.getenv("ANTHROPIC_API_KEY")
     if not key or key.startswith("your-"):
         raise HTTPException(status_code=503, detail="Claude AI not configured")
-    return anthropic.Anthropic(api_key=key)
+    return anthropic.Anthropic(api_key=key, timeout=60.0)
 
 MODEL = "claude-sonnet-4-6"
 
