@@ -6,6 +6,7 @@ Endpoint:
 """
 
 import os
+import logging
 import requests
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
@@ -13,8 +14,10 @@ from pydantic import BaseModel
 
 router = APIRouter(prefix="/api/tts", tags=["tts"])
 
-VOICE_ID = "NwINhsyo77xkEB8vHO6q"  # Theodore's voice
+VOICE_ID = "NwINhsyo77xkEB8vHO6q"  # Theodore's custom voice
 ELEVENLABS_URL = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
+
+logger = logging.getLogger(__name__)
 
 
 class TTSRequest(BaseModel):
@@ -23,11 +26,12 @@ class TTSRequest(BaseModel):
 
 @router.post("")
 def speak(req: TTSRequest):
-    key = os.getenv("ELEVENLABS_API_KEY")
+    key = os.getenv("ELEVENLABS_API_KEY", "").strip()
     if not key:
-        raise HTTPException(status_code=503, detail="TTS not configured")
+        raise HTTPException(status_code=503, detail="TTS not configured — ELEVENLABS_API_KEY missing")
 
-    # Trim text to 500 chars max to stay within free tier limits
+    logger.warning(f"TTS called — key present: {bool(key)}, key prefix: {key[:8]}...")
+
     text = req.text.strip()[:500]
 
     headers = {
@@ -37,26 +41,24 @@ def speak(req: TTSRequest):
     }
     body = {
         "text": text,
-        "model_id": "eleven_turbo_v2",   # fastest model — lowest latency
+        "model_id": "eleven_monolingual_v1",
         "voice_settings": {
             "stability":        0.68,
             "similarity_boost": 0.75,
-            "style":            0.12,
-            "use_speaker_boost": True,
         },
     }
 
     try:
-        resp = requests.post(ELEVENLABS_URL, headers=headers, json=body, timeout=15, stream=True)
+        resp = requests.post(ELEVENLABS_URL, headers=headers, json=body, timeout=20)
         if not resp.ok:
             error_body = resp.text[:500]
-            print(f"ElevenLabs error {resp.status_code}: {error_body}")
+            logger.error(f"ElevenLabs {resp.status_code}: {error_body}")
             raise HTTPException(status_code=502, detail=f"ElevenLabs {resp.status_code}: {error_body}")
+        return StreamingResponse(
+            iter([resp.content]),
+            media_type="audio/mpeg",
+            headers={"Cache-Control": "no-store"},
+        )
     except requests.exceptions.RequestException as e:
+        logger.error(f"TTS connection error: {e}")
         raise HTTPException(status_code=502, detail=f"TTS connection error: {str(e)}")
-
-    return StreamingResponse(
-        resp.iter_content(chunk_size=4096),
-        media_type="audio/mpeg",
-        headers={"Cache-Control": "no-store"},
-    )
