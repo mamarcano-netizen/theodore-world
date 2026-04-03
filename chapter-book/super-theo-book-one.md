@@ -303,7 +303,7 @@ A dark navy cape appeared at his shoulders — long, reaching past his calves, t
 
 His mismatched sneakers transformed: his left boot went cherry red, sturdy and rounded-toed, a small gold star on the outer ankle. His right boot went bright royal blue, matching. On his wrists, two slim gold cuffs materialized — cool and solid, pulsing with faint light.
 
-His brown eyes shifted. Still expressive, still his — but now luminous silver-gray, lit from within, carrying a fierce and quiet certainty.
+His dark green eyes shifted. Still expressive, still his — but now luminous silver-gray, lit from within, carrying a fierce and quiet certainty.
 
 He stood taller. Not differently — *more himself.* Shoulders back. Chin up. The same Theo, turned up to full brightness.
 
@@ -637,7 +637,7 @@ Then he got out his headphones, put them on, pressed play on his favorite album,
 
 Visit **theodore-world.com** to meet the characters, play games, read fun facts about autism, and join a community of kids, parents, and educators who believe:
 
-**Different is a superpower.**
+**Different Is a Superpower.**
 
 ---
 

@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420">
+  <defs>
+    <clipPath id="rainbowClip">
+      <rect x="0" y="0" width="400" height="263"/>
+    </clipPath>
+    <linearGradient id="spectrumText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="20%"  stop-color="#FFD166"/>
+      <stop offset="40%"  stop-color="#6EC6F5"/>
+      <stop offset="60%"  stop-color="#6FDEBC"/>
+      <stop offset="80%"  stop-color="#C3A9F5"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+    <linearGradient id="worldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#C3A9F5"/>
+      <stop offset="33%"  stop-color="#6EC6F5"/>
+      <stop offset="66%"  stop-color="#6FDEBC"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══════════════════════════════
+       RAINBOW   (center: 200, 263)
+       Band width: 22px  Gap: 3px
+       Total per band: 25px
+       Outermost r=188
+       ══════════════════════════════ -->
+  <g clip-path="url(#rainbowClip)">
+
+    <!-- Band 1 — Coral  r=188 -->
+    <path d="M 12,263 A 188,188 0 0,1 388,263"
+          fill="none" stroke="#FF6B6B" stroke-width="22" stroke-linecap="butt"/>
+    <!-- gap -->
+    <path d="M 15,263 A 185,185 0 0,1 385,263"
+          fill="none" stroke="white" stroke-width="3"/>
+
+    <!-- Band 2 — Yellow  r=163 -->
+    <path d="M 37,263 A 163,163 0 0,1 363,263"
+          fill="none" stroke="#FFD166" stroke-width="22" stroke-linecap="butt"/>
+    <path d="M 40,263 A 160,160 0 0,1 360,263"
+          fill="none" stroke="white" stroke-width="3"/>
+
+    <!-- Band 3 — Sky Blue  r=138 -->
+    <path d="M 62,263 A 138,138 0 0,1 338,263"
+          fill="none" stroke="#6EC6F5" stroke-width="22" stroke-linecap="butt"/>
+    <path d="M 65,263 A 135,135 0 0,1 335,263"
+          fill="none" stroke="white" stroke-width="3"/>
+
+    <!-- Band 4 — Teal  r=113 -->
+    <path d="M 87,263 A 113,113 0 0,1 313,263"
+          fill="none" stroke="#6FDEBC" stroke-width="22" stroke-linecap="butt"/>
+    <path d="M 90,263 A 110,110 0 0,1 310,263"
+          fill="none" stroke="white" stroke-width="3"/>
+
+    <!-- Band 5 — Lavender  r=88 -->
+    <path d="M 112,263 A 88,88 0 0,1 288,263"
+          fill="none" stroke="#C3A9F5" stroke-width="22" stroke-linecap="butt"/>
+    <path d="M 115,263 A 85,85 0 0,1 285,263"
+          fill="none" stroke="white" stroke-width="3"/>
+
+    <!-- Band 6 — Pink  r=63 (innermost) -->
+    <path d="M 137,263 A 63,63 0 0,1 263,263"
+          fill="none" stroke="#FF8FAB" stroke-width="22" stroke-linecap="butt"/>
+
+  </g>
+
+  <!-- Horizon cover — hides lower half of arc strokes -->
+  <rect x="0" y="263" width="400" height="12" fill="white"/>
+
+  <!-- ══════════════════════════════
+       CLOUDS
+       ══════════════════════════════ -->
+  <!-- Left cloud -->
+  <g fill="white">
+    <circle cx="14"  cy="264" r="20"/>
+    <circle cx="34"  cy="256" r="24"/>
+    <circle cx="57"  cy="260" r="19"/>
+    <circle cx="74"  cy="265" r="14"/>
+  </g>
+  <!-- Right cloud -->
+  <g fill="white">
+    <circle cx="386" cy="264" r="20"/>
+    <circle cx="366" cy="256" r="24"/>
+    <circle cx="343" cy="260" r="19"/>
+    <circle cx="326" cy="265" r="14"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       FLUTTER at rainbow peak
+       (peak of outermost arc: y = 263-188 = 75)
+       ══════════════════════════════ -->
+  <g transform="translate(200, 64) scale(0.30)">
+    <!-- Upper left wing -->
+    <path d="M -8,-38 C -30,-62 -85,-75 -95,-52 C -105,-30 -70,-8 -8,-2"
+          fill="#C3A9F5" opacity="0.92"/>
+    <!-- Upper right wing -->
+    <path d="M 8,-38 C 30,-62 85,-75 95,-52 C 105,-30 70,-8 8,-2"
+          fill="#6EC6F5" opacity="0.92"/>
+    <!-- Lower left wing -->
+    <path d="M -8,4 C -32,16 -76,30 -78,48 C -80,66 -40,68 -8,52"
+          fill="#FF8FAB" opacity="0.92"/>
+    <!-- Lower right wing -->
+    <path d="M 8,4 C 32,16 76,30 78,48 C 80,66 40,68 8,52"
+          fill="#6FDEBC" opacity="0.92"/>
+    <!-- Wing vein hints -->
+    <path d="M -8,20 Q -50,5 -80,15"  fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+    <path d="M  8,20 Q  50,5  80,15"  fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="10" rx="7" ry="44" fill="#1a1a2e"/>
+    <!-- Head -->
+    <circle cx="0" cy="-44" r="14" fill="#1a1a2e"/>
+    <!-- Eyes -->
+    <circle cx="-5"  cy="-46" r="5.5" fill="white"/>
+    <circle cx="5"   cy="-46" r="5.5" fill="white"/>
+    <circle cx="-4.5" cy="-45" r="3.2" fill="#6EC6F5"/>
+    <circle cx="5.5"  cy="-45" r="3.2" fill="#C3A9F5"/>
+    <circle cx="-4"   cy="-44" r="1.5" fill="#1a1a2e"/>
+    <circle cx="6"    cy="-44" r="1.5" fill="#1a1a2e"/>
+    <circle cx="-3"   cy="-46" r="0.9" fill="white"/>
+    <circle cx="7"    cy="-46" r="0.9" fill="white"/>
+    <!-- Smile -->
+    <path d="M -4,−36 Q 0,-31 4,-36" stroke="#FF8FAB" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Blush -->
+    <circle cx="-9" cy="-38" r="3.5" fill="#FF8FAB" opacity="0.3"/>
+    <circle cx=" 9" cy="-38" r="3.5" fill="#FF8FAB" opacity="0.3"/>
+    <!-- Antennae -->
+    <path d="M -3,-57 C -6,-68 -11,-76 -15,-82" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M  3,-57 C  6,-68  11,-76  15,-82" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <circle cx="-16" cy="-84" r="5" fill="#FF8FAB"/>
+    <circle cx=" 16" cy="-84" r="5" fill="#C3A9F5"/>
+    <circle cx="-16" cy="-84" r="2.5" fill="white" opacity="0.5"/>
+    <circle cx=" 16" cy="-84" r="2.5" fill="white" opacity="0.5"/>
+  </g>
+
+  <!-- ══════════════════════════════
+       SPARKLES
+       ══════════════════════════════ -->
+  <!-- Left side sparkle (large) -->
+  <g transform="translate(42, 155)">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-7"  y1="-7" x2="7"  y2="7"  stroke="#FFD166" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+    <line x1="7"   y1="-7" x2="-7" y2="7"  stroke="#FFD166" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+  </g>
+  <!-- Right side sparkle (large) -->
+  <g transform="translate(358, 155)">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-7"  y1="-7" x2="7"  y2="7"  stroke="#FFD166" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+    <line x1="7"   y1="-7" x2="-7" y2="7"  stroke="#FFD166" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+  </g>
+  <!-- Small sparkles -->
+  <g transform="translate(130, 100)">
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#C3A9F5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#C3A9F5" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(270, 100)">
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#6EC6F5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#6EC6F5" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Dot accents -->
+  <circle cx="90"  cy="118" r="3"   fill="#FF6B6B"  opacity="0.7"/>
+  <circle cx="310" cy="118" r="3"   fill="#FF8FAB"  opacity="0.7"/>
+  <circle cx="62"  cy="200" r="2.5" fill="#FFD166"  opacity="0.7"/>
+  <circle cx="338" cy="200" r="2.5" fill="#6FDEBC"  opacity="0.7"/>
+  <circle cx="170" cy="38"  r="2"   fill="#FFD166"  opacity="0.8"/>
+  <circle cx="230" cy="38"  r="2"   fill="#FFD166"  opacity="0.8"/>
+
+  <!-- ══════════════════════════════
+       TEXT
+       ══════════════════════════════ -->
+
+  <!-- THEODORE'S -->
+  <text x="200" y="316"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="42" font-weight="bold"
+        letter-spacing="5"
+        fill="#1a1a2e">THEODORE'S</text>
+
+  <!-- WORLD — spectrum gradient -->
+  <text x="200" y="368"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="62" font-weight="bold"
+        letter-spacing="8"
+        fill="url(#worldGrad)">WORLD</text>
+
+  <!-- Tagline -->
+  <text x="200" y="398"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11.5" letter-spacing="2.5" font-weight="500"
+        fill="#aaa">YOU ARE NOT LESS. YOU ARE MORE.</text>
+
+  <!-- Bottom accent line — spectrum -->
+  <line x1="130" y1="408" x2="270" y2="408" stroke="url(#spectrumText)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

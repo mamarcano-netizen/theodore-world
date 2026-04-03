@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340">
+  <defs>
+    <linearGradient id="diffGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="20%"  stop-color="#FFD166"/>
+      <stop offset="42%"  stop-color="#6EC6F5"/>
+      <stop offset="62%"  stop-color="#6FDEBC"/>
+      <stop offset="82%"  stop-color="#C3A9F5"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+    <linearGradient id="powerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#C3A9F5"/>
+      <stop offset="50%"  stop-color="#6EC6F5"/>
+      <stop offset="100%" stop-color="#6FDEBC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background accent — subtle arc -->
+  <path d="M 0,170 Q 210,40 420,170" fill="none" stroke="url(#diffGrad)" stroke-width="1.5" opacity="0.3"/>
+  <path d="M 0,175 Q 210,45 420,175" fill="none" stroke="url(#diffGrad)" stroke-width="0.8" opacity="0.15"/>
+
+  <!-- Lightning bolt — center accent -->
+  <polygon points="222,18 208,60 220,60 198,105 218,105 188,158 260,90 232,90 252,38"
+           fill="#FFD166" opacity="0.15"/>
+  <polygon points="222,18 208,60 220,60 198,105 218,105 188,158 260,90 232,90 252,38"
+           fill="none" stroke="#FFD166" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- DIFFERENT -->
+  <text x="210" y="108"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="72" font-weight="bold"
+        letter-spacing="3"
+        fill="url(#diffGrad)">DIFFERENT</text>
+
+  <!-- IS A — small connector -->
+  <text x="210" y="143"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20" font-weight="400"
+        letter-spacing="10"
+        fill="#aaa">I S &nbsp; A</text>
+
+  <!-- Divider line with dots -->
+  <line x1="80" y1="155" x2="162" y2="155" stroke="#ddd" stroke-width="1"/>
+  <circle cx="210" cy="155" r="3" fill="#C3A9F5"/>
+  <line x1="258" y1="155" x2="340" y2="155" stroke="#ddd" stroke-width="1"/>
+
+  <!-- SUPERPOWER -->
+  <text x="210" y="228"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="64" font-weight="bold"
+        letter-spacing="2"
+        fill="#1a1a2e">SUPERPOWER</text>
+
+  <!-- Shadow/echo effect -->
+  <text x="212" y="230"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="64" font-weight="bold"
+        letter-spacing="2"
+        fill="url(#powerGrad)" opacity="0.18">SUPERPOWER</text>
+
+  <!-- Theodore's World sub -->
+  <text x="210" y="264"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="12" letter-spacing="4"
+        fill="#C3A9F5" font-weight="600">THEODORE'S WORLD</text>
+
+  <!-- Bottom spectrum line -->
+  <rect x="100" y="278" width="220" height="3" rx="2" fill="url(#diffGrad)"/>
+
+  <!-- Sparkles -->
+  <g transform="translate(38,120)">
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="#FFD166" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+    <line x1="5"  y1="-5" x2="-5" y2="5" stroke="#FFD166" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  </g>
+  <g transform="translate(382,120)">
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="#FFD166" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+    <line x1="5"  y1="-5" x2="-5" y2="5" stroke="#FFD166" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  </g>
+  <circle cx="60"  cy="200" r="3" fill="#C3A9F5" opacity="0.6"/>
+  <circle cx="360" cy="200" r="3" fill="#6EC6F5" opacity="0.6"/>
+  <circle cx="55"  cy="82"  r="2" fill="#FF8FAB" opacity="0.7"/>
+  <circle cx="365" cy="82"  r="2" fill="#6FDEBC" opacity="0.7"/>
+</svg>

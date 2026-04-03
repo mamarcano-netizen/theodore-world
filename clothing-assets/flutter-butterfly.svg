@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 480">
+  <defs>
+    <!-- Flutter's correct wing colors: soft gold, warm amber, iridescent lavender -->
+    <radialGradient id="wingUL" cx="38%" cy="42%" r="62%">
+      <stop offset="0%"   stop-color="#FFF3C0"/>
+      <stop offset="45%"  stop-color="#FFD166"/>
+      <stop offset="78%"  stop-color="#E8A020"/>
+      <stop offset="100%" stop-color="#C3A9F5"/>
+    </radialGradient>
+    <radialGradient id="wingUR" cx="62%" cy="42%" r="62%">
+      <stop offset="0%"   stop-color="#FFF3C0"/>
+      <stop offset="45%"  stop-color="#FFD166"/>
+      <stop offset="78%"  stop-color="#FFA040"/>
+      <stop offset="100%" stop-color="#B8A0E8"/>
+    </radialGradient>
+    <radialGradient id="wingLL" cx="38%" cy="58%" r="62%">
+      <stop offset="0%"   stop-color="#FFE8A0"/>
+      <stop offset="55%"  stop-color="#FFC030"/>
+      <stop offset="100%" stop-color="#C3A9F5"/>
+    </radialGradient>
+    <radialGradient id="wingLR" cx="62%" cy="58%" r="62%">
+      <stop offset="0%"   stop-color="#FFE8A0"/>
+      <stop offset="55%"  stop-color="#FFC030"/>
+      <stop offset="100%" stop-color="#B8A0E8"/>
+    </radialGradient>
+    <!-- Flutter body: deep purple -->
+    <radialGradient id="bodyPurple" cx="40%" cy="30%" r="70%">
+      <stop offset="0%"   stop-color="#7B3FA8"/>
+      <stop offset="100%" stop-color="#3D1060"/>
+    </radialGradient>
+    <!-- Gold dust gradient for sparkles -->
+    <radialGradient id="goldDust" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#FFD166" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFD166" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FFD166"/>
+      <stop offset="40%"  stop-color="#FFA040"/>
+      <stop offset="70%"  stop-color="#C3A9F5"/>
+      <stop offset="100%" stop-color="#B8A0E8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══ UPPER LEFT WING ══ -->
+  <path d="M 195,170
+           C 162,130 90,85 62,112
+           C 36,136 55,180 92,200
+           C 128,218 168,226 195,228"
+        fill="url(#wingUL)"
+        stroke="rgba(255,210,80,0.5)" stroke-width="1.5"/>
+  <!-- Wing edge glow (white outline as described) -->
+  <path d="M 195,170
+           C 162,130 90,85 62,112
+           C 36,136 55,180 92,200
+           C 128,218 168,226 195,228"
+        fill="none"
+        stroke="rgba(255,255,255,0.55)" stroke-width="2.5"
+        stroke-dasharray="none"/>
+
+  <!-- Circuit board / neural pathway veining — upper left -->
+  <path d="M 195,190 L 155,165 L 140,148 L 118,135"
+        fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 155,165 L 148,180 L 132,185"
+        fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-linecap="round"/>
+  <path d="M 195,208 L 158,200 L 132,208 L 110,195"
+        fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Circuit nodes -->
+  <circle cx="140" cy="148" r="3" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="118" cy="135" r="2" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="132" cy="185" r="2" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- Eye spot upper left — gold/amber -->
+  <circle cx="100" cy="150" r="18" fill="rgba(255,255,255,0.20)"/>
+  <circle cx="100" cy="150" r="12" fill="#E8900A" opacity="0.6"/>
+  <circle cx="100" cy="150" r="6"  fill="#3D1060" opacity="0.5"/>
+  <circle cx="96"  cy="146" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  <circle cx="100" cy="150" r="15" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+  <!-- ══ UPPER RIGHT WING ══ -->
+  <path d="M 225,170
+           C 258,130 330,85 358,112
+           C 384,136 365,180 328,200
+           C 292,218 252,226 225,228"
+        fill="url(#wingUR)"
+        stroke="rgba(255,210,80,0.5)" stroke-width="1.5"/>
+  <path d="M 225,170
+           C 258,130 330,85 358,112
+           C 384,136 365,180 328,200
+           C 292,218 252,226 225,228"
+        fill="none"
+        stroke="rgba(255,255,255,0.55)" stroke-width="2.5"/>
+
+  <!-- Circuit veining — upper right -->
+  <path d="M 225,190 L 265,165 L 280,148 L 302,135"
+        fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 265,165 L 272,180 L 288,185"
+        fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-linecap="round"/>
+  <path d="M 225,208 L 262,200 L 288,208 L 310,195"
+        fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="280" cy="148" r="3" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="302" cy="135" r="2" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="288" cy="185" r="2" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- Eye spot upper right -->
+  <circle cx="320" cy="150" r="18" fill="rgba(255,255,255,0.20)"/>
+  <circle cx="320" cy="150" r="12" fill="#E8900A" opacity="0.6"/>
+  <circle cx="320" cy="150" r="6"  fill="#3D1060" opacity="0.5"/>
+  <circle cx="316" cy="146" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  <circle cx="320" cy="150" r="15" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+  <!-- ══ LOWER LEFT WING ══ -->
+  <path d="M 195,235
+           C 160,252 90,272 78,292
+           C 66,312 110,322 155,305
+           C 180,296 195,275 195,262"
+        fill="url(#wingLL)"
+        stroke="rgba(255,210,80,0.45)" stroke-width="1.5"/>
+  <path d="M 195,235
+           C 160,252 90,272 78,292
+           C 66,312 110,322 155,305
+           C 180,296 195,275 195,262"
+        fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  <!-- Circuit veining lower left -->
+  <path d="M 195,250 L 155,262 L 120,268 L 100,282"
+        fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="120" cy="268" r="2" fill="rgba(255,255,255,0.45)"/>
+  <circle cx="100" cy="282" r="2" fill="rgba(255,255,255,0.45)"/>
+
+  <!-- ══ LOWER RIGHT WING ══ -->
+  <path d="M 225,235
+           C 260,252 330,272 342,292
+           C 354,312 310,322 265,305
+           C 240,296 225,275 225,262"
+        fill="url(#wingLR)"
+        stroke="rgba(255,210,80,0.45)" stroke-width="1.5"/>
+  <path d="M 225,235
+           C 260,252 330,272 342,292
+           C 354,312 310,322 265,305
+           C 240,296 225,275 225,262"
+        fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  <path d="M 225,250 L 265,262 L 300,268 L 320,282"
+        fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="300" cy="268" r="2" fill="rgba(255,255,255,0.45)"/>
+  <circle cx="320" cy="282" r="2" fill="rgba(255,255,255,0.45)"/>
+
+  <!-- ══ BODY — deep purple velvety ══ -->
+  <ellipse cx="210" cy="232" rx="9" ry="55" fill="url(#bodyPurple)"/>
+  <!-- Body shimmer -->
+  <ellipse cx="207" cy="220" rx="3" ry="28" fill="rgba(195,169,245,0.3)"/>
+
+  <!-- ══ HEAD — deep purple ══ -->
+  <circle cx="210" cy="170" r="20" fill="url(#bodyPurple)"/>
+  <circle cx="210" cy="170" r="20" fill="none" stroke="rgba(195,169,245,0.35)" stroke-width="1.2"/>
+
+  <!-- ══ EYES — large round bright TURQUOISE as described ══ -->
+  <circle cx="202" cy="166" r="8"   fill="white"/>
+  <circle cx="218" cy="166" r="8"   fill="white"/>
+  <circle cx="202" cy="167" r="5.5" fill="#00CED1"/>
+  <circle cx="218" cy="167" r="5.5" fill="#00CED1"/>
+  <circle cx="202" cy="167" r="3"   fill="#1a0030"/>
+  <circle cx="218" cy="167" r="3"   fill="#1a0030"/>
+  <!-- Eye shine -->
+  <circle cx="204" cy="164" r="1.5" fill="white"/>
+  <circle cx="220" cy="164" r="1.5" fill="white"/>
+  <!-- Turquoise glow -->
+  <circle cx="202" cy="167" r="8"   fill="#00CED1" opacity="0.12"/>
+  <circle cx="218" cy="167" r="8"   fill="#00CED1" opacity="0.12"/>
+
+  <!-- Smile -->
+  <path d="M 204,177 Q 210,183 216,177"
+        stroke="#C3A9F5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+  <!-- Blush -->
+  <circle cx="196" cy="176" r="4" fill="#FFB8C8" opacity="0.35"/>
+  <circle cx="224" cy="176" r="4" fill="#FFB8C8" opacity="0.35"/>
+
+  <!-- ══ ANTENNAE — long curling, gold orb tips ══ -->
+  <path d="M 204,152 C 200,138 192,124 184,115 C 178,108 172,106 168,108"
+        stroke="#3D1060" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 216,152 C 220,138 228,124 236,115 C 242,108 248,106 252,108"
+        stroke="#3D1060" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Gold orb tips (glowing) -->
+  <circle cx="166" cy="109" r="7"  fill="#FFD166"/>
+  <circle cx="254" cy="109" r="7"  fill="#FFD166"/>
+  <circle cx="166" cy="109" r="4"  fill="#FFF3A0"/>
+  <circle cx="254" cy="109" r="4"  fill="#FFF3A0"/>
+  <!-- Antenna tip glow -->
+  <circle cx="166" cy="109" r="12" fill="url(#goldDust)" opacity="0.6"/>
+  <circle cx="254" cy="109" r="12" fill="url(#goldDust)" opacity="0.6"/>
+
+  <!-- ══ GOLD DUST TRAIL — sparkling gold as described ══ -->
+  <!-- Larger dust particles -->
+  <circle cx="355" cy="185" r="4.5" fill="#FFD166" opacity="0.8"/>
+  <circle cx="370" cy="210" r="3"   fill="#FFD166" opacity="0.65"/>
+  <circle cx="360" cy="235" r="5"   fill="#FFD166" opacity="0.7"/>
+  <circle cx="375" cy="258" r="3.5" fill="#FFD166" opacity="0.55"/>
+  <circle cx="362" cy="278" r="4"   fill="#FFD166" opacity="0.6"/>
+  <!-- Smaller dust specks -->
+  <circle cx="348" cy="196" r="2"   fill="#FFD166" opacity="0.5"/>
+  <circle cx="378" cy="222" r="2"   fill="#FFC030" opacity="0.5"/>
+  <circle cx="365" cy="248" r="2"   fill="#FFD166" opacity="0.45"/>
+  <circle cx="353" cy="265" r="1.5" fill="#FFD166" opacity="0.4"/>
+  <!-- Tiny sparkle stars in dust trail -->
+  <g transform="translate(368, 195)">
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-5" y1="0" x2="5" y2="0" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(355, 248)">
+    <line x1="0" y1="-4" x2="0" y2="4" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-4" y1="0" x2="4" y2="0" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ══ SPARKLES ══ -->
+  <g transform="translate(52, 128)">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#FFD166" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#FFD166" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="-6" y1="-6" x2="6" y2="6" stroke="#FFD166" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+    <line x1="6" y1="-6" x2="-6" y2="6" stroke="#FFD166" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+  </g>
+  <g transform="translate(168, 75)">
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="#C3A9F5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="#C3A9F5" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(252, 75)">
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="#C3A9F5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="#C3A9F5" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <circle cx="38"  cy="205" r="3"   fill="#FFD166" opacity="0.65"/>
+  <circle cx="148" cy="82"  r="2.5" fill="#FFD166" opacity="0.7"/>
+  <circle cx="272" cy="82"  r="2.5" fill="#FFD166" opacity="0.7"/>
+  <circle cx="58"  cy="262" r="2"   fill="#C3A9F5" opacity="0.6"/>
+
+  <!-- ══ TEXT ══ -->
+  <text x="210" y="382"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="40" font-weight="bold" letter-spacing="10"
+        fill="url(#nameGrad)">FLUTTER</text>
+
+  <text x="210" y="406"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11" letter-spacing="4" font-weight="600"
+        fill="#9B6EE8">THE SPECTRUM BUTTERFLY</text>
+
+  <line x1="118" y1="416" x2="302" y2="416" stroke="url(#nameGrad)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

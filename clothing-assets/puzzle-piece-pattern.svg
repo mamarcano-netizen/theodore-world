@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420">
+  <defs>
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#C3A9F5"/>
+      <stop offset="40%"  stop-color="#6EC6F5"/>
+      <stop offset="70%"  stop-color="#6FDEBC"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+    <!-- Puzzle piece: 60x60 base, tabs ~10px radius circles -->
+    <!-- Each piece defined as group, placed at grid positions -->
+  </defs>
+
+  <!-- ════════════════════════════
+       Puzzle piece = rounded rect + circle tabs
+       Colors: 6 spectrum colors
+       Grid: 6 columns × 6 rows, offset alternating
+       ════════════════════════════ -->
+
+  <!-- PIECE MACRO: rx=6 rounded rect + circles for tabs -->
+  <!-- Colors: #FF6B6B #FFD166 #6EC6F5 #6FDEBC #C3A9F5 #FF8FAB -->
+
+  <!-- Row 1 -->
+  <g transform="translate(10,10)">
+    <rect width="58" height="58" rx="6" fill="#C3A9F5"/>
+    <circle cx="29" cy="58" r="9" fill="#C3A9F5"/>
+    <circle cx="58" cy="29" r="9" fill="#C3A9F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(78,10)">
+    <rect width="58" height="58" rx="6" fill="#6EC6F5"/>
+    <circle cx="29" cy="58" r="9" fill="#6EC6F5"/>
+    <circle cx="58" cy="29" r="9" fill="#6EC6F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(146,10)">
+    <rect width="58" height="58" rx="6" fill="#6FDEBC"/>
+    <circle cx="29" cy="58" r="9" fill="#6FDEBC"/>
+    <circle cx="58" cy="29" r="9" fill="#6FDEBC"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(214,10)">
+    <rect width="58" height="58" rx="6" fill="#FF8FAB"/>
+    <circle cx="29" cy="58" r="9" fill="#FF8FAB"/>
+    <circle cx="58" cy="29" r="9" fill="#FF8FAB"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(282,10)">
+    <rect width="58" height="58" rx="6" fill="#FFD166"/>
+    <circle cx="29" cy="58" r="9" fill="#FFD166"/>
+    <circle cx="58" cy="29" r="9" fill="#FFD166"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(350,10)">
+    <rect width="58" height="58" rx="6" fill="#FF6B6B"/>
+    <circle cx="29" cy="58" r="9" fill="#FF6B6B"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(10,78)">
+    <rect width="58" height="58" rx="6" fill="#FFD166"/>
+    <circle cx="29" cy="58" r="9" fill="#FFD166"/>
+    <circle cx="58" cy="29" r="9" fill="#FFD166"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(78,78)">
+    <rect width="58" height="58" rx="6" fill="#FF6B6B"/>
+    <circle cx="29" cy="58" r="9" fill="#FF6B6B"/>
+    <circle cx="58" cy="29" r="9" fill="#FF6B6B"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(146,78)">
+    <rect width="58" height="58" rx="6" fill="#C3A9F5"/>
+    <circle cx="29" cy="58" r="9" fill="#C3A9F5"/>
+    <circle cx="58" cy="29" r="9" fill="#C3A9F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(214,78)">
+    <rect width="58" height="58" rx="6" fill="#6EC6F5"/>
+    <circle cx="29" cy="58" r="9" fill="#6EC6F5"/>
+    <circle cx="58" cy="29" r="9" fill="#6EC6F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(282,78)">
+    <rect width="58" height="58" rx="6" fill="#6FDEBC"/>
+    <circle cx="29" cy="58" r="9" fill="#6FDEBC"/>
+    <circle cx="58" cy="29" r="9" fill="#6FDEBC"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(350,78)">
+    <rect width="58" height="58" rx="6" fill="#FF8FAB"/>
+    <circle cx="29" cy="58" r="9" fill="#FF8FAB"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(10,146)">
+    <rect width="58" height="58" rx="6" fill="#6EC6F5"/>
+    <circle cx="29" cy="58" r="9" fill="#6EC6F5"/>
+    <circle cx="58" cy="29" r="9" fill="#6EC6F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(78,146)">
+    <rect width="58" height="58" rx="6" fill="#6FDEBC"/>
+    <circle cx="29" cy="58" r="9" fill="#6FDEBC"/>
+    <circle cx="58" cy="29" r="9" fill="#6FDEBC"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <!-- Center 2x2 white box for logo overlay -->
+  <rect x="146" y="146" width="128" height="128" rx="16" fill="white" opacity="0.92"/>
+  <g transform="translate(214,78)"><!-- spacer --></g>
+  <g transform="translate(282,146)">
+    <rect width="58" height="58" rx="6" fill="#FF6B6B"/>
+    <circle cx="29" cy="58" r="9" fill="#FF6B6B"/>
+    <circle cx="58" cy="29" r="9" fill="#FF6B6B"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(350,146)">
+    <rect width="58" height="58" rx="6" fill="#FFD166"/>
+    <circle cx="29" cy="58" r="9" fill="#FFD166"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Row 4 -->
+  <g transform="translate(10,214)">
+    <rect width="58" height="58" rx="6" fill="#FF8FAB"/>
+    <circle cx="29" cy="58" r="9" fill="#FF8FAB"/>
+    <circle cx="58" cy="29" r="9" fill="#FF8FAB"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(78,214)">
+    <rect width="58" height="58" rx="6" fill="#C3A9F5"/>
+    <circle cx="29" cy="58" r="9" fill="#C3A9F5"/>
+    <circle cx="58" cy="29" r="9" fill="#C3A9F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(282,214)">
+    <rect width="58" height="58" rx="6" fill="#6EC6F5"/>
+    <circle cx="29" cy="58" r="9" fill="#6EC6F5"/>
+    <circle cx="58" cy="29" r="9" fill="#6EC6F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(350,214)">
+    <rect width="58" height="58" rx="6" fill="#6FDEBC"/>
+    <circle cx="29" cy="58" r="9" fill="#6FDEBC"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Row 5 -->
+  <g transform="translate(10,282)">
+    <rect width="58" height="58" rx="6" fill="#6FDEBC"/>
+    <circle cx="29" cy="58" r="9" fill="#6FDEBC"/>
+    <circle cx="58" cy="29" r="9" fill="#6FDEBC"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(78,282)">
+    <rect width="58" height="58" rx="6" fill="#FF6B6B"/>
+    <circle cx="29" cy="58" r="9" fill="#FF6B6B"/>
+    <circle cx="58" cy="29" r="9" fill="#FF6B6B"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(146,282)">
+    <rect width="58" height="58" rx="6" fill="#FFD166"/>
+    <circle cx="29" cy="58" r="9" fill="#FFD166"/>
+    <circle cx="58" cy="29" r="9" fill="#FFD166"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(214,282)">
+    <rect width="58" height="58" rx="6" fill="#FF8FAB"/>
+    <circle cx="29" cy="58" r="9" fill="#FF8FAB"/>
+    <circle cx="58" cy="29" r="9" fill="#FF8FAB"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(282,282)">
+    <rect width="58" height="58" rx="6" fill="#C3A9F5"/>
+    <circle cx="29" cy="58" r="9" fill="#C3A9F5"/>
+    <circle cx="58" cy="29" r="9" fill="#C3A9F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(350,282)">
+    <rect width="58" height="58" rx="6" fill="#6EC6F5"/>
+    <circle cx="29" cy="58" r="9" fill="#6EC6F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Row 6 -->
+  <g transform="translate(10,350)">
+    <rect width="58" height="58" rx="6" fill="#FF6B6B"/>
+    <circle cx="58" cy="29" r="9" fill="#FF6B6B"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(78,350)">
+    <rect width="58" height="58" rx="6" fill="#FFD166"/>
+    <circle cx="58" cy="29" r="9" fill="#FFD166"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(146,350)">
+    <rect width="58" height="58" rx="6" fill="#C3A9F5"/>
+    <circle cx="58" cy="29" r="9" fill="#C3A9F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(214,350)">
+    <rect width="58" height="58" rx="6" fill="#6FDEBC"/>
+    <circle cx="58" cy="29" r="9" fill="#6FDEBC"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(282,350)">
+    <rect width="58" height="58" rx="6" fill="#FF8FAB"/>
+    <circle cx="58" cy="29" r="9" fill="#FF8FAB"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(350,350)">
+    <rect width="58" height="58" rx="6" fill="#6EC6F5"/>
+    <rect width="58" height="58" rx="6" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- ══ CENTER LOGO OVERLAY on white box ══ -->
+  <!-- Flutter mini icon -->
+  <g transform="translate(210, 172) scale(0.18)">
+    <path d="M -8,-38 C -28,-60 -80,-72 -90,-52 C -100,-34 -70,-10 -8,-4" fill="#C3A9F5"/>
+    <path d="M 8,-38 C 28,-60 80,-72 90,-52 C 100,-34 70,-10 8,-4"  fill="#6EC6F5"/>
+    <path d="M -8,4 C -30,14 -72,28 -75,45 C -78,62 -38,65 -8,50"  fill="#FF8FAB"/>
+    <path d="M 8,4 C 30,14 72,28 75,45 C 78,62 38,65 8,50"         fill="#6FDEBC"/>
+    <ellipse cx="0" cy="8" rx="6" ry="42" fill="#1a1a2e"/>
+    <circle cx="0" cy="-42" r="11" fill="#1a1a2e"/>
+    <circle cx="-4" cy="-44" r="4" fill="white"/>
+    <circle cx="4"  cy="-44" r="4" fill="white"/>
+    <circle cx="-3.5" cy="-43" r="2" fill="#6EC6F5"/>
+    <circle cx="4.5"  cy="-43" r="2" fill="#C3A9F5"/>
+  </g>
+  <text x="210" y="222"
+        text-anchor="middle"
+        font-family="Georgia, serif"
+        font-size="16" font-weight="bold" letter-spacing="1"
+        fill="#1a1a2e">THEODORE'S</text>
+  <text x="210" y="244"
+        text-anchor="middle"
+        font-family="Georgia, serif"
+        font-size="22" font-weight="bold" letter-spacing="2"
+        fill="url(#centerGrad)">WORLD</text>
+  <line x1="162" y1="252" x2="258" y2="252" stroke="url(#centerGrad)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

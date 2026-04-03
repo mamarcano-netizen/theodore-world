@@ -17,7 +17,7 @@
 > *And That Is His Superpower.*
 
 **Illustration Brief:**
-Theo — small, warm brown skin, thick curly dark hair, bright dark green eyes, round cheeks, wearing his lavender T-shirt and mismatched sneakers (one red, one blue). He stands in a sun-drenched field of wildflowers. Eyes wide open, arms slightly spread at his sides, face full of pure wonder. Flutter the butterfly — gold/amber/lavender wings — hovers just above his right shoulder, wings catching the light. The sky is soft golden-hour light. The title text is bold, warm, playful.
+Theo — small, warm brown skin, thick curly dark hair, large expressive dark green eyes, round cheeks, small button nose, wearing his lavender T-shirt (puzzle piece drawn on chest in fabric marker) and mismatched sneakers (one red, one blue, velcro straps). He stands in a sun-drenched field of wildflowers. Eyes wide open, arms slightly spread at his sides, face full of pure wonder. Flutter the butterfly — gold/amber/lavender wings — hovers just above his right shoulder, wings catching the light. The sky is soft golden-hour light. The title text is bold, warm, playful.
 
 **Physical Sensory Element:**
 Flutter's wings on the cover have **holographic foil** — shimmers when tilted in light.
@@ -311,5 +311,6 @@ Flutter alone — centered on a soft navy background, wings fully spread, glowin
 ---
 
 *Theodore's World — Sensory Book One*
+*Different Is a Superpower.*
 *© Anthony Marcano. All rights reserved.*
 *theodore-world.com*

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280">
+  <defs>
+    <linearGradient id="specFull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="18%"  stop-color="#FFD166"/>
+      <stop offset="36%"  stop-color="#6EC6F5"/>
+      <stop offset="55%"  stop-color="#6FDEBC"/>
+      <stop offset="75%"  stop-color="#C3A9F5"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── DESIGN A: Full spectrum stripe block ── -->
+  <!-- 6 bold horizontal bands -->
+  <rect x="0"   y="40"  width="420" height="32" fill="#FF6B6B"/>
+  <rect x="0"   y="72"  width="420" height="32" fill="#FFD166"/>
+  <rect x="0"   y="104" width="420" height="32" fill="#6EC6F5"/>
+  <rect x="0"   y="136" width="420" height="32" fill="#6FDEBC"/>
+  <rect x="0"   y="168" width="420" height="32" fill="#C3A9F5"/>
+  <rect x="0"   y="200" width="420" height="32" fill="#FF8FAB"/>
+
+  <!-- White text overlay — centered on stripes -->
+  <!-- THEODORE'S WORLD text cuts through all bands -->
+  <text x="210" y="152"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="58" font-weight="bold"
+        letter-spacing="4"
+        fill="white"
+        opacity="0.92"
+        style="mix-blend-mode:overlay">THEODORE'S</text>
+
+  <text x="210" y="208"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="58" font-weight="bold"
+        letter-spacing="4"
+        fill="white"
+        opacity="0.92">WORLD</text>
+
+  <!-- Top label -->
+  <text x="210" y="26"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11" letter-spacing="4" font-weight="600"
+        fill="#888">SPECTRUM STRIPE DESIGN</text>
+
+  <!-- Bottom tagline -->
+  <text x="210" y="254"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10.5" letter-spacing="3"
+        fill="#aaa">YOU ARE NOT LESS. YOU ARE MORE.</text>
+
+  <!-- Notes for printer: stripe dimensions -->
+  <!-- Each stripe = 32px tall, 6 stripes = 192px total block -->
+  <!-- For sleeve stripe: rotate 90° and scale to sleeve width -->
+</svg>

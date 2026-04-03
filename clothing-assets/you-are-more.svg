@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 360">
+  <defs>
+    <linearGradient id="moreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#C3A9F5"/>
+      <stop offset="40%"  stop-color="#6EC6F5"/>
+      <stop offset="70%"  stop-color="#6FDEBC"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+    <linearGradient id="specLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="20%"  stop-color="#FFD166"/>
+      <stop offset="40%"  stop-color="#6EC6F5"/>
+      <stop offset="60%"  stop-color="#6FDEBC"/>
+      <stop offset="80%"  stop-color="#C3A9F5"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Top accent line -->
+  <rect x="140" y="28" width="120" height="2.5" rx="2" fill="url(#specLine)"/>
+
+  <!-- Quote marks -->
+  <text x="55" y="105"
+        font-family="Georgia, serif" font-size="90" fill="#f0eeff" font-weight="bold">"</text>
+
+  <!-- YOU ARE NOT LESS. -->
+  <text x="200" y="118"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="36" font-weight="bold"
+        letter-spacing="3"
+        fill="#1a1a2e">YOU ARE NOT LESS.</text>
+
+  <!-- Soft divider -->
+  <line x1="120" y1="140" x2="280" y2="140" stroke="#eee" stroke-width="1.5"/>
+
+  <!-- YOU ARE -->
+  <text x="200" y="184"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="28" font-weight="400"
+        letter-spacing="6"
+        fill="#aaa">YOU ARE</text>
+
+  <!-- MORE. — large spectrum -->
+  <text x="200" y="258"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="96" font-weight="bold"
+        letter-spacing="6"
+        fill="url(#moreGrad)">MORE.</text>
+
+  <!-- Closing quote -->
+  <text x="340" y="270"
+        font-family="Georgia, serif" font-size="90" fill="#f0eeff" font-weight="bold">"</text>
+
+  <!-- Attribution -->
+  <text x="200" y="298"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11" letter-spacing="3.5" font-weight="500"
+        fill="#C3A9F5">— THEODORE'S WORLD</text>
+
+  <!-- Bottom accent line -->
+  <rect x="140" y="314" width="120" height="2.5" rx="2" fill="url(#specLine)"/>
+
+  <!-- Corner dots -->
+  <circle cx="128" cy="32"  r="3" fill="#C3A9F5" opacity="0.5"/>
+  <circle cx="272" cy="32"  r="3" fill="#6EC6F5" opacity="0.5"/>
+  <circle cx="128" cy="318" r="3" fill="#FF8FAB" opacity="0.5"/>
+  <circle cx="272" cy="318" r="3" fill="#6FDEBC" opacity="0.5"/>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320">
+  <defs>
+    <linearGradient id="spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"    stop-color="#FF6B6B"/>
+      <stop offset="18%"   stop-color="#FFD166"/>
+      <stop offset="36%"   stop-color="#6EC6F5"/>
+      <stop offset="55%"   stop-color="#6FDEBC"/>
+      <stop offset="75%"   stop-color="#C3A9F5"/>
+      <stop offset="100%"  stop-color="#FF8FAB"/>
+    </linearGradient>
+    <linearGradient id="spectrumReverse" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%"    stop-color="#FF6B6B"/>
+      <stop offset="18%"   stop-color="#FFD166"/>
+      <stop offset="36%"   stop-color="#6EC6F5"/>
+      <stop offset="55%"   stop-color="#6FDEBC"/>
+      <stop offset="75%"   stop-color="#C3A9F5"/>
+      <stop offset="100%"  stop-color="#FF8FAB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark background (represents dark fabric) -->
+  <rect width="500" height="320" rx="12" fill="#1a1a2e"/>
+
+  <!-- Top spectrum bar -->
+  <rect x="165" y="22" width="170" height="6" rx="3" fill="url(#spectrum)"/>
+
+  <!-- Flutter butterfly icon -->
+  <g transform="translate(250, 68) scale(0.38)">
+    <path d="M -8,-38 C -28,-60 -80,-72 -90,-52 C -100,-34 -70,-10 -8,-4"
+          fill="#C3A9F5" opacity="0.9"/>
+    <path d="M 8,-38 C 28,-60 80,-72 90,-52 C 100,-34 70,-10 8,-4"
+          fill="#6EC6F5" opacity="0.9"/>
+    <path d="M -8,4 C -30,14 -72,28 -75,45 C -78,62 -38,65 -8,50"
+          fill="#FF8FAB" opacity="0.9"/>
+    <path d="M 8,4 C 30,14 72,28 75,45 C 78,62 38,65 8,50"
+          fill="#6FDEBC" opacity="0.9"/>
+    <ellipse cx="0" cy="8" rx="6" ry="42" fill="white"/>
+    <circle cx="0" cy="-42" r="12" fill="white"/>
+    <circle cx="-4" cy="-44" r="4.5" fill="#1a1a2e"/>
+    <circle cx="4"  cy="-44" r="4.5" fill="#1a1a2e"/>
+    <circle cx="-3.5" cy="-43.5" r="2.5" fill="#6EC6F5"/>
+    <circle cx="4.5"  cy="-43.5" r="2.5" fill="#C3A9F5"/>
+    <circle cx="-3" cy="-43" r="1.2" fill="white"/>
+    <circle cx="5"  cy="-43" r="1.2" fill="white"/>
+    <path d="M -3,-53 C -6,-62 -10,-70 -13,-76" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M 3,-53 C 6,-62 10,-70 13,-76"  stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="-14" cy="-78" r="4" fill="#FF8FAB"/>
+    <circle cx="14"  cy="-78" r="4" fill="#C3A9F5"/>
+    <line x1="-95" y1="-40" x2="-95" y2="-28" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-101" y1="-34" x2="-89" y2="-34" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="95"  y1="-40" x2="95" y2="-28"  stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    <line x1="89"  y1="-34" x2="101" y2="-34" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- THEODORE'S — white on dark -->
+  <text x="250" y="148"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="56" font-weight="bold"
+        letter-spacing="4"
+        fill="white">THEODORE'S</text>
+
+  <!-- WORLD — spectrum gradient -->
+  <text x="250" y="206"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="72" font-weight="bold"
+        letter-spacing="8"
+        fill="url(#spectrum)">WORLD</text>
+
+  <!-- Tagline — soft on dark -->
+  <text x="250" y="240"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13" letter-spacing="2.5" font-weight="500"
+        fill="rgba(255,255,255,0.55)">YOU ARE NOT LESS. YOU ARE MORE.</text>
+
+  <!-- Bottom spectrum bar -->
+  <rect x="165" y="255" width="170" height="4" rx="2" fill="url(#spectrumReverse)"/>
+
+  <!-- Corner sparkle dots -->
+  <circle cx="155" cy="28"  r="3" fill="#C3A9F5" opacity="0.7"/>
+  <circle cx="345" cy="28"  r="3" fill="#6EC6F5" opacity="0.7"/>
+  <circle cx="155" cy="258" r="3" fill="#FF8FAB" opacity="0.7"/>
+  <circle cx="345" cy="258" r="3" fill="#6FDEBC" opacity="0.7"/>
+</svg>

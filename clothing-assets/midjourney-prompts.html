@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theodore's World — Midjourney Prompts</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+    :root {
+      --purple: #7B3FA8;
+      --lavender: #C3A9F5;
+      --gold: #FFD166;
+      --navy: #0d1a3a;
+      --pink: #FFB8D0;
+      --teal: #00CED1;
+      --bg: #f5f4ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: #1a1a2e;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+    .header .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .header p {
+      color: #888;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .spectrum-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #FF6B6B, #FFD166, #6EC6F5, #6FDEBC, #C3A9F5, #FF8FAB);
+      border-radius: 2px;
+      margin: 20px auto 0;
+      max-width: 300px;
+    }
+
+    /* Steps */
+    .steps {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      background: white;
+      border-radius: 16px;
+      padding: 28px 32px;
+      box-shadow: 0 2px 20px rgba(123,63,168,0.08);
+    }
+    .steps h2 {
+      font-size: 14px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--lavender);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-text {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      padding-top: 4px;
+    }
+    .step-text a { color: var(--purple); font-weight: 500; }
+    .step-text strong { color: var(--navy); }
+
+    /* Tip box */
+    .tip-box {
+      background: #fffaf0;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .tip-box strong { color: var(--navy); }
+
+    /* Character sections */
+    .characters {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .char-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+
+    .char-header {
+      padding: 18px 24px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid #f5f0ff;
+    }
+    .char-emoji { font-size: 32px; }
+    .char-info h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .char-info p {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Hero characters */
+    .hero .char-header { background: linear-gradient(135deg, #f0e8ff, #fff8e0); }
+    .hero .char-info h3 { color: var(--purple); }
+    .hero .char-info p  { color: var(--gold); }
+
+    /* Villain characters */
+    .villain .char-header { background: linear-gradient(135deg, #f0f0f8, #e8eaf5); }
+    .villain .char-info h3 { color: #2d3561; }
+    .villain .char-info p  { color: #888; }
+
+    /* Prompt box */
+    .prompt-wrap {
+      padding: 20px 24px;
+    }
+    .prompt-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaa;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .prompt-box {
+      background: #faf9ff;
+      border: 1.5px solid #e8e0ff;
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-family: 'Fira Code', monospace;
+      font-size: 12.5px;
+      line-height: 1.75;
+      color: #2a2a4a;
+      white-space: pre-wrap;
+      word-break: break-word;
+      position: relative;
+    }
+
+    /* Copy button */
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 9px 20px;
+      background: var(--purple);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .copy-btn:hover { background: #5a2080; transform: translateY(-1px); }
+    .copy-btn.copied { background: #27ae60; }
+    .copy-btn svg { width: 15px; height: 15px; }
+
+    /* Tips section */
+    .tips-section {
+      max-width: 800px;
+      margin: 40px auto 0;
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 32px;
+      color: white;
+    }
+    .tips-section h2 {
+      font-size: 14px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media(max-width: 560px) { .tips-grid { grid-template-columns: 1fr; } }
+    .tip-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .tip-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lavender);
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+    .tip-card code {
+      background: rgba(255,255,255,0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    /* Clothing addon prompt */
+    .addon-box {
+      max-width: 800px;
+      margin: 28px auto 0;
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .addon-box h3 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--lavender);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 12px;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="icon">🦋</div>
+    <h1>Theodore's World — Midjourney Prompts</h1>
+    <p>OFFICIAL CHARACTER GENERATION GUIDE · ALL PROMPTS COPY-READY</p>
+    <div class="spectrum-bar"></div>
+  </div>
+
+  <!-- Setup Steps -->
+  <div class="steps">
+    <h2>How to Get Started</h2>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text">Go to <strong>midjourney.com</strong> → Sign in with your Discord account (or create one free)</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text">Subscribe to the <strong>Basic Plan ($10/mo)</strong> — enough for all character generation</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text">Go to <strong>midjourney.com/imagine</strong> — paste any prompt below into the text box and hit Enter</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Generate Super Theo first</strong> — then use his image URL with <code>--cref [URL]</code> to keep character faces consistent across all images</div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <strong>Pro tip:</strong> Generate each character 4 times (Midjourney gives you a 2×2 grid). Pick the best version, click <strong>U1–U4</strong> to upscale it, then download the high-res file for printing.
+    </div>
+  </div>
+
+  <!-- CHARACTER PROMPTS -->
+  <div class="characters">
+
+    <!-- Super Theo -->
+    <div class="char-card hero">
+      <div class="char-header">
+        <div class="char-emoji">🦸</div>
+        <div class="char-info">
+          <h3>Super Theo</h3>
+          <p>The Hero · The Spectrum Guardian</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-supertheo">Super Theo, a 7-year-old Black boy superhero, warm brown skin with faint golden undertone, short tousled wavy dark brown hair, large luminous silver-gray eyes full of fierce determination, sleek superhero suit with gradient from soft pink at shoulders fading to rich deep lavender at legs with subtle shimmer, bold raised gold infinity symbol glowing on chest, long dark navy cape reaching past calves with tiny gold stars and constellation lines on inner lining, two small gold circular clasp pins at collarbone, LEFT boot cherry red with small gold star on outer ankle, RIGHT boot royal blue with small gold star on outer ankle, two slim glowing gold wrist cuffs, heroic confident pose shoulders back chin up one fist raised with golden sparks flying from fingertips, small deep purple butterfly with golden amber wings perched on left shoulder, full body character design, flat graphic illustration, bold clean outlines, vibrant colors, white background, children's animated series style --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-supertheo', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Theo Regular Boy -->
+    <div class="char-card hero">
+      <div class="char-header">
+        <div class="char-emoji">🎒</div>
+        <div class="char-info">
+          <h3>Theo — Regular Boy</h3>
+          <p>Before the Powers · Everyday Theo</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-theo">Theodore "Theo", a sweet curious 7-year-old Black boy, warm brown skin, round soft face full of innocence and wonder, big expressive deep thoughtful brown eyes, thick curly untamed dark brown hair with soft coils falling across forehead, small button nose, round cheeks, gentle shy smile, slim gentle build, wearing a soft well-worn lavender t-shirt with a small puzzle piece doodled in fabric marker on the chest, dark navy joggers with elastic waist, LEFT sneaker red and RIGHT sneaker blue always mismatched velcro straps slightly scuffed and well-loved, small worn gray backpack covered in patches including a butterfly pin gold star rainbow patch and infinity symbol button, navy blue noise-canceling headphones worn around neck, slightly tilting head to one side with curious expression, full body character design, flat graphic illustration, children's book illustration style, bold clean outlines, warm soft colors, white background --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-theo', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Flutter -->
+    <div class="char-card hero">
+      <div class="char-header">
+        <div class="char-emoji">🦋</div>
+        <div class="char-info">
+          <h3>Flutter</h3>
+          <p>The Sidekick · The Spectrum Butterfly</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-flutter">Flutter, a magical butterfly the size of a small bird, wings with dazzling gradient of soft gold, warm amber, and iridescent lavender that shifts color depending on the angle of light like holographic foil, delicate veining patterns on wings resembling circuit boards and neural pathways, faint glowing white light outline along all wing edges giving an ethereal magical appearance, velvety deep purple body, two large round incredibly expressive bright turquoise eyes, two long elegantly curling antennae tipped with tiny glowing gold orbs that act as emotional sensors, trail of sparkling gold dust particles following behind, full character design front view wings spread, flat graphic illustration, children's animated series style, bold clean outlines, white background --ar 1:1 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-flutter', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Transformation Scene -->
+    <div class="char-card hero">
+      <div class="char-header">
+        <div class="char-emoji">✨</div>
+        <div class="char-info">
+          <h3>The Transformation Scene</h3>
+          <p>Theo Becomes Super Theo</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-transform">A 7-year-old Black boy named Theo with warm brown skin and curly dark hair, wearing a lavender t-shirt and navy joggers with mismatched red and blue sneakers, standing with eyes closed and one hand placed over a glowing gold infinity symbol button on his gray backpack, surrounded by a swirling burst of warm golden light wrapping around him like a warm wind, butterfly pin on backpack glowing and bursting into gold sparks, dramatic magical transformation moment, cinematic lighting, flat graphic illustration, children's animated series style, bold clean outlines, white background, full body --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-transform', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Dr. Norm -->
+    <div class="char-card villain">
+      <div class="char-header">
+        <div class="char-emoji">🧪</div>
+        <div class="char-info">
+          <h3>Dr. Norm</h3>
+          <p>Villain · The Conformist</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-norm">Dr. Norm, a tall rigid villain with an unnervingly perfect and completely bland appearance, pale almost porcelain skin with no blemishes or distinguishing features, hair slicked back perfectly parted flat lifeless medium brown with not one strand out of place, cold flat gray eyes with no warmth or spark, thin rectangular silver-framed glasses sitting precisely on a straight nose, perpetual tight thin-lipped disapproving smile, sharp angular jaw, stiff mechanical posture as if every movement is calculated, pristine white lab coat over perfectly pressed charcoal gray suit with plain gray tie, everything perfectly symmetrical, breast pocket pin shaped like an equals sign inside a circle, sterile white latex gloves, small silver tuning-fork devices on belt, identical perfectly polished plain black oxfords, holding a sleek silver clipboard, full body character design, flat graphic illustration, children's animated series villain style, white background --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-norm', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Sensory Siren -->
+    <div class="char-card villain">
+      <div class="char-header">
+        <div class="char-emoji">📢</div>
+        <div class="char-info">
+          <h3>Sensory Siren</h3>
+          <p>Villain · The Overwhelmer</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-siren">Sensory Siren, a dramatic imposing female villain, shifting electric pale blue skin with faint crackling energy lines visible beneath the surface, wild massive chaotic explosion of hair in neon colors hot pink electric orange acid green and blinding yellow constantly pulsing and moving like living flames, large piercing eyes with solid blinding white orbs instead of pupils emitting visible light beams, heavy exaggerated angular black eyeliner like warning signs, skintight bodysuit covered in clashing overwhelming patterns zigzags spirals checkerboards and strobe neon stripes that seem to vibrate, thick collar around neck fitted with small speakers, gauntlets covered in mixed textures on hands, knee-high mirror reflective boots, distorted heat-wave aura surrounding her, full body character design, flat graphic illustration, children's animated series villain style, white background --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-siren', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- Mask Master -->
+    <div class="char-card villain">
+      <div class="char-header">
+        <div class="char-emoji">🎭</div>
+        <div class="char-info">
+          <h3>Mask Master</h3>
+          <p>Villain · The Concealer</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-mask">Mask Master, a mysterious unsettling villain of medium build, head covered by a smooth porcelain white theatrical mask with a frozen exaggerated smile and dark shadowy voids where eyes should be swirling with purple-black smoke, long flowing coat made entirely of hundreds of overlapping theatrical comedy and tragedy masks layered like scales in deep smoky charcoal gray with dark purple shadows, the masks on the coat subtly shifting expressions, fitted dark purple suit underneath with near-invisible black pinstripes, black silk gloves with fingertips that produce small masks, belt made of a chain of small connected masks each showing a different expression, cold mist clinging to ground around feet, silently gliding posture leaving no footprints, full body character design, flat graphic illustration, children's animated series villain style, white background --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-mask', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+    <!-- The Isolator -->
+    <div class="char-card villain">
+      <div class="char-header">
+        <div class="char-emoji">🕳️</div>
+        <div class="char-info">
+          <h3>The Isolator</h3>
+          <p>Villain · The Disconnector</p>
+        </div>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-label">Midjourney Prompt</div>
+        <div class="prompt-box" id="p-isolator">The Isolator, a towering gaunt villain standing well over six feet tall, unnaturally thin elongated stretched frame like a shadow at sunset, deep cold charcoal gray matte light-absorbing skin that seems to drain color from surroundings, long hollow face with deeply sunken cheeks and sharp pointed chin, narrow empty black eyes with no whites or pupils like looking into two voids, completely bald smooth head with faint dark vein-like lines across scalp and neck pulsing with dim cold blue light representing severed connections, floor-length matte black coat with no texture or reflection that merges with shadows, high stiff collar rising past jaw partially hiding face, long bony claw-like elongated fingers projecting dark translucent isolation bubble force fields, dark shadowy tendrils wrapped around torso slowly writhing and reaching outward, tall featureless black boots leaving no footprints, colors fading to gray around him, full body character design, flat graphic illustration, children's animated series villain style, white background --ar 2:3 --v 6.1 --style raw</div>
+        <button class="copy-btn" onclick="copyPrompt('p-isolator', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Prompt
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /characters -->
+
+  <!-- Clothing Add-on -->
+  <div class="addon-box">
+    <h3>Add-on for Clothing Prints</h3>
+    <p style="font-size:13px;color:#555;margin-bottom:14px;">Add this to the END of any prompt to get a clean clothing-print-ready image:</p>
+    <div class="prompt-box" id="p-addon" style="font-size:12px;">transparent background, clean cutout, no shadows, isolated character, print ready, clothing merchandise design</div>
+    <button class="copy-btn" onclick="copyPrompt('p-addon', this)" style="margin-top:10px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      Copy Add-on
+    </button>
+  </div>
+
+  <!-- Tips -->
+  <div class="tips-section">
+    <h2>Pro Tips for Best Results</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>Keep Characters Consistent</h4>
+        <p>Generate Super Theo first. Copy his image URL, then add <code>--cref [URL]</code> to every other hero prompt to lock in the same face and style.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Lock the Art Style</h4>
+        <p>After your first image, add <code>--sref [URL]</code> with any generated image URL to keep the same illustration style across ALL characters.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Upscale for Printing</h4>
+        <p>Click <code>U1</code>–<code>U4</code> on your best result to upscale it to full resolution. Then use Upscale (Subtle) for print quality files.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Multiple Variations</h4>
+        <p>Click <code>V1</code>–<code>V4</code> on any image to create variations of that specific result. Great for finding the perfect pose.</p>
+      </div>
+      <div class="tip-card">
+        <h4>White Background Tip</h4>
+        <p>If the background isn't perfectly white, use <strong>remove.bg</strong> (free) to cut out the character instantly for print use.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Character Sheet</h4>
+        <p>Add <code>character sheet, multiple poses, front side back view</code> to get Theo or Flutter from multiple angles — great for illustrators.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:40px;">
+    THEODORE'S WORLD · Character Bible © Anthony Marcano · midjourney.com
+  </footer>
+
+  <script>
+    function copyPrompt(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!`;
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

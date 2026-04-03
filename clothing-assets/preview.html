@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theodore's World — Clothing Assets Preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #f0f0f5; color: #1a1a2e; padding: 40px 24px; }
+
+    h1 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 6px; color: #1a1a2e; }
+    .subtitle { text-align: center; color: #888; font-size: 14px; margin-bottom: 48px; letter-spacing: 1px; text-transform: uppercase; }
+
+    .section-title {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #C3A9F5; font-weight: 600; margin-bottom: 20px; margin-top: 40px;
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+
+    .card {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+    .card-label {
+      padding: 14px 20px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-label span { font-size: 11px; color: #aaa; font-weight: 400; }
+
+    /* Shirt mockup containers */
+    .shirt-light { background: white; }
+    .shirt-dark  { background: #1a1a2e; }
+    .shirt-gray  { background: #e0e0e8; }
+    .shirt-navy  { background: #2d3561; }
+
+    .shirt-wrap {
+      padding: 30px;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 280px;
+    }
+    .shirt-wrap img, .shirt-wrap object {
+      max-width: 100%; max-height: 260px;
+      display: block;
+    }
+
+    .card-label.light-label { background: #f8f8fc; color: #1a1a2e; border-top: 1px solid #eee; }
+    .card-label.dark-label  { background: #0d0d1a; color: white; }
+    .card-label.gray-label  { background: #d8d8e0; color: #1a1a2e; }
+    .card-label.navy-label  { background: #222a50; color: white; }
+
+    /* Use section */
+    .use-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .use-card {
+      background: white; border-radius: 12px; padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .use-card .icon { font-size: 28px; margin-bottom: 8px; }
+    .use-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .use-card p  { font-size: 12px; color: #888; line-height: 1.5; }
+
+    footer { text-align: center; margin-top: 60px; font-size: 12px; color: #aaa; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+  <h1>Theodore's World — Clothing Collection</h1>
+  <p class="subtitle">Asset Preview · Print-Ready SVG Files</p>
+
+  <!-- ── FLUTTER BUTTERFLY ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Flutter Butterfly — Full Character Print (Back Print / Large Chest)</div>
+  </div>
+
+  <div class="grid">
+    <!-- White tee -->
+    <div class="card">
+      <div class="shirt-wrap shirt-light">
+        <img src="flutter-butterfly.svg" alt="Flutter on white tee">
+      </div>
+      <div class="card-label light-label">White Tee / Light Fabric <span>flutter-butterfly.svg</span></div>
+    </div>
+
+    <!-- Navy tee -->
+    <div class="card">
+      <div class="shirt-wrap shirt-navy" style="position:relative;">
+        <!-- Overlay butterfly with white tint for dark fabric illustration -->
+        <img src="flutter-butterfly.svg" alt="Flutter on navy tee" style="filter: brightness(1.15) saturate(1.2);">
+      </div>
+      <div class="card-label navy-label">Navy / Dark Fabric <span>flutter-butterfly.svg</span></div>
+    </div>
+
+    <!-- Gray hoodie -->
+    <div class="card">
+      <div class="shirt-wrap shirt-gray">
+        <img src="flutter-butterfly.svg" alt="Flutter on gray hoodie">
+      </div>
+      <div class="card-label gray-label">Gray Hoodie <span>flutter-butterfly.svg</span></div>
+    </div>
+  </div>
+
+  <!-- ── RAINBOW ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Rainbow Design — Hero Print (Back / Full Front / Hoodie)</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="shirt-wrap shirt-light">
+        <img src="theodore-world-rainbow.svg" alt="Rainbow design on white" style="max-width:320px;">
+      </div>
+      <div class="card-label light-label">White Tee <span>theodore-world-rainbow.svg</span></div>
+    </div>
+    <div class="card">
+      <div class="shirt-wrap shirt-gray">
+        <img src="theodore-world-rainbow.svg" alt="Rainbow design on gray" style="max-width:320px;">
+      </div>
+      <div class="card-label gray-label">Gray Hoodie <span>theodore-world-rainbow.svg</span></div>
+    </div>
+    <div class="card">
+      <div class="shirt-wrap shirt-light" style="background:#FFF8F0;">
+        <img src="theodore-world-rainbow.svg" alt="Rainbow design on cream" style="max-width:320px;">
+      </div>
+      <div class="card-label light-label" style="background:#fff3e8;">Cream / Ivory <span>theodore-world-rainbow.svg</span></div>
+    </div>
+  </div>
+
+  <!-- ── LOGO ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Theodore's World Logo — Chest Print / Left Chest / Hat</div>
+  </div>
+
+  <div class="grid">
+    <!-- Light logo on white -->
+    <div class="card">
+      <div class="shirt-wrap shirt-light">
+        <img src="theodore-world-logo.svg" alt="Logo light" style="max-width:340px;">
+      </div>
+      <div class="card-label light-label">Light Fabric Version <span>theodore-world-logo.svg</span></div>
+    </div>
+
+    <!-- Dark logo -->
+    <div class="card">
+      <div class="shirt-wrap shirt-dark">
+        <img src="theodore-world-logo-dark.svg" alt="Logo dark" style="max-width:340px;">
+      </div>
+      <div class="card-label dark-label">Dark Fabric Version <span>theodore-world-logo-dark.svg</span></div>
+    </div>
+  </div>
+
+  <!-- ── WHERE TO USE ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Where Each Design Is Used</div>
+  </div>
+
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="icon">👕</div>
+      <h4>Kids Tee — Back Print</h4>
+      <p>Flutter full butterfly, centered on the back. Large and colorful.</p>
+    </div>
+    <div class="use-card">
+      <div class="icon">🧥</div>
+      <h4>Hoodie — Chest Print</h4>
+      <p>Theodore's World logo, left chest or full front center.</p>
+    </div>
+    <div class="use-card">
+      <div class="icon">🎒</div>
+      <h4>Backpack / Tote</h4>
+      <p>Flutter butterfly on front pocket. Logo on main panel.</p>
+    </div>
+    <div class="use-card">
+      <div class="icon">🧢</div>
+      <h4>Hat / Cap</h4>
+      <p>Logo compact version embroidered on front panel.</p>
+    </div>
+    <div class="use-card">
+      <div class="icon">🏷️</div>
+      <h4>Stickers / Tags</h4>
+      <p>Flutter icon or logo on hang tags and product stickers.</p>
+    </div>
+    <div class="use-card">
+      <div class="icon">📦</div>
+      <h4>Packaging</h4>
+      <p>Logo on box/mailer, Flutter on tissue paper wrap.</p>
+    </div>
+  </div>
+
+  <!-- ── DIFFERENT IS A SUPERPOWER ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Different IS a Superpower — Typography Tee</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light"><img src="different-is-a-superpower.svg" style="max-width:340px;"></div><div class="card-label light-label">White Tee <span>different-is-a-superpower.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-dark"><img src="different-is-a-superpower.svg" style="max-width:340px;filter:invert(1) hue-rotate(10deg) saturate(1.2)"></div><div class="card-label dark-label">Dark Version <span>different-is-a-superpower.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-gray"><img src="different-is-a-superpower.svg" style="max-width:340px;"></div><div class="card-label gray-label">Gray Hoodie <span>different-is-a-superpower.svg</span></div></div>
+  </div>
+
+  <!-- ── YOU ARE MORE ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">You Are Not Less. You Are More. — Quote Design</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light"><img src="you-are-more.svg" style="max-width:320px;"></div><div class="card-label light-label">White / Cream <span>you-are-more.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap" style="background:#f8f0ff;min-height:280px;padding:30px;display:flex;align-items:center;justify-content:center;"><img src="you-are-more.svg" style="max-width:320px;"></div><div class="card-label light-label" style="background:#f0e8ff;">Lavender <span>you-are-more.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-navy"><img src="you-are-more.svg" style="max-width:320px;filter:brightness(0.9)"></div><div class="card-label navy-label">Navy <span>you-are-more.svg</span></div></div>
+  </div>
+
+  <!-- ── SUPER THEO ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Super Theo — Character Print</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light"><img src="super-theo.svg" style="max-height:300px;"></div><div class="card-label light-label">White Tee <span>super-theo.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-gray"><img src="super-theo.svg" style="max-height:300px;"></div><div class="card-label gray-label">Gray Hoodie <span>super-theo.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-navy"><img src="super-theo.svg" style="max-height:300px;"></div><div class="card-label navy-label">Navy <span>super-theo.svg</span></div></div>
+  </div>
+
+  <!-- ── FLUTTER + THEO ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Flutter & Theo Together — Back Print</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light"><img src="flutter-and-theo.svg" style="max-width:380px;"></div><div class="card-label light-label">White Tee <span>flutter-and-theo.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-gray"><img src="flutter-and-theo.svg" style="max-width:380px;"></div><div class="card-label gray-label">Gray <span>flutter-and-theo.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap" style="background:#f5fff8;min-height:280px;padding:30px;display:flex;align-items:center;justify-content:center;"><img src="flutter-and-theo.svg" style="max-width:380px;"></div><div class="card-label light-label" style="background:#e8fff0;">Mint <span>flutter-and-theo.svg</span></div></div>
+  </div>
+
+  <!-- ── SPECTRUM STRIPE ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Spectrum Stripe — Bold Color Block</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light" style="padding:0;"><img src="spectrum-stripe.svg" style="width:100%;"></div><div class="card-label light-label">Full Stripe Block <span>spectrum-stripe.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-light" style="padding:30px;"><img src="spectrum-stripe.svg" style="max-width:340px;"></div><div class="card-label light-label">Tee / Sleeve Stripe <span>spectrum-stripe.svg</span></div></div>
+  </div>
+
+  <!-- ── PUZZLE PIECE PATTERN ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Puzzle Piece Pattern — Allover / Full Print</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light" style="padding:10px;"><img src="puzzle-piece-pattern.svg" style="max-width:340px;"></div><div class="card-label light-label">Full Allover Print <span>puzzle-piece-pattern.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-light" style="padding:30px;background:#fafafa;"><img src="puzzle-piece-pattern.svg" style="max-width:300px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.08)"></div><div class="card-label light-label">Tote / Backpack <span>puzzle-piece-pattern.svg</span></div></div>
+  </div>
+
+  <!-- ── FLUTTER WINGS ONLY ── -->
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-title">Flutter Wings Only — Dramatic Back Print</div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="shirt-wrap shirt-light"><img src="flutter-wings-only.svg" style="max-width:420px;"></div><div class="card-label light-label">White — Full Back Print <span>flutter-wings-only.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap shirt-gray"><img src="flutter-wings-only.svg" style="max-width:420px;"></div><div class="card-label gray-label">Gray Hoodie <span>flutter-wings-only.svg</span></div></div>
+    <div class="card"><div class="shirt-wrap" style="background:#f0f8ff;min-height:280px;padding:20px;display:flex;align-items:center;justify-content:center;"><img src="flutter-wings-only.svg" style="max-width:420px;"></div><div class="card-label light-label" style="background:#e8f4ff;">Ice Blue <span>flutter-wings-only.svg</span></div></div>
+  </div>
+
+  <footer>THEODORE'S WORLD · You Are Not Less. You Are More. · All designs © Theodore's World</footer>
+
+</body>
+</html>
