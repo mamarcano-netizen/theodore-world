@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 480">
+  <defs>
+    <radialGradient id="skinSS" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#a0d8f0"/>
+      <stop offset="60%"  stop-color="#70b8e0"/>
+      <stop offset="100%" stop-color="#4090c0"/>
+    </radialGradient>
+    <linearGradient id="suitSS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF1493"/>
+      <stop offset="20%"  stop-color="#FF6600"/>
+      <stop offset="40%"  stop-color="#ADFF2F"/>
+      <stop offset="60%"  stop-color="#FFFF00"/>
+      <stop offset="80%"  stop-color="#FF1493"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="nameSS" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF1493"/>
+      <stop offset="33%"  stop-color="#FF6600"/>
+      <stop offset="66%"  stop-color="#ADFF2F"/>
+      <stop offset="100%" stop-color="#FF1493"/>
+    </linearGradient>
+    <filter id="crackle">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 0.8  0 0 0 0 1  0 0 0 0.15 0" result="blue-noise"/>
+      <feComposite in="SourceGraphic" in2="blue-noise" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- ══ ENERGY CRACKLE LINES on skin ══ -->
+  <path d="M 120,200 L 115,220 L 122,235" stroke="#60d0ff" stroke-width="1.2" fill="none" opacity="0.6"/>
+  <path d="M 182,210 L 188,230 L 180,245" stroke="#60d0ff" stroke-width="1.2" fill="none" opacity="0.6"/>
+  <path d="M 130,300 L 125,320" stroke="#60d0ff" stroke-width="1" fill="none" opacity="0.5"/>
+
+  <!-- ══ LEGS — neon bodysuit ══ -->
+  <rect x="108" y="252" width="34" height="98" rx="8" fill="url(#suitSS)"/>
+  <rect x="158" y="252" width="34" height="98" rx="8" fill="url(#suitSS)"/>
+  <!-- Zigzag pattern overlay on legs -->
+  <path d="M 108,265 L 118,272 L 108,279 L 118,286 L 108,293 L 118,300 L 108,307" stroke="rgba(0,0,0,0.25)" stroke-width="2" fill="none"/>
+  <path d="M 158,265 L 168,272 L 158,279 L 168,286 L 158,293 L 168,300 L 158,307" stroke="rgba(0,0,0,0.25)" stroke-width="2" fill="none"/>
+
+  <!-- Mirror-finish knee-high boots -->
+  <rect x="104" y="322" width="44" height="32" rx="8" fill="#c0c8d0"/>
+  <rect x="102" y="345" width="48" height="12" rx="6" fill="#a0a8b0"/>
+  <ellipse cx="126" cy="330" rx="16" ry="5" fill="rgba(255,255,255,0.4)"/>
+  <rect x="152" y="322" width="44" height="32" rx="8" fill="#c0c8d0"/>
+  <rect x="150" y="345" width="48" height="12" rx="6" fill="#a0a8b0"/>
+  <ellipse cx="174" cy="330" rx="16" ry="5" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- ══ ARMS — chaotic, jutting out ══ -->
+  <!-- Left arm — raised aggressive pose -->
+  <path d="M 108,178 C 82,168 58,152 44,135"
+        stroke="url(#skinSS)" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <!-- Gauntlet left — neon with textures -->
+  <rect x="28" y="118" width="28" height="30" rx="6" fill="#FF1493"/>
+  <!-- Sharp points on gauntlet -->
+  <polygon points="28,118 34,108 40,118" fill="#FF0060"/>
+  <polygon points="38,118 44,108 50,118" fill="#FF0060"/>
+  <!-- Rough texture lines -->
+  <path d="M 30,125 L 54,125 M 30,131 L 54,131" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+
+  <!-- Right arm — other side raised -->
+  <path d="M 192,178 C 216,166 238,152 252,140"
+        stroke="url(#skinSS)" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <!-- Gauntlet right -->
+  <rect x="244" y="122" width="28" height="30" rx="6" fill="#ADFF2F"/>
+  <polygon points="244,122 250,112 256,122" fill="#90D010"/>
+  <polygon points="254,122 260,112 266,122" fill="#90D010"/>
+  <path d="M 246,129 L 270,129 M 246,135 L 270,135" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+
+  <!-- ══ TORSO — clashing neon bodysuit ══ -->
+  <rect x="100" y="155" width="100" height="104" rx="10" fill="url(#suitSS)"/>
+  <!-- Checkerboard overlay -->
+  <rect x="100" y="155" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="120" y="155" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="140" y="155" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="160" y="155" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="180" y="155" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="110" y="165" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="130" y="165" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="150" y="165" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="170" y="165" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <rect x="190" y="165" width="10" height="10" fill="rgba(0,0,0,0.2)"/>
+  <!-- Spiral overlay -->
+  <path d="M 150,200 C 150,190 162,185 165,195 C 168,205 158,212 150,210 C 142,208 136,200 140,192 C 144,184 156,180 162,188"
+        fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+
+  <!-- ══ THICK COLLAR with speakers ══ -->
+  <rect x="120" y="148" width="60" height="22" rx="8" fill="#333"/>
+  <!-- Speaker grilles -->
+  <circle cx="134" cy="159" r="7" fill="#222"/>
+  <circle cx="134" cy="159" r="5" fill="#111"/>
+  <circle cx="166" cy="159" r="7" fill="#222"/>
+  <circle cx="166" cy="159" r="5" fill="#111"/>
+  <!-- Speaker dots -->
+  <circle cx="134" cy="156" r="1" fill="#555"/>
+  <circle cx="137" cy="159" r="1" fill="#555"/>
+  <circle cx="134" cy="162" r="1" fill="#555"/>
+  <circle cx="131" cy="159" r="1" fill="#555"/>
+  <circle cx="166" cy="156" r="1" fill="#555"/>
+  <circle cx="169" cy="159" r="1" fill="#555"/>
+  <circle cx="166" cy="162" r="1" fill="#555"/>
+  <circle cx="163" cy="159" r="1" fill="#555"/>
+  <!-- Sound waves from collar -->
+  <path d="M 112,155 Q 106,159 112,163" stroke="#60d0ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M 106,152 Q 98,159 106,166" stroke="#60d0ff" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M 188,155 Q 194,159 188,163" stroke="#60d0ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M 194,152 Q 202,159 194,166" stroke="#60d0ff" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+  <!-- ══ HEAD — electric blue skin ══ -->
+  <circle cx="150" cy="92" r="44" fill="url(#skinSS)"/>
+  <!-- Energy crackle lines on face -->
+  <path d="M 118,80 L 122,92 L 116,102" stroke="#80e8ff" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M 178,82 L 174,94 L 180,106" stroke="#80e8ff" stroke-width="1" fill="none" opacity="0.5"/>
+
+  <!-- ══ WILD NEON HAIR — exploding in all directions ══ -->
+  <!-- Hot pink mass -->
+  <path d="M 108,70 C 80,40 60,20 70,5 C 80,-8 100,5 110,25 C 115,15 108,0 120,-5 C 132,-10 138,8 135,25"
+        fill="#FF1493" opacity="0.95"/>
+  <!-- Electric orange mass -->
+  <path d="M 130,60 C 115,30 120,5 135,0 C 148,-5 152,15 148,32"
+        fill="#FF6600" opacity="0.95"/>
+  <!-- Acid green mass -->
+  <path d="M 155,58 C 158,28 168,8 182,5 C 195,2 196,22 188,38 C 198,20 210,12 220,18 C 232,26 225,50 210,62"
+        fill="#ADFF2F" opacity="0.95"/>
+  <!-- Blinding yellow mass -->
+  <path d="M 170,65 C 185,38 200,25 212,28 C 226,32 226,55 215,68"
+        fill="#FFFF00" opacity="0.9"/>
+  <!-- More chaotic streaks -->
+  <path d="M 95,75 C 70,55 58,38 65,25 C 72,12 88,20 95,40"
+        fill="#FF1493" opacity="0.8"/>
+  <path d="M 145,55 C 140,25 148,5 158,2 C 168,-2 170,18 165,35"
+        fill="#FF69B4" opacity="0.7"/>
+  <!-- Hair roots at head -->
+  <path d="M 108,70 C 115,62 130,58 150,58 C 170,58 185,62 192,70"
+        fill="#1a0820" stroke="none"/>
+
+  <!-- ══ EYES — solid blinding white orbs, emit beams ══ -->
+  <circle cx="134" cy="95" r="11" fill="white"/>
+  <circle cx="166" cy="95" r="11" fill="white"/>
+  <!-- No pupils — solid white orbs -->
+  <circle cx="134" cy="95" r="11" fill="rgba(255,255,255,0.9)"/>
+  <circle cx="166" cy="95" r="11" fill="rgba(255,255,255,0.9)"/>
+  <!-- Visible light beams from eyes -->
+  <line x1="116" y1="88" x2="96" y2="78" stroke="white" stroke-width="2.5" opacity="0.7"/>
+  <line x1="114" y1="95" x2="90" y2="95" stroke="white" stroke-width="2" opacity="0.5"/>
+  <line x1="184" y1="88" x2="204" y2="78" stroke="white" stroke-width="2.5" opacity="0.7"/>
+  <line x1="186" y1="95" x2="210" y2="95" stroke="white" stroke-width="2" opacity="0.5"/>
+  <!-- Eye glow -->
+  <circle cx="134" cy="95" r="16" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="166" cy="95" r="16" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Heavy black angular eyeliner -->
+  <path d="M 122,84 L 118,80 L 146,84" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 122,106 L 116,112 L 146,106" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 154,84 L 178,80 L 178,84" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 154,106 L 184,112 L 184,106" stroke="#000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Mouth — open, aggressive, screaming ══ -->
+  <path d="M 132,118 Q 150,132 168,118" stroke="#000" stroke-width="2.5" fill="rgba(20,10,30,0.8)" stroke-linecap="round"/>
+
+  <!-- ══ TEXT ══ -->
+  <text x="150" y="400"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="18" font-weight="bold" letter-spacing="2"
+        fill="url(#nameSS)">SENSORY SIREN</text>
+  <text x="150" y="422"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10" letter-spacing="3" font-weight="600"
+        fill="#FF1493">THE OVERWHELMER</text>
+  <line x1="50" y1="430" x2="250" y2="430" stroke="url(#nameSS)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

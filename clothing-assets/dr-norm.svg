@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 480">
+  <defs>
+    <linearGradient id="coatDN" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f8f8f8"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </linearGradient>
+    <linearGradient id="suitDN" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#555555"/>
+      <stop offset="100%" stop-color="#333333"/>
+    </linearGradient>
+    <radialGradient id="skinDN" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#f0e8e0"/>
+      <stop offset="100%" stop-color="#d8ccc0"/>
+    </radialGradient>
+    <linearGradient id="nameDN" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#888888"/>
+      <stop offset="50%"  stop-color="#444444"/>
+      <stop offset="100%" stop-color="#888888"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══ SUIT LEGS ══ -->
+  <rect x="110" y="252" width="32" height="100" rx="6" fill="url(#suitDN)"/>
+  <rect x="158" y="252" width="32" height="100" rx="6" fill="url(#suitDN)"/>
+  <!-- Perfect black oxfords — identical, polished -->
+  <rect x="104" y="342" width="44" height="18" rx="6" fill="#0a0a0a"/>
+  <rect x="102" y="352" width="48" height="10" rx="5" fill="#1a1a1a"/>
+  <ellipse cx="124" cy="347" rx="14" ry="4" fill="rgba(255,255,255,0.12)"/>
+  <rect x="152" y="342" width="44" height="18" rx="6" fill="#0a0a0a"/>
+  <rect x="150" y="352" width="48" height="10" rx="5" fill="#1a1a1a"/>
+  <ellipse cx="172" cy="347" rx="14" ry="4" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- ══ ARMS — rigid, perfectly straight ══ -->
+  <!-- Left arm — stiff at side -->
+  <path d="M 108,168 C 90,172 78,190 74,218"
+        stroke="url(#coatDN)" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <!-- White latex glove — left -->
+  <circle cx="72" cy="226" r="14" fill="#f0f0f0"/>
+  <path d="M 62,222 Q 72,218 82,222" stroke="#ddd" stroke-width="1" fill="none"/>
+  <!-- Right arm — holds clipboard -->
+  <path d="M 192,168 C 208,172 220,185 224,208"
+        stroke="url(#coatDN)" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <!-- White latex glove — right -->
+  <circle cx="226" cy="216" r="14" fill="#f0f0f0"/>
+  <!-- Clipboard -->
+  <rect x="224" y="200" width="34" height="44" rx="4" fill="#d8c890"/>
+  <rect x="230" y="194" width="22" height="8" rx="3" fill="#888"/>
+  <rect x="226" y="204" width="30" height="2" rx="1" fill="#aaa" opacity="0.8"/>
+  <rect x="226" y="210" width="30" height="2" rx="1" fill="#aaa" opacity="0.8"/>
+  <rect x="226" y="216" width="22" height="2" rx="1" fill="#aaa" opacity="0.8"/>
+  <rect x="226" y="222" width="26" height="2" rx="1" fill="#aaa" opacity="0.8"/>
+  <circle cx="232" cy="230" r="2" fill="#333" opacity="0.5"/>
+
+  <!-- ══ TORSO — white lab coat over charcoal suit ══ -->
+  <rect x="100" y="155" width="100" height="104" rx="8" fill="url(#suitDN)"/>
+  <!-- Gray tie — plain, perfectly straight -->
+  <path d="M 150,160 L 146,180 L 150,185 L 154,180 Z" fill="#666"/>
+  <path d="M 148,158 L 152,158 L 154,168 L 146,168 Z" fill="#777"/>
+  <!-- White lab coat over suit -->
+  <path d="M 100,158 L 100,258 Q 100,264 106,264 L 140,264 L 140,158 Z"
+        fill="url(#coatDN)"/>
+  <path d="M 200,158 L 200,258 Q 200,264 194,264 L 160,264 L 160,158 Z"
+        fill="url(#coatDN)"/>
+  <!-- Lab coat lapels -->
+  <path d="M 140,158 L 128,172 L 140,185" fill="url(#coatDN)" stroke="#ccc" stroke-width="0.5"/>
+  <path d="M 160,158 L 172,172 L 160,185" fill="url(#coatDN)" stroke="#ccc" stroke-width="0.5"/>
+  <!-- Breast pocket -->
+  <rect x="106" y="178" width="22" height="16" rx="2" fill="none" stroke="#ccc" stroke-width="1"/>
+  <!-- Equals sign in circle pin -->
+  <circle cx="117" cy="175" r="6" fill="none" stroke="#666" stroke-width="1.5"/>
+  <line x1="113" y1="173" x2="121" y2="173" stroke="#666" stroke-width="1.5"/>
+  <line x1="113" y1="177" x2="121" y2="177" stroke="#666" stroke-width="1.5"/>
+  <!-- Small pen in pocket -->
+  <rect x="118" y="178" width="3" height="14" rx="1" fill="#888"/>
+  <!-- Silver tuning fork tools on belt -->
+  <rect x="130" y="248" width="40" height="6" rx="2" fill="#555"/>
+  <rect x="148" y="248" width="4" height="8" rx="1" fill="#aaa"/>
+  <path d="M 155,252 L 158,248 L 161,252 M 158,252 L 158,258" stroke="#aaa" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- ══ NECK ══ -->
+  <rect x="140" y="142" width="20" height="20" rx="4" fill="url(#skinDN)"/>
+
+  <!-- ══ HEAD — porcelain pale, sharp angular ══ -->
+  <!-- More angular head for Dr. Norm -->
+  <path d="M 108,90 Q 108,52 150,50 Q 192,52 192,90 Q 192,138 150,140 Q 108,138 108,90 Z"
+        fill="url(#skinDN)"/>
+  <!-- Very slight jaw definition — angular -->
+  <path d="M 116,118 Q 128,138 150,140 Q 172,138 184,118"
+        fill="url(#skinDN)" stroke="none"/>
+
+  <!-- ══ HAIR — slicked back flat, not one strand loose ══ -->
+  <path d="M 110,82 C 108,58 120,42 150,40 C 180,42 192,58 190,82 C 185,65 172,56 158,54 C 144,52 128,56 118,66 Z"
+        fill="#4a3a28"/>
+  <!-- Perfect center part, slicked flat -->
+  <path d="M 150,40 L 150,82" stroke="#3a2a18" stroke-width="1.5" fill="none"/>
+  <!-- Slicked sides -->
+  <path d="M 120,66 C 124,58 136,54 150,54" fill="none" stroke="#3a2a18" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 180,66 C 176,58 164,54 150,54" fill="none" stroke="#3a2a18" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- ══ GLASSES — thin rectangular silver ══ -->
+  <!-- Bridge -->
+  <line x1="138" y1="101" x2="162" y2="101" stroke="#aaa" stroke-width="1.5"/>
+  <!-- Left lens frame -->
+  <rect x="116" y="93" width="22" height="14" rx="2" fill="none" stroke="#bbb" stroke-width="1.8"/>
+  <!-- Right lens frame -->
+  <rect x="162" y="93" width="22" height="14" rx="2" fill="none" stroke="#bbb" stroke-width="1.8"/>
+  <!-- Lens tint — very slight -->
+  <rect x="116" y="93" width="22" height="14" rx="2" fill="rgba(200,210,220,0.15)"/>
+  <rect x="162" y="93" width="22" height="14" rx="2" fill="rgba(200,210,220,0.15)"/>
+  <!-- Arms of glasses -->
+  <line x1="116" y1="100" x2="108" y2="102" stroke="#aaa" stroke-width="1.5"/>
+  <line x1="184" y1="100" x2="192" y2="102" stroke="#aaa" stroke-width="1.5"/>
+
+  <!-- ══ EYES — cold flat gray, no warmth ══ -->
+  <circle cx="127" cy="100" r="5" fill="white"/>
+  <circle cx="173" cy="100" r="5" fill="white"/>
+  <!-- Flat gray iris — no warmth or spark -->
+  <circle cx="127" cy="100" r="3.5" fill="#9a9a9a"/>
+  <circle cx="173" cy="100" r="3.5" fill="#9a9a9a"/>
+  <circle cx="127" cy="100" r="2" fill="#555"/>
+  <circle cx="173" cy="100" r="2" fill="#555"/>
+  <!-- NO shine — no warmth -->
+
+  <!-- Eyebrows — perfectly groomed, flat, disapproving arch -->
+  <path d="M 116,88 Q 127,84 138,88" stroke="#3a2a18" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M 162,88 Q 173,84 184,88" stroke="#3a2a18" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+  <!-- Nose — straight, sharp -->
+  <path d="M 150,105 L 147,115 Q 150,118 153,115 L 150,105" fill="rgba(0,0,0,0.08)"/>
+
+  <!-- Smile — thin, precise, measured ══ -->
+  <path d="M 138,124 Q 150,129 162,124"
+        stroke="#888" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- No teeth, no warmth — just a measured, flat smile -->
+
+  <!-- ══ TEXT ══ -->
+  <text x="150" y="400"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="26" font-weight="bold" letter-spacing="4"
+        fill="url(#nameDN)">DR. NORM</text>
+  <text x="150" y="422"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10" letter-spacing="3" font-weight="600"
+        fill="#888888">THE CONFORMIST</text>
+  <line x1="50" y1="430" x2="250" y2="430" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

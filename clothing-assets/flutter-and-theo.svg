@@ -1,27 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 480">
   <defs>
     <linearGradient id="capeG" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#FF6B6B"/>
-      <stop offset="20%"  stop-color="#FFD166"/>
-      <stop offset="40%"  stop-color="#6EC6F5"/>
-      <stop offset="60%"  stop-color="#6FDEBC"/>
-      <stop offset="80%"  stop-color="#C3A9F5"/>
-      <stop offset="100%" stop-color="#FF8FAB"/>
+      <stop offset="0%"   stop-color="#0d1a3a"/>
+      <stop offset="100%" stop-color="#050d20"/>
     </linearGradient>
     <linearGradient id="suitG" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%"   stop-color="#1a2a5e"/>
-      <stop offset="100%" stop-color="#0d1a3a"/>
+      <stop offset="0%"   stop-color="#FFB8D0"/>
+      <stop offset="40%"  stop-color="#D490F8"/>
+      <stop offset="100%" stop-color="#7B3FA8"/>
     </linearGradient>
     <radialGradient id="skinG" cx="45%" cy="35%" r="65%">
-      <stop offset="0%" stop-color="#8B5E3C"/>
-      <stop offset="100%" stop-color="#6B3F1E"/>
+      <stop offset="0%"  stop-color="#A06830"/>
+      <stop offset="100%" stop-color="#7A4A18"/>
+    </radialGradient>
+    <radialGradient id="goldGlowG" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFE580"/>
+      <stop offset="60%"  stop-color="#FFD166"/>
+      <stop offset="100%" stop-color="#E8A020" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="titleG" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#C3A9F5"/>
-      <stop offset="33%"  stop-color="#6EC6F5"/>
-      <stop offset="66%"  stop-color="#6FDEBC"/>
-      <stop offset="100%" stop-color="#FF8FAB"/>
+      <stop offset="0%"   stop-color="#FFD166"/>
+      <stop offset="33%"  stop-color="#C3A9F5"/>
+      <stop offset="66%"  stop-color="#6EC6F5"/>
+      <stop offset="100%" stop-color="#6FDEBC"/>
     </linearGradient>
+    <linearGradient id="redB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#E8202A"/>
+      <stop offset="100%" stop-color="#B81018"/>
+    </linearGradient>
+    <linearGradient id="blueB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#2A60E8"/>
+      <stop offset="100%" stop-color="#1040B8"/>
+    </linearGradient>
+    <!-- Flutter gradients -->
+    <radialGradient id="wingUL" cx="38%" cy="42%" r="62%">
+      <stop offset="0%"   stop-color="#FFF3C0"/>
+      <stop offset="45%"  stop-color="#FFD166"/>
+      <stop offset="78%"  stop-color="#E8A020"/>
+      <stop offset="100%" stop-color="#C3A9F5"/>
+    </radialGradient>
+    <radialGradient id="wingUR" cx="62%" cy="42%" r="62%">
+      <stop offset="0%"   stop-color="#FFF3C0"/>
+      <stop offset="45%"  stop-color="#FFD166"/>
+      <stop offset="78%"  stop-color="#FFA040"/>
+      <stop offset="100%" stop-color="#B8A0E8"/>
+    </radialGradient>
+    <radialGradient id="bodyPurple" cx="40%" cy="30%" r="70%">
+      <stop offset="0%"   stop-color="#7B3FA8"/>
+      <stop offset="100%" stop-color="#3D1060"/>
+    </radialGradient>
     <linearGradient id="specBar" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%"   stop-color="#FF6B6B"/>
       <stop offset="20%"  stop-color="#FFD166"/>
@@ -33,196 +60,215 @@
   </defs>
 
   <!-- Ground spectrum line -->
-  <rect x="60" y="368" width="380" height="4" rx="2" fill="url(#specBar)"/>
+  <rect x="40" y="372" width="420" height="4" rx="2" fill="url(#specBar)"/>
 
-  <!-- ════════════════
-       SUPER THEO (left)
-       Center: x=148
-       ════════════════ -->
+  <!-- ════════ SUPER THEO — LEFT, AGE 7 PROPORTIONS ════════ -->
 
-  <!-- Cape -->
-  <path d="M 114,145 C 82,162 44,222 38,295
-           C 32,358 68,390 102,378
-           C 124,368 140,344 148,320
-           C 156,344 172,368 194,378
-           C 228,390 264,358 258,295
-           C 252,222 214,162 182,145 Z"
-        fill="url(#capeG)" opacity="0.9"/>
+  <!-- Cape — wide, heroic -->
+  <path d="M 86,152
+           C 55,170 18,235 12,308
+           C 6,372 42,404 76,392
+           C 98,383 114,358 122,334
+           C 130,358 146,383 168,392
+           C 202,404 238,372 232,308
+           C 226,235 189,170 158,152 Z"
+        fill="url(#capeG)"/>
+  <!-- Cape stars -->
+  <circle cx="38"  cy="258" r="1.5" fill="#FFD166" opacity="0.65"/>
+  <circle cx="52"  cy="290" r="1"   fill="#FFD166" opacity="0.6"/>
+  <circle cx="36"  cy="318" r="1.5" fill="#FFD166" opacity="0.6"/>
+  <circle cx="208" cy="258" r="1.5" fill="#FFD166" opacity="0.65"/>
+  <circle cx="194" cy="290" r="1"   fill="#FFD166" opacity="0.6"/>
+  <circle cx="210" cy="318" r="1.5" fill="#FFD166" opacity="0.6"/>
+  <!-- Cape clasp -->
+  <circle cx="108" cy="156" r="5.5" fill="#FFD166"/>
+  <circle cx="136" cy="156" r="5.5" fill="#FFD166"/>
 
   <!-- Left arm raised -->
-  <path d="M 114,165 C 90,158 64,144 50,128" stroke="url(#suitG)" stroke-width="20" fill="none" stroke-linecap="round"/>
-  <path d="M 50,128 C 40,114 34,96 38,78"    stroke="url(#suitG)" stroke-width="18" fill="none" stroke-linecap="round"/>
-  <circle cx="42" cy="70" r="14" fill="#6FDEBC"/>
-  <circle cx="42" cy="70" r="10" fill="#40C898"/>
+  <path d="M 86,168 C 66,160 46,148 32,132"
+        stroke="url(#suitG)" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <path d="M 32,132 C 22,118 18,100 22,82"
+        stroke="url(#suitG)" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <!-- Gold cuff -->
+  <ellipse cx="24" cy="86" rx="14" ry="8" fill="#FFD166" transform="rotate(-20,24,86)"/>
+  <!-- Chubby fist with sparks -->
+  <circle cx="22" cy="70" r="14" fill="url(#skinG)"/>
+  <line x1="10" y1="56" x2="6"  y2="44" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+  <line x1="22" y1="54" x2="22" y2="42" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="56" x2="38" y2="44" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="6"  cy="43" r="3" fill="#FFD166"/>
+  <circle cx="22" cy="41" r="3" fill="#FFD166"/>
+  <circle cx="38" cy="43" r="3" fill="#FFD166"/>
 
   <!-- Right arm at side -->
-  <path d="M 182,165 C 202,163 220,168 230,180" stroke="url(#suitG)" stroke-width="20" fill="none" stroke-linecap="round"/>
-  <path d="M 230,180 C 238,192 240,210 236,228"  stroke="url(#suitG)" stroke-width="18" fill="none" stroke-linecap="round"/>
-  <circle cx="232" cy="236" r="14" fill="#C3A9F5"/>
-  <circle cx="232" cy="236" r="10" fill="#A880F0"/>
+  <path d="M 158,168 C 178,164 194,170 204,182"
+        stroke="url(#suitG)" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <path d="M 204,182 C 212,194 214,212 210,230"
+        stroke="url(#suitG)" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <!-- Gold cuff right -->
+  <ellipse cx="208" cy="234" rx="14" ry="8" fill="#FFD166" transform="rotate(10,208,234)"/>
+  <circle cx="210" cy="246" r="14" fill="url(#skinG)"/>
 
-  <!-- Torso -->
-  <rect x="104" y="148" width="88" height="94" rx="9" fill="url(#suitG)"/>
-  <!-- Chest puzzle piece outline -->
-  <path d="M 128,168 H 139 Q 139,162 146,162 Q 153,162 153,168 H 164
-           V 179 Q 170,179 170,186 Q 170,193 164,193 V 200
-           H 139 V 193 Q 133,193 133,186 Q 133,179 139,179 V 168 Z"
-        fill="none" stroke="rgba(195,169,245,0.55)" stroke-width="1.8"/>
-  <!-- Spectrum belt -->
-  <rect x="104" y="232" width="88" height="9" rx="2" fill="url(#capeG)"/>
+  <!-- Torso — compact, square-ish -->
+  <rect x="78" y="152" width="88" height="90" rx="14" fill="url(#suitG)"/>
+  <!-- Infinity symbol on chest -->
+  <path d="M 122,193 C 122,183 114,179 108,179 C 98,179 94,187 94,193 C 94,199 98,207 108,207 C 114,207 120,203 122,193 C 124,183 130,179 136,179 C 146,179 150,187 150,193 C 150,199 146,207 136,207 C 130,207 124,203 122,193 Z"
+        fill="#FFD166" stroke="#E8A020" stroke-width="1"/>
+  <ellipse cx="122" cy="193" rx="34" ry="18" fill="url(#goldGlowG)" opacity="0.3"/>
 
-  <!-- Legs -->
-  <rect x="112" y="240" width="30" height="90" rx="7" fill="url(#suitG)"/>
-  <rect x="154" y="240" width="30" height="90" rx="7" fill="url(#suitG)"/>
+  <!-- Legs — short and stubby -->
+  <rect x="86"  y="240" width="30" height="72" rx="10" fill="url(#suitG)"/>
+  <rect x="128" y="240" width="30" height="72" rx="10" fill="url(#suitG)"/>
 
-  <!-- Mismatched boots -->
-  <rect x="108" y="322" width="38" height="24" rx="7" fill="#6EC6F5"/>
-  <rect x="106" y="336" width="42" height="12" rx="5" fill="#3AAED8"/>
-  <rect x="150" y="322" width="38" height="24" rx="7" fill="#FFD166"/>
-  <rect x="148" y="336" width="42" height="12" rx="5" fill="#F0B800"/>
+  <!-- Boots — rounded, kid-sized -->
+  <!-- Left: red -->
+  <rect x="80"  y="304" width="42" height="26" rx="11" fill="url(#redB)"/>
+  <rect x="78"  y="320" width="46" height="13" rx="7"  fill="#9A0808"/>
+  <text x="83" y="318" font-size="10" fill="#FFD166">★</text>
+  <!-- Right: blue -->
+  <rect x="122" y="304" width="42" height="26" rx="11" fill="url(#blueB)"/>
+  <rect x="120" y="320" width="46" height="13" rx="7"  fill="#0A2890"/>
+  <text x="148" y="318" font-size="10" fill="#FFD166">★</text>
 
-  <!-- Head -->
-  <circle cx="148" cy="96" r="42" fill="url(#skinG)"/>
-  <ellipse cx="106" cy="98" rx="7" ry="10" fill="#7A4E28"/>
-  <ellipse cx="190" cy="98" rx="7" ry="10" fill="#7A4E28"/>
+  <!-- HEAD — BIG, childlike, age 7 -->
+  <circle cx="122" cy="86" r="54" fill="url(#skinG)"/>
+  <!-- Chubby cheeks -->
+  <circle cx="72"  cy="100" r="18" fill="#C07830" opacity="0.28"/>
+  <circle cx="172" cy="100" r="18" fill="#C07830" opacity="0.28"/>
+  <!-- Ears -->
+  <ellipse cx="68"  cy="88" rx="9"  ry="12" fill="#8A5020"/>
+  <ellipse cx="176" cy="88" rx="9"  ry="12" fill="#8A5020"/>
+
   <!-- Hair -->
-  <path d="M 108,70 C 110,48 128,36 148,34 C 168,36 186,48 188,70
-           C 182,56 168,48 148,48 C 128,48 114,56 108,70 Z" fill="#1a1a2e"/>
+  <path d="M 70,62 C 68,40 82,24 104,18 C 118,13 136,15 148,22 C 162,30 168,48 164,68 C 158,50 144,40 128,38 C 112,36 96,42 84,54 C 78,58 74,60 70,62 Z"
+        fill="#1a1208"/>
+  <path d="M 84,54 C 90,40 108,32 122,32 C 136,32 150,40 158,52"
+        fill="none" stroke="#2a1f10" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 96,46 C 92,56 90,68 94,80" fill="none" stroke="#1a1208" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M 118,38 C 120,50 120,64 117,76" fill="none" stroke="#1a1208" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 140,40 C 144,52 143,66 140,78" fill="none" stroke="#1a1208" stroke-width="4" stroke-linecap="round"/>
 
-  <!-- Mask + eyes -->
-  <path d="M 122,95 Q 135,88 148,95 Q 161,88 174,95 Q 174,108 161,108
-           Q 148,102 148,102 Q 148,102 135,108 Q 122,108 122,95 Z"
-        fill="#1a1a2e" opacity="0.75"/>
-  <circle cx="135" cy="100" r="7"   fill="white"/>
-  <circle cx="161" cy="100" r="7"   fill="white"/>
-  <circle cx="136" cy="101" r="4.5" fill="#4A2800"/>
-  <circle cx="162" cy="101" r="4.5" fill="#4A2800"/>
-  <circle cx="136" cy="101" r="2.5" fill="#1a1a2e"/>
-  <circle cx="162" cy="101" r="2.5" fill="#1a1a2e"/>
-  <circle cx="135" cy="101" r="7"   fill="#FFD166" opacity="0.14"/>
-  <circle cx="161" cy="101" r="7"   fill="#FFD166" opacity="0.14"/>
-  <circle cx="137" cy="98"  r="1.8" fill="white"/>
-  <circle cx="163" cy="98"  r="1.8" fill="white"/>
-  <!-- Smile -->
-  <path d="M 138,112 Q 148,120 158,112" stroke="#5A3010" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Domino mask -->
+  <path d="M 82,88 Q 100,81 122,88 Q 144,81 162,88 Q 162,102 148,102 Q 122,97 122,97 Q 122,97 96,102 Q 82,102 82,88 Z"
+        fill="#0d1a3a" opacity="0.82"/>
+
+  <!-- EYES — big dark green (normal) / silver-gray in hero form -->
+  <!-- Hero form: silver-gray luminous -->
+  <circle cx="104" cy="94" r="11"  fill="white"/>
+  <circle cx="140" cy="94" r="11"  fill="white"/>
+  <circle cx="104" cy="95" r="7.5" fill="#8A9AB0"/>
+  <circle cx="140" cy="95" r="7.5" fill="#8A9AB0"/>
+  <circle cx="104" cy="95" r="4"   fill="#0d1020"/>
+  <circle cx="140" cy="95" r="4"   fill="#0d1020"/>
+  <circle cx="104" cy="95" r="11"  fill="rgba(180,200,220,0.2)"/>
+  <circle cx="140" cy="95" r="11"  fill="rgba(180,200,220,0.2)"/>
+  <!-- Eye shine — big -->
+  <circle cx="107" cy="90" r="3"   fill="white"/>
+  <circle cx="143" cy="90" r="3"   fill="white"/>
+
   <!-- Eyebrows -->
-  <path d="M 127,89 Q 135,85 143,88" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M 153,88 Q 161,85 169,89" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M 92,78 Q 104,72 114,77" stroke="#1a1208" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <path d="M 130,77 Q 140,72 152,78" stroke="#1a1208" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <path d="M 115,77 Q 122,73 129,77" stroke="#1a1208" stroke-width="1.8" fill="none" stroke-linecap="round"/>
 
-  <!-- ════════════════
-       FLUTTER (right)
-       Center: x=360
-       ════════════════ -->
+  <!-- Nose + smile -->
+  <ellipse cx="122" cy="106" rx="5" ry="4" fill="rgba(0,0,0,0.1)"/>
+  <path d="M 108,118 Q 122,130 136,118" stroke="#7A4018" stroke-width="2.8" fill="none" stroke-linecap="round"/>
 
-  <!-- Upper Left Wing -->
-  <path d="M 352,210
-           C 322,172 252,132 228,152
-           C 208,170 228,208 282,228
-           C 312,238 340,242 352,244"
-        fill="#C3A9F5" stroke="#B090E0" stroke-width="1.5"/>
-  <!-- Upper left accent -->
-  <path d="M 352,222 C 326,196 268,166 248,178 C 232,188 248,212 295,228"
-        fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1.2"/>
-  <!-- Eye spot UL -->
-  <circle cx="248" cy="170" r="16" fill="rgba(255,255,255,0.22)"/>
-  <circle cx="248" cy="170" r="10" fill="#9B6EE8" opacity="0.65"/>
-  <circle cx="248" cy="170" r="5"  fill="#1a1a2e" opacity="0.55"/>
-  <circle cx="244" cy="166" r="2"  fill="rgba(255,255,255,0.7)"/>
-
-  <!-- Upper Right Wing -->
-  <path d="M 368,210
-           C 398,172 468,132 492,152
-           C 512,170 492,208 438,228
-           C 408,238 380,242 368,244"
-        fill="#6EC6F5" stroke="#4AAAD8" stroke-width="1.5"/>
-  <path d="M 368,222 C 394,196 452,166 472,178 C 488,188 472,212 425,228"
-        fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="1.2"/>
-  <!-- Eye spot UR -->
-  <circle cx="472" cy="170" r="16" fill="rgba(255,255,255,0.22)"/>
-  <circle cx="472" cy="170" r="10" fill="#3AAED8" opacity="0.65"/>
-  <circle cx="472" cy="170" r="5"  fill="#1a1a2e" opacity="0.55"/>
-  <circle cx="468" cy="166" r="2"  fill="rgba(255,255,255,0.7)"/>
-
-  <!-- Lower Left Wing -->
-  <path d="M 352,252
-           C 318,268 256,286 245,304
-           C 234,322 272,332 312,316
-           C 338,306 352,284 352,272"
-        fill="#FF8FAB" stroke="#E06080" stroke-width="1.5"/>
-  <!-- Lower Right Wing -->
-  <path d="M 368,252
-           C 402,268 464,286 475,304
-           C 486,322 448,332 408,316
-           C 382,306 368,284 368,272"
-        fill="#6FDEBC" stroke="#40C090" stroke-width="1.5"/>
-
-  <!-- Flutter Body -->
-  <ellipse cx="360" cy="252" rx="8" ry="50" fill="#1a1a2e"/>
-
-  <!-- Flutter Head -->
-  <circle cx="360" cy="196" r="18" fill="#1a1a2e"/>
-  <!-- Flutter Eyes -->
-  <circle cx="354" cy="193" r="6"   fill="white"/>
-  <circle cx="366" cy="193" r="6"   fill="white"/>
-  <circle cx="354.5" cy="194" r="3.8" fill="#6EC6F5"/>
-  <circle cx="366.5" cy="194" r="3.8" fill="#C3A9F5"/>
-  <circle cx="355"   cy="194" r="2"   fill="#1a1a2e"/>
-  <circle cx="367"   cy="194" r="2"   fill="#1a1a2e"/>
-  <circle cx="356"   cy="192" r="1"   fill="white"/>
-  <circle cx="368"   cy="192" r="1"   fill="white"/>
-  <!-- Flutter smile -->
-  <path d="M 355,202 Q 360,207 365,202" stroke="#FF8FAB" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-  <!-- Blush -->
-  <circle cx="350" cy="200" r="3.5" fill="#FF8FAB" opacity="0.3"/>
-  <circle cx="370" cy="200" r="3.5" fill="#FF8FAB" opacity="0.3"/>
-  <!-- Antennae -->
-  <path d="M 356,180 C 352,168 346,158 342,150" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M 364,180 C 368,168 374,158 378,150" stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <circle cx="340" cy="148" r="5.5" fill="#FF8FAB"/>
-  <circle cx="380" cy="148" r="5.5" fill="#C3A9F5"/>
-
-  <!-- ════════════════
-       SHARED SPARKLES
-       ════════════════ -->
-  <g transform="translate(270,95)">
-    <line x1="0" y1="-9" x2="0" y2="9" stroke="#FFD166" stroke-width="2.2" stroke-linecap="round"/>
-    <line x1="-9" y1="0" x2="9" y2="0" stroke="#FFD166" stroke-width="2.2" stroke-linecap="round"/>
-    <line x1="-6" y1="-6" x2="6" y2="6" stroke="#FFD166" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-    <line x1="6"  y1="-6" x2="-6" y2="6" stroke="#FFD166" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <!-- ════════ FLUTTER — RIGHT ════════ -->
+  <g transform="translate(340,200)">
+    <!-- Upper left wing -->
+    <path d="M -10,-42 C -38,-82 -110,-98 -124,-68 C -136,-42 -96,-10 -10,-2"
+          fill="url(#wingUL)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <!-- Circuit veining -->
+    <path d="M -10,-28 L -50,-45 L -70,-62 L -92,-75"
+          fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="-70" cy="-62" r="3" fill="rgba(255,255,255,0.5)"/>
+    <!-- Upper right wing -->
+    <path d="M 10,-42 C 38,-82 110,-98 124,-68 C 136,-42 96,-10 10,-2"
+          fill="url(#wingUR)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <path d="M 10,-28 L 50,-45 L 70,-62 L 92,-75"
+          fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="70" cy="-62" r="3" fill="rgba(255,255,255,0.5)"/>
+    <!-- Lower left wing -->
+    <path d="M -10,6 C -38,20 -96,38 -104,60 C -112,80 -60,88 -10,68"
+          fill="#C3A9F5" opacity="0.9" stroke="rgba(255,255,255,0.45)" stroke-width="1.8"/>
+    <!-- Lower right wing -->
+    <path d="M 10,6 C 38,20 96,38 104,60 C 112,80 60,88 10,68"
+          fill="#B8A0E8" opacity="0.9" stroke="rgba(255,255,255,0.45)" stroke-width="1.8"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="18" rx="10" ry="62" fill="url(#bodyPurple)"/>
+    <ellipse cx="-2" cy="2" rx="4" ry="32" fill="rgba(195,169,245,0.3)"/>
+    <!-- Head -->
+    <circle cx="0" cy="-52" r="22" fill="url(#bodyPurple)"/>
+    <circle cx="0" cy="-52" r="22" fill="none" stroke="rgba(195,169,245,0.3)" stroke-width="1.5"/>
+    <!-- Big turquoise eyes -->
+    <circle cx="-7"  cy="-56" r="9"   fill="white"/>
+    <circle cx="7"   cy="-56" r="9"   fill="white"/>
+    <circle cx="-7"  cy="-55" r="6.5" fill="#00CED1"/>
+    <circle cx="7"   cy="-55" r="6.5" fill="#00CED1"/>
+    <circle cx="-7"  cy="-55" r="3.5" fill="#1a0030"/>
+    <circle cx="7"   cy="-55" r="3.5" fill="#1a0030"/>
+    <circle cx="-5"  cy="-59" r="2"   fill="white"/>
+    <circle cx="9"   cy="-59" r="2"   fill="white"/>
+    <circle cx="-7"  cy="-55" r="9"   fill="#00CED1" opacity="0.1"/>
+    <circle cx="7"   cy="-55" r="9"   fill="#00CED1" opacity="0.1"/>
+    <!-- Smile -->
+    <path d="M -6,-43 Q 0,-38 6,-43" stroke="#C3A9F5" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Blush -->
+    <circle cx="-12" cy="-44" r="5" fill="#FFB8C8" opacity="0.35"/>
+    <circle cx="12"  cy="-44" r="5" fill="#FFB8C8" opacity="0.35"/>
+    <!-- Antennae -->
+    <path d="M -4,-72 C -8,-86 -14,-98 -20,-106" stroke="#3D1060" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 4,-72 C 8,-86 14,-98 20,-106"    stroke="#3D1060" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Gold orb tips -->
+    <circle cx="-22" cy="-108" r="9"  fill="#FFD166"/>
+    <circle cx="22"  cy="-108" r="9"  fill="#FFD166"/>
+    <circle cx="-22" cy="-108" r="5"  fill="#FFF3A0"/>
+    <circle cx="22"  cy="-108" r="5"  fill="#FFF3A0"/>
+    <!-- Gold dust trail -->
+    <circle cx="120" cy="-30" r="5" fill="#FFD166" opacity="0.75"/>
+    <circle cx="136" cy="-5"  r="3.5" fill="#FFD166" opacity="0.6"/>
+    <circle cx="128" cy="20"  r="4.5" fill="#FFD166" opacity="0.65"/>
+    <circle cx="140" cy="44"  r="3"   fill="#FFD166" opacity="0.5"/>
+    <g transform="translate(132,-18)">
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+      <line x1="-6" y1="0" x2="6" y2="0" stroke="#FFD166" stroke-width="2" stroke-linecap="round"/>
+    </g>
   </g>
-  <circle cx="210" cy="260" r="3" fill="#FFD166" opacity="0.7"/>
+
+  <!-- Shared sparkles -->
+  <g transform="translate(250,80)">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-6" y1="-6" x2="6" y2="6" stroke="#FFD166" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+    <line x1="6"  y1="-6" x2="-6" y2="6" stroke="#FFD166" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+  </g>
+  <circle cx="186" cy="260" r="3"   fill="#FFD166" opacity="0.7"/>
   <circle cx="20"  cy="180" r="2.5" fill="#C3A9F5" opacity="0.6"/>
-  <circle cx="490" cy="115" r="2.5" fill="#6EC6F5" opacity="0.6"/>
-  <circle cx="480" cy="340" r="2.5" fill="#6FDEBC" opacity="0.6"/>
 
-  <!-- ════════════════
-       NAMES + TITLE
-       ════════════════ -->
-  <text x="148" y="404"
+  <!-- Names -->
+  <text x="122" y="408"
         text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
+        font-family="Arial,Helvetica,sans-serif"
         font-size="11" letter-spacing="2.5" font-weight="600"
-        fill="#888">SUPER THEO</text>
-
-  <text x="360" y="404"
+        fill="#888">SUPER THEO · AGE 7</text>
+  <text x="340" y="408"
         text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
+        font-family="Arial,Helvetica,sans-serif"
         font-size="11" letter-spacing="2.5" font-weight="600"
         fill="#888">FLUTTER</text>
-
-  <!-- Vertical divider between names -->
-  <line x1="254" y1="390" x2="254" y2="410" stroke="#ddd" stroke-width="1"/>
+  <line x1="232" y1="394" x2="232" y2="414" stroke="#ddd" stroke-width="1"/>
 
   <!-- Main title -->
-  <text x="254" y="440"
+  <text x="254" y="442"
         text-anchor="middle"
-        font-family="Georgia, 'Times New Roman', serif"
-        font-size="36" font-weight="bold" letter-spacing="4"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="34" font-weight="bold" letter-spacing="4"
         fill="url(#titleG)">THEODORE'S WORLD</text>
-
-  <text x="254" y="462"
+  <text x="254" y="464"
         text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
+        font-family="Arial,Helvetica,sans-serif"
         font-size="10.5" letter-spacing="3" font-weight="500"
-        fill="#aaa">YOU ARE NOT LESS. YOU ARE MORE.</text>
+        fill="#aaa">DIFFERENT IS A SUPERPOWER.</text>
 </svg>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theodore's World — Official Character Reference Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Nunito',sans-serif;
+      background:#0d1020;
+      color:#1B2A6B;
+      min-height:100vh;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background:linear-gradient(135deg,#1B2A6B 0%,#2a1a5e 50%,#0d1020 100%);
+      padding:60px 40px 50px;
+      text-align:center;
+      border-bottom:3px solid #FFD166;
+    }
+    .cover-infinity { font-size:5rem; color:#FFD166; line-height:1; margin-bottom:16px; }
+    .cover h1 {
+      font-family:'Baloo 2',cursive;
+      font-size:3.2rem;
+      font-weight:900;
+      color:white;
+      letter-spacing:2px;
+      margin-bottom:8px;
+    }
+    .cover h1 span { color:#FFD166; }
+    .cover-tagline {
+      font-family:'Baloo 2',cursive;
+      font-size:1.5rem;
+      font-weight:700;
+      color:#C3A9F5;
+      margin-bottom:20px;
+    }
+    .cover-meta {
+      font-size:.9rem;
+      color:rgba(255,255,255,.5);
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      padding:28px 40px 0;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .section-label {
+      font-family:'Baloo 2',cursive;
+      font-size:.75rem;
+      font-weight:800;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:#C3A9F5;
+      margin-bottom:4px;
+    }
+    .section-title {
+      font-family:'Baloo 2',cursive;
+      font-size:2rem;
+      font-weight:900;
+      color:white;
+      margin-bottom:24px;
+    }
+
+    /* ── CHARACTER GRID ── */
+    .chars-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(340px,1fr));
+      gap:28px;
+      padding:0 40px 40px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+
+    /* ── CHARACTER CARD ── */
+    .char-card {
+      background:#f8f8fc;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 8px 40px rgba(0,0,0,.35);
+      display:flex;
+      flex-direction:column;
+    }
+    .char-card.hero  { border-top:4px solid #FFD166; }
+    .char-card.villain { border-top:4px solid #FF6B6B; }
+
+    .char-header {
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:20px 24px 16px;
+      background:white;
+      border-bottom:1px solid #f0eef8;
+    }
+    .char-svg-thumb {
+      width:90px;
+      height:90px;
+      flex-shrink:0;
+      border-radius:50%;
+      overflow:hidden;
+      background:#f0eeff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .char-svg-thumb svg {
+      width:160px;
+      height:160px;
+      margin-top:30px;
+      margin-left:-30px;
+    }
+    .char-svg-thumb.villain-bg { background:#fff0ee; }
+    .char-info h2 {
+      font-family:'Baloo 2',cursive;
+      font-size:1.3rem;
+      font-weight:900;
+      color:#1B2A6B;
+      margin-bottom:2px;
+    }
+    .char-type {
+      font-size:.75rem;
+      font-weight:800;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#C3A9F5;
+    }
+    .char-type.villain-type { color:#FF6B6B; }
+
+    .char-full-svg {
+      background:#f5f3ff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px 16px;
+      min-height:260px;
+    }
+    .char-full-svg.villain-bg { background:#fff5f5; }
+    .char-full-svg svg {
+      width:180px;
+      height:auto;
+      max-height:290px;
+      filter:drop-shadow(0 8px 24px rgba(0,0,0,.15));
+    }
+
+    .char-details {
+      padding:20px 24px;
+      background:white;
+      flex:1;
+    }
+    .detail-row {
+      display:flex;
+      gap:8px;
+      margin-bottom:10px;
+      align-items:flex-start;
+    }
+    .detail-label {
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:#C3A9F5;
+      min-width:72px;
+      padding-top:2px;
+      flex-shrink:0;
+    }
+    .detail-label.vl { color:#FF9999; }
+    .detail-value {
+      font-size:.85rem;
+      line-height:1.6;
+      color:#444;
+    }
+    .detail-value strong { color:#1B2A6B; }
+
+    /* color swatches */
+    .color-row {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+    .swatch {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
+    }
+    .swatch-dot {
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      border:2px solid rgba(0,0,0,.08);
+      box-shadow:0 2px 6px rgba(0,0,0,.15);
+    }
+    .swatch-hex {
+      font-size:.6rem;
+      color:#888;
+      font-family:monospace;
+    }
+
+    /* ── BRAND COLORS SECTION ── */
+    .brand-section {
+      background:#1B2A6B;
+      padding:40px;
+    }
+    .brand-section .section-title { color:white; }
+    .brand-colors {
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .brand-color-card {
+      background:white;
+      border-radius:16px;
+      overflow:hidden;
+      width:140px;
+      box-shadow:0 4px 16px rgba(0,0,0,.2);
+    }
+    .brand-color-swatch { height:70px; }
+    .brand-color-info { padding:10px 12px; }
+    .brand-color-name { font-weight:800; font-size:.82rem; color:#1B2A6B; margin-bottom:2px; }
+    .brand-color-hex { font-size:.72rem; color:#888; font-family:monospace; margin-bottom:2px; }
+    .brand-color-use { font-size:.68rem; color:#aaa; line-height:1.4; }
+
+    /* ── MOTTO BANNER ── */
+    .motto {
+      text-align:center;
+      padding:50px 40px;
+      background:linear-gradient(135deg,#1B2A6B,#2a1a5e);
+      border-top:3px solid #FFD166;
+    }
+    .motto h2 {
+      font-family:'Baloo 2',cursive;
+      font-size:3.5rem;
+      font-weight:900;
+      color:#FFD166;
+      letter-spacing:2px;
+      margin-bottom:12px;
+    }
+    .motto p { color:rgba(255,255,255,.6); font-size:1rem; letter-spacing:3px; text-transform:uppercase; }
+
+    /* ── PRINT BUTTON ── */
+    .print-bar {
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      display:flex;
+      gap:12px;
+      z-index:100;
+    }
+    .print-btn {
+      padding:12px 24px;
+      border-radius:50px;
+      border:none;
+      background:#FFD166;
+      color:#1B2A6B;
+      font-family:'Nunito',sans-serif;
+      font-weight:800;
+      font-size:.95rem;
+      cursor:pointer;
+      box-shadow:0 4px 20px rgba(0,0,0,.3);
+      transition:all .2s;
+    }
+    .print-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,.35); }
+    .print-btn.pdf-btn { background:#C3A9F5; }
+
+    @media print {
+      .print-bar { display:none; }
+      body { background:white; }
+      .cover { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .char-card { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-infinity">∞</div>
+  <h1>Theodore's <span>World</span></h1>
+  <div class="cover-tagline">Official Character Reference Sheet</div>
+  <div class="cover-meta">© Anthony Marcano · theodore-world.com · All Rights Reserved</div>
+</div>
+
+<!-- HEROES SECTION -->
+<div class="section-header">
+  <div class="section-label">Heroes</div>
+  <div class="section-title">Theo & Flutter</div>
+</div>
+
+<div class="chars-grid">
+
+  <!-- EVERYDAY THEO -->
+  <div class="char-card hero">
+    <div class="char-header">
+      <div class="char-svg-thumb">
+        <object data="everyday-theo.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>Theodore "Theo"</h2>
+        <div class="char-type">Hero · Everyday · Age 7</div>
+      </div>
+    </div>
+    <div class="char-full-svg">
+      <object data="everyday-theo.svg" type="image/svg+xml" width="180" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label">Skin</div>
+        <div class="detail-value">Warm brown</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Hair</div>
+        <div class="detail-value">Thick curly dark brown, soft coils fall across forehead</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Eyes</div>
+        <div class="detail-value"><strong>Large dark green</strong> — big, expressive, thoughtful</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Face</div>
+        <div class="detail-value">Round, chubby cheeks, small button nose, gentle shy smile</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Outfit</div>
+        <div class="detail-value">Soft <strong>lavender T-shirt</strong> (puzzle piece drawn on chest in fabric marker) · <strong>dark navy joggers</strong> (no tags) · <strong>one red + one blue sneaker</strong> (always mismatched, velcro) · worn gray backpack with butterfly pin, gold star, rainbow patch, ∞ button</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Extras</div>
+        <div class="detail-value">Navy noise-canceling headphones around neck · worry stone in pocket</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Pose</div>
+        <div class="detail-value">Bounces on toes when happy · perfectly still when focused · tilts head slightly when thinking · hand-flaps with joy · hugs backpack when overwhelmed</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Colors</div>
+        <div class="color-row">
+          <div class="swatch"><div class="swatch-dot" style="background:#C3A9F5;"></div><div class="swatch-hex">#C3A9F5</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#1B2A6B;"></div><div class="swatch-hex">#1B2A6B</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#E82030;"></div><div class="swatch-hex">Left shoe</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#2060E8;"></div><div class="swatch-hex">Right shoe</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#8A5020;"></div><div class="swatch-hex">Skin</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPER THEO -->
+  <div class="char-card hero">
+    <div class="char-header">
+      <div class="char-svg-thumb">
+        <object data="super-theo.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>Super Theo</h2>
+        <div class="char-type">Hero · Transformed Form</div>
+      </div>
+    </div>
+    <div class="char-full-svg">
+      <object data="super-theo.svg" type="image/svg+xml" width="180" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label">Eyes</div>
+        <div class="detail-value"><strong>Luminous silver-gray</strong> (transformed from dark green) — fierce, certain, lit from within</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Suit</div>
+        <div class="detail-value">Soft <strong>pink at shoulders → rich lavender at legs</strong> · subtle shimmer fabric · bold gold <strong>∞ on chest</strong> (raised, glowing)</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Cape</div>
+        <div class="detail-value"><strong>Dark navy</strong>, long, reaches past calves · inside lining: tiny gold stars + constellation lines · clasped with two gold circular pins</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Boots</div>
+        <div class="detail-value"><strong>ALWAYS mismatched:</strong> Left = cherry red · Right = bright royal blue · gold star on outer ankle of each</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Cuffs</div>
+        <div class="detail-value">Two slim <strong>gold cuffs</strong> on wrists — glow when using powers. Hand-flaps release gold sparks from fingertips</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Powers</div>
+        <div class="detail-value">Hyperfocus Beam (golden ray from eyes) · Empathy Shield (chest warmth) · Detail Vision (crystal clarity)</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Colors</div>
+        <div class="color-row">
+          <div class="swatch"><div class="swatch-dot" style="background:#FF8FAB;"></div><div class="swatch-hex">#FF8FAB</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#C3A9F5;"></div><div class="swatch-hex">#C3A9F5</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#1B2A6B;"></div><div class="swatch-hex">#1B2A6B</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#FFD166;"></div><div class="swatch-hex">#FFD166</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#E82030;"></div><div class="swatch-hex">L boot</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#2060E8;"></div><div class="swatch-hex">R boot</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLUTTER -->
+  <div class="char-card hero">
+    <div class="char-header">
+      <div class="char-svg-thumb">
+        <object data="flutter-butterfly.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>Flutter</h2>
+        <div class="char-type">Sidekick · The Spectrum Butterfly</div>
+      </div>
+    </div>
+    <div class="char-full-svg">
+      <object data="flutter-butterfly.svg" type="image/svg+xml" width="220" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label">Size</div>
+        <div class="detail-value">About the size of a small bird — perches on Theo's shoulder</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Wings</div>
+        <div class="detail-value">Shifting gradient of <strong>soft gold, warm amber, iridescent lavender</strong> — holographic foil effect · circuit-board veining · glowing white outline on wing edges</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Body</div>
+        <div class="detail-value">Velvety <strong>deep purple</strong></div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Eyes</div>
+        <div class="detail-value">Large round <strong>bright turquoise</strong> — incredibly expressive</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Antennae</div>
+        <div class="detail-value">Two long curling, tipped with tiny <strong>glowing gold orbs</strong> (emotional sensors)</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Trail</div>
+        <div class="detail-value">Sparkling <strong>gold dust</strong> follows everywhere — calming properties</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Moods</div>
+        <div class="detail-value"><strong>Happy:</strong> wings brighter, quick joyful flutters · <strong>Alert/Danger:</strong> wings pulse deep amber, antennae point forward like radar</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Colors</div>
+        <div class="color-row">
+          <div class="swatch"><div class="swatch-dot" style="background:#FFD166;"></div><div class="swatch-hex">#FFD166</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#FFA040;"></div><div class="swatch-hex">#FFA040</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#C3A9F5;"></div><div class="swatch-hex">#C3A9F5</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#4A0878;"></div><div class="swatch-hex">#4A0878</div></div>
+          <div class="swatch"><div class="swatch-dot" style="background:#00CED1;"></div><div class="swatch-hex">#00CED1</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- VILLAINS SECTION -->
+<div class="section-header">
+  <div class="section-label">Villains — The Conformists</div>
+  <div class="section-title">The Four Forces of Conformity</div>
+</div>
+
+<div class="chars-grid">
+
+  <!-- DR. NORM -->
+  <div class="char-card villain">
+    <div class="char-header">
+      <div class="char-svg-thumb villain-bg">
+        <object data="dr-norm.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>Dr. Norm</h2>
+        <div class="char-type villain-type">Villain · The Conformist</div>
+      </div>
+    </div>
+    <div class="char-full-svg villain-bg">
+      <object data="dr-norm.svg" type="image/svg+xml" width="180" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label vl">Skin</div>
+        <div class="detail-value">Porcelain pale — almost no blemishes or distinguishing features</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Hair</div>
+        <div class="detail-value">Slicked back perfectly flat, medium brown — not one strand out of place</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Eyes</div>
+        <div class="detail-value">Cold <strong>flat gray</strong> — no warmth, no spark</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Glasses</div>
+        <div class="detail-value">Thin rectangular silver frames, sitting precisely on straight nose</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Outfit</div>
+        <div class="detail-value">Pristine white lab coat over <strong>charcoal gray suit</strong> with plain gray tie · everything symmetrical and orderly · <strong>breast pocket pin: equals sign in circle</strong> · white latex gloves · silver tuning-fork tools on belt · identical polished black oxfords</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Expression</div>
+        <div class="detail-value">Permanent thin-lipped disapproving smile — never changes · every movement calculated · posture stiff, mechanical</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SENSORY SIREN -->
+  <div class="char-card villain">
+    <div class="char-header">
+      <div class="char-svg-thumb villain-bg">
+        <object data="sensory-siren.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>Sensory Siren</h2>
+        <div class="char-type villain-type">Villain · The Overwhelmer</div>
+      </div>
+    </div>
+    <div class="char-full-svg villain-bg">
+      <object data="sensory-siren.svg" type="image/svg+xml" width="180" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label vl">Skin</div>
+        <div class="detail-value">Shifting <strong>electric pale blue</strong> — like static on a TV screen · faint crackling energy lines beneath surface</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Hair</div>
+        <div class="detail-value">Wild massive explosion of neon: <strong>hot pink, electric orange, acid green, blinding yellow</strong> — constantly shifting, moving like living flames</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Eyes</div>
+        <div class="detail-value">Solid <strong>blinding white orbs</strong> — no pupils — emit visible beams when using powers · heavy black angular eyeliner</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Outfit</div>
+        <div class="detail-value">Bodysuit covered in clashing neon patterns (zigzags, spirals, checkerboards, strobe stripes) — everything vibrates · thick collar with built-in speakers · neon gauntlets with sharp points + mixed textures · mirror-finish knee-high boots</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Movement</div>
+        <div class="detail-value">Sudden, unpredictable, jerky — never smooth</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MASK MASTER -->
+  <div class="char-card villain">
+    <div class="char-header">
+      <div class="char-svg-thumb villain-bg">
+        <object data="mask-master.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>Mask Master</h2>
+        <div class="char-type villain-type">Villain · The Concealer</div>
+      </div>
+    </div>
+    <div class="char-full-svg villain-bg">
+      <object data="mask-master.svg" type="image/svg+xml" width="180" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label vl">Face</div>
+        <div class="detail-value">Smooth <strong>porcelain-white theatrical mask</strong> — frozen exaggerated smile · dark shadowy voids where eyes should be · swirling purple-black smoke in eye sockets</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Coat</div>
+        <div class="detail-value">Long flowing coat made of <strong>hundreds of overlapping masks</strong> (comedy, tragedy, blank, happy faces) — layered like scales · shift expressions when not looking directly · deep smoky charcoal gray with dark purple in shadows</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Suit</div>
+        <div class="detail-value">Fitted dark purple suit underneath · near-invisible black pinstripes</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Gloves</div>
+        <div class="detail-value">Black silk — fingertips produce masks that attach to people's faces · belt chain of small connected masks</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Movement</div>
+        <div class="detail-value">Silent, almost gliding — leaves no footprints · voice: multiple layered tones simultaneously</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE ISOLATOR -->
+  <div class="char-card villain">
+    <div class="char-header">
+      <div class="char-svg-thumb villain-bg">
+        <object data="the-isolator.svg" type="image/svg+xml" width="90" height="90" style="pointer-events:none;"></object>
+      </div>
+      <div class="char-info">
+        <h2>The Isolator</h2>
+        <div class="char-type villain-type">Villain · The Disconnector</div>
+      </div>
+    </div>
+    <div class="char-full-svg villain-bg">
+      <object data="the-isolator.svg" type="image/svg+xml" width="180" height="290" style="pointer-events:none;"></object>
+    </div>
+    <div class="char-details">
+      <div class="detail-row">
+        <div class="detail-label vl">Build</div>
+        <div class="detail-value">Towering, gaunt — well over 6ft · unnaturally elongated frame — looks stretched like a shadow at sunset</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Skin</div>
+        <div class="detail-value">Deep cold <strong>charcoal gray</strong> — matte, light-absorbing · long hollow face, deeply sunken cheeks, sharp pointed chin</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Eyes</div>
+        <div class="detail-value"><strong>Empty black voids</strong> — no whites, no pupils — like looking into two voids</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Head</div>
+        <div class="detail-value">Bald and smooth · dark vein-like lines across scalp + neck pulsing with <strong>dim cold blue light</strong> (severed connections)</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Outfit</div>
+        <div class="detail-value">Floor-length coat of <strong>solidified darkness</strong> — matte black, no texture, no reflection, merges with shadows · high stiff collar rising past jaw · long bony claw-like fingers project dark isolation force fields</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label vl">Effect</div>
+        <div class="detail-value">Wherever he walks — temperature drops, sounds muffle, colors fade to gray · leaves no footprints</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BRAND COLORS -->
+<div class="brand-section">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="section-label" style="color:#C3A9F5;">Brand Identity</div>
+    <div class="section-title">Official Color Palette</div>
+    <div class="brand-colors">
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#FFD166;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Infinity Gold</div>
+          <div class="brand-color-hex">#FFD166</div>
+          <div class="brand-color-use">Powers, Flutter, hope</div>
+        </div>
+      </div>
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#C3A9F5;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Super Lavender</div>
+          <div class="brand-color-hex">#C3A9F5</div>
+          <div class="brand-color-use">Theo's suit, softness</div>
+        </div>
+      </div>
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#1B2A6B;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Hero Navy</div>
+          <div class="brand-color-hex">#1B2A6B</div>
+          <div class="brand-color-use">Cape, depth, strength</div>
+        </div>
+      </div>
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#FF6B6B;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Spectrum Coral</div>
+          <div class="brand-color-hex">#FF6B6B</div>
+          <div class="brand-color-use">Energy, excitement</div>
+        </div>
+      </div>
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#6FDEBC;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Calm Mint</div>
+          <div class="brand-color-hex">#6FDEBC</div>
+          <div class="brand-color-use">Healing, peace</div>
+        </div>
+      </div>
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#6EC6F5;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Sky Blue</div>
+          <div class="brand-color-hex">#6EC6F5</div>
+          <div class="brand-color-use">Flutter's eyes, openness</div>
+        </div>
+      </div>
+      <div class="brand-color-card">
+        <div class="brand-color-swatch" style="background:#FF8FAB;"></div>
+        <div class="brand-color-info">
+          <div class="brand-color-name">Soft Pink</div>
+          <div class="brand-color-hex">#FF8FAB</div>
+          <div class="brand-color-use">Suit shoulder, warmth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOTTO -->
+<div class="motto">
+  <h2>Different Is a Superpower.</h2>
+  <p>Theodore's World · theodore-world.com · © Anthony Marcano</p>
+</div>
+
+<!-- PRINT BUTTON -->
+<div class="print-bar">
+  <button class="print-btn pdf-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
+
+</body>
+</html>

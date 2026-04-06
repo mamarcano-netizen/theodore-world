@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 480">
+  <defs>
+    <linearGradient id="coatMM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#3a3a4a"/>
+      <stop offset="50%"  stop-color="#2a2a38"/>
+      <stop offset="100%" stop-color="#1a1a28"/>
+    </linearGradient>
+    <linearGradient id="suitMM" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#5a3080"/>
+      <stop offset="100%" stop-color="#3a1858"/>
+    </linearGradient>
+    <radialGradient id="maskMM" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="70%"  stop-color="#f0f0f0"/>
+      <stop offset="100%" stop-color="#d8d8d8"/>
+    </radialGradient>
+    <linearGradient id="nameMM" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#9B6EE8"/>
+      <stop offset="50%"  stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#9B6EE8"/>
+    </linearGradient>
+    <radialGradient id="smokeEye" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#2a0040" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0a0015" stop-opacity="0.5"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ══ LONG FLOWING COAT OF MASKS — from shoulders to floor ══ -->
+  <!-- Main coat body -->
+  <path d="M 94,162 C 72,190 52,240 48,310 C 44,360 60,400 90,410 L 94,410 L 96,258 Z"
+        fill="url(#coatMM)"/>
+  <path d="M 206,162 C 228,190 248,240 252,310 C 256,360 240,400 210,410 L 206,410 L 204,258 Z"
+        fill="url(#coatMM)"/>
+  <!-- Coat front panels -->
+  <rect x="94" y="250" width="48" height="160" rx="4" fill="url(#coatMM)"/>
+  <rect x="158" y="250" width="48" height="160" rx="4" fill="url(#coatMM)"/>
+
+  <!-- Overlapping masks on coat — comedy, tragedy, blank, happy faces -->
+  <!-- Left side masks -->
+  <ellipse cx="76" cy="230" rx="16" ry="13" fill="#f5f5f5" opacity="0.85"/>
+  <path d="M 68,228 Q 76,234 84,228" stroke="#888" stroke-width="1.5" fill="none"/>
+  <circle cx="72" cy="224" r="2" fill="#555"/>
+  <circle cx="80" cy="224" r="2" fill="#555"/>
+
+  <ellipse cx="72" cy="265" rx="14" ry="11" fill="#f0f0f0" opacity="0.8"/>
+  <path d="M 65,267 Q 72,261 79,267" stroke="#888" stroke-width="1.5" fill="none"/>
+  <circle cx="69" cy="262" r="2" fill="#555"/>
+  <circle cx="75" cy="262" r="2" fill="#555"/>
+
+  <ellipse cx="78" cy="300" rx="15" ry="12" fill="#fafafa" opacity="0.8"/>
+  <line x1="72" y1="298" x2="84" y2="298" stroke="#888" stroke-width="1.5"/>
+  <circle cx="74" cy="294" r="1.5" fill="#555"/>
+  <circle cx="82" cy="294" r="1.5" fill="#555"/>
+
+  <ellipse cx="70" cy="335" rx="14" ry="11" fill="#f5f5f5" opacity="0.75"/>
+  <path d="M 63,337 Q 70,343 77,337" stroke="#aaa" stroke-width="1.5" fill="none"/>
+
+  <ellipse cx="80" cy="370" rx="13" ry="10" fill="#f0f0f0" opacity="0.7"/>
+  <path d="M 74,373 Q 80,367 86,373" stroke="#888" stroke-width="1.5" fill="none"/>
+
+  <!-- Right side masks -->
+  <ellipse cx="224" cy="230" rx="16" ry="13" fill="#f5f5f5" opacity="0.85"/>
+  <path d="M 216,232 Q 224,226 232,232" stroke="#888" stroke-width="1.5" fill="none"/>
+  <circle cx="220" cy="226" r="2" fill="#555"/>
+  <circle cx="228" cy="226" r="2" fill="#555"/>
+
+  <ellipse cx="228" cy="265" rx="14" ry="11" fill="#f0f0f0" opacity="0.8"/>
+  <path d="M 221,263 Q 228,269 235,263" stroke="#888" stroke-width="1.5" fill="none"/>
+  <circle cx="224" cy="260" r="2" fill="#555"/>
+  <circle cx="232" cy="260" r="2" fill="#555"/>
+
+  <ellipse cx="222" cy="300" rx="15" ry="12" fill="#fafafa" opacity="0.8"/>
+  <line x1="216" y1="298" x2="228" y2="298" stroke="#888" stroke-width="1.5"/>
+
+  <ellipse cx="230" cy="335" rx="14" ry="11" fill="#f5f5f5" opacity="0.75"/>
+  <path d="M 223,333 Q 230,339 237,333" stroke="#aaa" stroke-width="1.5" fill="none"/>
+
+  <ellipse cx="220" cy="370" rx="13" ry="10" fill="#f0f0f0" opacity="0.7"/>
+
+  <!-- Belt chain of masks -->
+  <path d="M 100,248 L 200,248" stroke="#9B6EE8" stroke-width="2" fill="none"/>
+  <ellipse cx="116" cy="248" rx="6" ry="5" fill="#eee" opacity="0.9"/>
+  <ellipse cx="132" cy="248" rx="6" ry="5" fill="#eee" opacity="0.9"/>
+  <ellipse cx="148" cy="248" rx="6" ry="5" fill="#eee" opacity="0.9"/>
+  <ellipse cx="164" cy="248" rx="6" ry="5" fill="#eee" opacity="0.9"/>
+  <ellipse cx="180" cy="248" rx="6" ry="5" fill="#eee" opacity="0.9"/>
+
+  <!-- ══ ARMS — black silk gloves ══ -->
+  <path d="M 100,170 C 82,175 68,192 62,215"
+        stroke="url(#coatMM)" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <!-- Black silk glove left -->
+  <ellipse cx="58" cy="222" rx="14" ry="16" fill="#1a1a22"/>
+  <ellipse cx="56" cy="218" rx="6" ry="4" fill="#2a2a32"/>
+  <!-- Fingertip producing mask -->
+  <ellipse cx="48" cy="212" rx="8" ry="7" fill="#f5f5f5" opacity="0.9"/>
+  <path d="M 42,212 Q 48,216 54,212" stroke="#888" stroke-width="1" fill="none"/>
+
+  <path d="M 200,170 C 218,175 232,192 238,215"
+        stroke="url(#coatMM)" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <!-- Black silk glove right -->
+  <ellipse cx="242" cy="222" rx="14" ry="16" fill="#1a1a22"/>
+  <ellipse cx="244" cy="218" rx="6" ry="4" fill="#2a2a32"/>
+
+  <!-- ══ TORSO — dark purple suit under coat ══ -->
+  <rect x="100" y="155" width="100" height="100" rx="8" fill="url(#suitMM)"/>
+  <!-- Near-invisible black pinstripes -->
+  <line x1="118" y1="155" x2="118" y2="255" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+  <line x1="136" y1="155" x2="136" y2="255" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+  <line x1="154" y1="155" x2="154" y2="255" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+  <line x1="172" y1="155" x2="172" y2="255" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+  <line x1="190" y1="155" x2="190" y2="255" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+  <!-- Coat collar over suit -->
+  <path d="M 100,158 L 100,220 L 136,220 L 136,158 Z" fill="url(#coatMM)"/>
+  <path d="M 200,158 L 200,220 L 164,220 L 164,158 Z" fill="url(#coatMM)"/>
+  <path d="M 136,158 L 124,175 L 136,195" fill="url(#coatMM)" stroke="rgba(80,60,120,0.5)" stroke-width="0.5"/>
+  <path d="M 164,158 L 176,175 L 164,195" fill="url(#coatMM)" stroke="rgba(80,60,120,0.5)" stroke-width="0.5"/>
+
+  <!-- ══ NECK ══ -->
+  <rect x="138" y="140" width="24" height="18" rx="4" fill="#d0c0e0"/>
+
+  <!-- ══ PORCELAIN WHITE THEATRICAL MASK ══ -->
+  <!-- Mask — smooth, perfect oval -->
+  <ellipse cx="150" cy="95" rx="46" ry="54" fill="url(#maskMM)"/>
+  <!-- Mask edge / slight depth -->
+  <ellipse cx="150" cy="95" rx="46" ry="54" fill="none" stroke="#ccc" stroke-width="2"/>
+  <!-- Subtle mask texture lines — theatrical -->
+  <path d="M 104,80 Q 150,70 196,80" stroke="rgba(200,200,200,0.3)" stroke-width="1" fill="none"/>
+
+  <!-- ══ EYES — dark shadowy voids with swirling purple-black smoke ══ -->
+  <!-- Eye voids — dark shadowy, no real eyes -->
+  <ellipse cx="130" cy="88" rx="14" ry="11" fill="url(#smokeEye)"/>
+  <ellipse cx="170" cy="88" rx="14" ry="11" fill="url(#smokeEye)"/>
+  <!-- Swirling purple-black smoke in eye sockets -->
+  <path d="M 122,86 Q 128,82 130,88 Q 132,94 138,90" stroke="#5a0090" stroke-width="1.2" fill="none" opacity="0.7"/>
+  <path d="M 124,90 Q 130,94 134,88 Q 136,82 130,86" stroke="#4a0070" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M 162,86 Q 168,82 170,88 Q 172,94 178,90" stroke="#5a0090" stroke-width="1.2" fill="none" opacity="0.7"/>
+  <path d="M 164,90 Q 170,94 174,88 Q 176,82 170,86" stroke="#4a0070" stroke-width="1" fill="none" opacity="0.5"/>
+  <!-- Purple smoke wisps -->
+  <circle cx="128" cy="86" r="4" fill="#3a0060" opacity="0.4"/>
+  <circle cx="132" cy="90" r="3" fill="#4a0080" opacity="0.35"/>
+  <circle cx="168" cy="86" r="4" fill="#3a0060" opacity="0.4"/>
+  <circle cx="172" cy="90" r="3" fill="#4a0080" opacity="0.35"/>
+
+  <!-- ══ FROZEN SMILE — exaggerated theatrical grin ══ -->
+  <path d="M 118,118 Q 150,140 182,118"
+        stroke="#888" stroke-width="2.5" fill="rgba(230,220,240,0.3)" stroke-linecap="round"/>
+  <!-- Teeth — frozen, wide, unnatural -->
+  <path d="M 122,120 Q 150,136 178,120 L 178,126 Q 150,142 122,126 Z"
+        fill="white" stroke="#ccc" stroke-width="0.5"/>
+  <!-- Tooth lines -->
+  <line x1="136" y1="120" x2="134" y2="130" stroke="#ddd" stroke-width="1"/>
+  <line x1="150" y1="121" x2="150" y2="132" stroke="#ddd" stroke-width="1"/>
+  <line x1="164" y1="120" x2="166" y2="130" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Mask cheek rouge (theatrical) -->
+  <circle cx="116" cy="108" r="12" fill="#FFB8B8" opacity="0.2"/>
+  <circle cx="184" cy="108" r="12" fill="#FFB8B8" opacity="0.2"/>
+
+  <!-- Purple smoke wisps rising from mask edges -->
+  <path d="M 104,70 C 100,55 96,42 100,30" stroke="#5a0090" stroke-width="2" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M 196,70 C 200,55 204,42 200,30" stroke="#5a0090" stroke-width="2" fill="none" opacity="0.35" stroke-linecap="round"/>
+
+  <!-- ══ TEXT ══ -->
+  <text x="150" y="400"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="20" font-weight="bold" letter-spacing="3"
+        fill="url(#nameMM)">MASK MASTER</text>
+  <text x="150" y="422"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10" letter-spacing="3" font-weight="600"
+        fill="#9B6EE8">THE CONCEALER</text>
+  <line x1="50" y1="430" x2="250" y2="430" stroke="url(#nameMM)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
