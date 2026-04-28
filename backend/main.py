@@ -11,6 +11,7 @@ API docs available at: http://localhost:8000/docs
 """
 
 import os
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -27,10 +28,34 @@ Base.metadata.create_all(bind=engine)
 
 from routes import auth_routes, posts_routes, users_routes, games_routes, videos_routes, claude_routes, tts_routes, admin_routes
 
+
+def _promote_admin():
+    try:
+        from database import SessionLocal
+        db = SessionLocal()
+        try:
+            user = db.query(models.User).filter(models.User.email == "m.a.marcano@live.com").first()
+            if user and not user.is_admin:
+                user.is_admin = True
+                db.commit()
+                print(f"[bootstrap] {user.name} promoted to admin.")
+        finally:
+            db.close()
+    except Exception as e:
+        print(f"[bootstrap] skipped: {e}")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    _promote_admin()
+    yield
+
+
 app = FastAPI(
     title="Theodore's World API",
     description="Backend for Theodore's World — autism education platform",
     version="2.0.0",
+    lifespan=lifespan,
 )
 
 # CORS — allow frontend to call the API
@@ -57,19 +82,6 @@ app.include_router(claude_routes.router)
 app.include_router(tts_routes.router)
 app.include_router(admin_routes.router)
 
-
-@app.on_event("startup")
-def bootstrap_admin():
-    from database import SessionLocal
-    db = SessionLocal()
-    try:
-        user = db.query(models.User).filter(models.User.email == "m.a.marcano@live.com").first()
-        if user and not user.is_admin:
-            user.is_admin = True
-            db.commit()
-            print(f"[bootstrap] {user.name} promoted to admin.")
-    finally:
-        db.close()
 
 
 @app.get("/api/health")
