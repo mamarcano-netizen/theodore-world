@@ -63,7 +63,7 @@ def bootstrap_admin():
     from database import SessionLocal
     db = SessionLocal()
     try:
-        user = db.query(models.User).filter(models.User.email == "marcano.alerts@gmail.com").first()
+        user = db.query(models.User).filter(models.User.email == "m.a.marcano@live.com").first()
         if user and not user.is_admin:
             user.is_admin = True
             db.commit()
