@@ -58,6 +58,23 @@ app.include_router(tts_routes.router)
 app.include_router(admin_routes.router)
 
 
+@app.on_event("startup")
+def bootstrap_admin():
+    email = os.getenv("BOOTSTRAP_ADMIN_EMAIL", "").lower()
+    if not email:
+        return
+    from database import SessionLocal
+    db = SessionLocal()
+    try:
+        user = db.query(models.User).filter(models.User.email == email).first()
+        if user and not user.is_admin:
+            user.is_admin = True
+            db.commit()
+            print(f"[bootstrap] {user.name} promoted to admin.")
+    finally:
+        db.close()
+
+
 @app.get("/api/health")
 def health():
     return {"status": "ok", "version": "2.0.0"}
