@@ -86,6 +86,16 @@ const ClaudeAPI = {
   storyCompanion: (section, reflection) => apiFetch("/api/claude/story",        { method: "POST", body: JSON.stringify({ story_section: section, reflection }) }),
 };
 
+// ─── Admin API ────────────────────────────────────────────────────────────────
+const AdminAPI = {
+  stats:       ()        => apiFetch("/api/admin/stats"),
+  flagged:     ()        => apiFetch("/api/admin/flagged"),
+  unflag:      (id)      => apiFetch(`/api/admin/posts/${id}/unflag`, { method: "POST" }),
+  deletePost:  (id)      => apiFetch(`/api/admin/posts/${id}`, { method: "DELETE" }),
+  users:       ()        => apiFetch("/api/admin/users"),
+  toggleAdmin: (id)      => apiFetch(`/api/admin/users/${id}/make-admin`, { method: "POST" }),
+};
+
 // ─── Search (client-side over fetched data) ──────────────────────────────────
 const Search = {
   async query(term) {

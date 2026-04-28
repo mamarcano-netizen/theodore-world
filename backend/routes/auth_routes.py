@@ -37,6 +37,7 @@ def user_to_dict(u: models.User, db: Session) -> dict:
         "location":   u.location,
         "color":      u.color,
         "is_verified": u.is_verified,
+        "is_admin":   u.is_admin,
         "badges":     badge_list,
         "created_at": u.created_at.isoformat(),
     }

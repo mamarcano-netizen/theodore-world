@@ -25,7 +25,7 @@ import models  # noqa — registers all models
 # Create all tables
 Base.metadata.create_all(bind=engine)
 
-from routes import auth_routes, posts_routes, users_routes, games_routes, videos_routes, claude_routes, tts_routes
+from routes import auth_routes, posts_routes, users_routes, games_routes, videos_routes, claude_routes, tts_routes, admin_routes
 
 app = FastAPI(
     title="Theodore's World API",
@@ -55,6 +55,7 @@ app.include_router(games_routes.router)
 app.include_router(videos_routes.router)
 app.include_router(claude_routes.router)
 app.include_router(tts_routes.router)
+app.include_router(admin_routes.router)
 
 
 @app.get("/api/health")
