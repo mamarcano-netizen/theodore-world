@@ -24,7 +24,7 @@ from database import engine, Base
 import models  # noqa — registers all models
 
 # Create all tables
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(engine)
 
 from routes import auth_routes, posts_routes, users_routes, games_routes, videos_routes, claude_routes, tts_routes, admin_routes
 
