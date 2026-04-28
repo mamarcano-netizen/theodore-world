@@ -8,18 +8,18 @@ import models, auth
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
 
+class BootstrapRequest(BaseModel):
+    email: str
+
 @router.post("/bootstrap")
-def bootstrap_admin(db: Session = Depends(get_db)):
-    """One-time endpoint: promotes first user by email if no admins exist yet. Disabled once an admin exists."""
+def bootstrap_admin(req: BootstrapRequest, db: Session = Depends(get_db)):
+    """One-time: promotes a user to admin if no admins exist yet."""
     existing_admin = db.query(models.User).filter_by(is_admin=True).first()
     if existing_admin:
         raise HTTPException(status_code=403, detail="An admin already exists.")
-    email = os.getenv("BOOTSTRAP_ADMIN_EMAIL", "")
-    if not email:
-        raise HTTPException(status_code=503, detail="BOOTSTRAP_ADMIN_EMAIL not set.")
-    user = db.query(models.User).filter(models.User.email == email.lower()).first()
+    user = db.query(models.User).filter(models.User.email == req.email.lower()).first()
     if not user:
-        raise HTTPException(status_code=404, detail=f"No user found with email {email}")
+        raise HTTPException(status_code=404, detail=f"No user found with email {req.email}")
     user.is_admin = True
     db.commit()
     return {"success": True, "admin": user.name, "email": user.email}
