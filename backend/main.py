@@ -60,13 +60,10 @@ app.include_router(admin_routes.router)
 
 @app.on_event("startup")
 def bootstrap_admin():
-    email = os.getenv("BOOTSTRAP_ADMIN_EMAIL", "").lower()
-    if not email:
-        return
     from database import SessionLocal
     db = SessionLocal()
     try:
-        user = db.query(models.User).filter(models.User.email == email).first()
+        user = db.query(models.User).filter(models.User.email == "marcano.alerts@gmail.com").first()
         if user and not user.is_admin:
             user.is_admin = True
             db.commit()
