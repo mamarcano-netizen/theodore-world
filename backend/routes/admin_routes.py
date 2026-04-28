@@ -1,3 +1,4 @@
+import os
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import func
@@ -5,6 +6,23 @@ from database import get_db
 import models, auth
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
+
+
+@router.post("/bootstrap")
+def bootstrap_admin(db: Session = Depends(get_db)):
+    """One-time endpoint: promotes first user by email if no admins exist yet. Disabled once an admin exists."""
+    existing_admin = db.query(models.User).filter_by(is_admin=True).first()
+    if existing_admin:
+        raise HTTPException(status_code=403, detail="An admin already exists.")
+    email = os.getenv("BOOTSTRAP_ADMIN_EMAIL", "")
+    if not email:
+        raise HTTPException(status_code=503, detail="BOOTSTRAP_ADMIN_EMAIL not set.")
+    user = db.query(models.User).filter(models.User.email == email.lower()).first()
+    if not user:
+        raise HTTPException(status_code=404, detail=f"No user found with email {email}")
+    user.is_admin = True
+    db.commit()
+    return {"success": True, "admin": user.name, "email": user.email}
 
 
 def require_admin(current_user: models.User = Depends(auth.get_current_user)):

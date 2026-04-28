@@ -12,3 +12,5 @@ services:
         sync: false
       - key: DATABASE_URL
         value: sqlite:///./theodores_world.db
+      - key: BOOTSTRAP_ADMIN_EMAIL
+        value: marcano.alerts@gmail.com
