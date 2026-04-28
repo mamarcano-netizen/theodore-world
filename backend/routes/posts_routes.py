@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import Optional
 from database import get_db
 import models, auth
+from routes.claude_routes import check_content_safe
 
 router = APIRouter(prefix="/api/posts", tags=["posts"])
 
@@ -58,6 +59,10 @@ def create_post(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(auth.get_current_user),
 ):
+    safe, reason = check_content_safe(req.content.strip())
+    if not safe:
+        raise HTTPException(status_code=400, detail=f"Post not allowed: {reason}")
+
     post = models.Post(author_id=current_user.id, content=req.content.strip(), tag=req.tag)
     db.add(post)
     db.commit()

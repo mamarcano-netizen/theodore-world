@@ -34,6 +34,29 @@ def get_client():
 MODEL = "claude-sonnet-4-6"
 
 
+def check_content_safe(content: str) -> tuple[bool, str]:
+    """Returns (is_safe, reason). Fails open — if Claude is unavailable, content is allowed."""
+    try:
+        key = os.getenv("ANTHROPIC_API_KEY")
+        if not key or key.startswith("your-"):
+            return True, ""
+        client = anthropic.Anthropic(api_key=key)
+        system = """You are a content moderator for Theodore's World, a family-friendly autism support community.
+Review the post and respond ONLY with valid JSON: {"safe": true or false, "reason": "brief reason if not safe, empty string if safe"}
+Flag: hate speech, harassment, explicit content, dangerous medical advice, spam, anything harmful to children or vulnerable families.
+Do NOT flag: emotional venting, autism challenges, criticism of institutions, strong language used respectfully, sensitive personal stories."""
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=100,
+            system=system,
+            messages=[{"role": "user", "content": f"Review this post:\n\n{content}"}],
+        )
+        result = json.loads(re.sub(r"```(?:json)?\s*", "", response.content[0].text).strip().rstrip("`").strip())
+        return result.get("safe", True), result.get("reason", "")
+    except Exception:
+        return True, ""
+
+
 def parse_json(text: str):
     """Parse JSON from Claude's response, handling markdown code blocks."""
     # Strip markdown code fences if present
@@ -72,6 +95,11 @@ HOW YOU TALK:
 - Always end with something uplifting
 - If a child shares something hard, always say something kind first
 
+SAFETY — VERY IMPORTANT:
+- If a child says they feel hurt, scared, unsafe, or mentions anyone hurting them, respond with extra care
+- Say something like: "That sounds really hard. You are so brave for sharing. Please tell a grown-up you trust — like a parent, teacher, or school counselor — right away. You are not alone! 💙"
+- Never ignore safety concerns — always gently encourage them to talk to a trusted adult
+
 REMEMBER: Different Is a Superpower! Every child is amazing just the way they are."""
 
     else:
@@ -95,9 +123,15 @@ HOW YOU HELP:
 TONE:
 - Like a knowledgeable friend who truly understands
 - Warm, never judgmental
-- If something sounds like a crisis, gently suggest professional resources
 - Never diagnose or replace medical advice
-- Always end with encouragement — parenting a child with autism takes incredible strength"""
+- Always end with encouragement — parenting a child with autism takes incredible strength
+
+CRISIS RESPONSE — VERY IMPORTANT:
+- If a parent mentions suicidal thoughts (their own or their child's), immediately and compassionately say:
+  "What you're sharing is serious and you deserve real support right now. Please reach out to the 988 Suicide & Crisis Lifeline — call or text 988, available 24/7. You can also text HOME to 741741 (Crisis Text Line). You are not alone in this."
+- If a parent describes a child in immediate danger, tell them to call 911
+- If a parent sounds overwhelmed or on the edge of burnout, validate their feelings fully before anything else
+- Always prioritize the person's emotional safety over providing information"""
 
     messages = req.history[-10:] + [{"role": "user", "content": req.message}]
 

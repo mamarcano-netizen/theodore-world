@@ -22,6 +22,21 @@ BADGE_RULES = {
         (10, "quiz_10", "Quiz Whiz — 10 questions!"),
         (25, "quiz_25", "Quiz Master — 25 questions!"),
     ],
+    "social": [
+        (3,  "social_3",  "Social Star — 3 scenarios!"),
+        (10, "social_10", "Social Champion — 10 scenarios!"),
+        (25, "social_25", "Social Hero — 25 scenarios!"),
+    ],
+    "wordscramble": [
+        (5,  "word_5",  "Word Wizard — 5 words!"),
+        (15, "word_15", "Word Pro — 15 words!"),
+        (30, "word_30", "Word Master — 30 words!"),
+    ],
+    "pattern": [
+        (3,  "pattern_3",  "Pattern Finder — 3 solved!"),
+        (10, "pattern_10", "Pattern Pro — 10 solved!"),
+        (25, "pattern_25", "Pattern Master — 25 solved!"),
+    ],
 }
 
 
@@ -81,7 +96,7 @@ def my_progress(
     current_user: models.User = Depends(auth.get_current_user),
 ):
     result = {}
-    for game_type in ("emotion", "memory", "quiz"):
+    for game_type in ("emotion", "memory", "quiz", "social", "wordscramble", "pattern"):
         scores = db.query(models.GameScore).filter_by(
             user_id=current_user.id, game_type=game_type
         ).all()
