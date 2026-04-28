@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Optional
 from database import get_db
 import models, auth
-from routes.claude_routes import check_content_safe
+from .claude_routes import check_content_safe
 
 router = APIRouter(prefix="/api/posts", tags=["posts"])
 
