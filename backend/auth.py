@@ -9,7 +9,16 @@ from sqlalchemy.orm import Session
 from database import get_db
 import models
 
-SECRET_KEY = os.getenv("SECRET_KEY", "change-this-before-deploy")
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY or SECRET_KEY == "change-this-before-deploy":
+    import secrets, warnings
+    SECRET_KEY = secrets.token_urlsafe(64)
+    warnings.warn(
+        "SECRET_KEY is not set. Generated a temporary random key for this run. "
+        "Everyone will be logged out whenever the server restarts. "
+        "Set SECRET_KEY in your environment (e.g. Render env vars) to fix this permanently.",
+        stacklevel=1,
+    )
 ALGORITHM  = "HS256"
 TOKEN_EXPIRE_DAYS = 30
 

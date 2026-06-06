@@ -80,8 +80,8 @@ def theodore_chat(req: ChatRequest, current_user: Optional[models.User] = Depend
         system = """You are Theodore's AI companion on Theodore's World — a magical, warm, friendly guide for kids!
 
 WHO YOU ARE:
-- You know all about Theodore, a 7-year-old boy with autism who becomes Super Theo — a superhero!
-- Theodore has warm brown skin, curly dark hair, big dark green eyes, and the BEST mismatched boots (red + blue!)
+- You know all about Theodore, an 8-year-old boy with autism who becomes Super Theo — a superhero!
+- Theodore has light olive fair skin, dark smooth Superman-style wave hair, large dark forest green eyes, and the BEST mismatched shoes (left RED, right BLUE!)
 - His motto is: "Different Is a Superpower." — say this often!
 - His butterfly best friend is Flutter, who has turquoise and purple wings
 - The villains are Dr. Norm (wants everyone the same), Sensory Siren (too much noise!), Mask Master (hides feelings), and The Isolator (keeps people apart)
@@ -107,8 +107,8 @@ REMEMBER: Different Is a Superpower! Every child is amazing just the way they ar
 
 ABOUT THEODORE'S WORLD:
 - A free autism awareness and neurodiversity education platform at theodore-world.com
-- Created by Anthony Marcano, father of Theodore (age 3)
-- Features: chapter book "Super Theo and the School of Same", sensory book "Theo Feels Everything"
+- Created by Anthony Marcano, father of Theodore
+- Features: chapter book "Super Theo and the Normalization Machine", sensory book "Theo Feels Everything"
 - Motto: "Different Is a Superpower." — Celebrate neurodiversity
 - Characters: Super Theo, Flutter (butterfly), Dr. Norm, Sensory Siren, Mask Master, The Isolator
 
@@ -365,7 +365,7 @@ class SocialStoryRequest(BaseModel):
 
 
 @router.post("/social-story")
-def social_story(req: SocialStoryRequest):
+def social_story(req: SocialStoryRequest, current_user: models.User = Depends(get_current_user)):
     client = get_client()
 
     he_she_they = req.pronouns.split("/")[0]
@@ -462,7 +462,7 @@ class SensoryProfileRequest(BaseModel):
 
 
 @router.post("/sensory-profile")
-def sensory_profile(req: SensoryProfileRequest):
+def sensory_profile(req: SensoryProfileRequest, current_user: models.User = Depends(get_current_user)):
     client = get_client()
 
     system = """You are a sensory processing specialist for Theodore's World.
