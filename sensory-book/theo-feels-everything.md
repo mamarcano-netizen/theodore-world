@@ -6,7 +6,7 @@
 **Format:** Board book, 9" x 9" square, 32 pages (16 spreads)
 **Physical Sensory Elements:** Noted per spread (for print production)
 **Author:** Anthony Marcano
-**Characters:** Theo (age 5 in this book), Flutter the butterfly
+**Characters:** Theo (age 8 in this book), Flutter the butterfly
 
 ---
 
@@ -17,7 +17,7 @@
 > *And That Is His Superpower.*
 
 **Illustration Brief:**
-Theo — small, warm brown skin, thick curly dark hair, large expressive dark green eyes, round cheeks, small button nose, wearing his lavender T-shirt (puzzle piece drawn on chest in fabric marker) and mismatched sneakers (one red, one blue, velcro straps). He stands in a sun-drenched field of wildflowers. Eyes wide open, arms slightly spread at his sides, face full of pure wonder. Flutter the butterfly — gold/amber/lavender wings — hovers just above his right shoulder, wings catching the light. The sky is soft golden-hour light. The title text is bold, warm, playful.
+Theo — slim 8-year-old boy, light olive fair skin with warm undertone, dark brown/black short smooth Superman-style wave hair (swept across forehead, NOT curly), large expressive dark forest green eyes, round soft cheeks, small button nose, wearing his lavender T-shirt (puzzle piece drawn on chest in fabric marker) and mismatched sneakers (LEFT red velcro, RIGHT blue velcro). He stands in a sun-drenched field of wildflowers. Eyes wide open, arms slightly spread at his sides, face full of pure wonder. Flutter the butterfly — gold/amber/lavender wings — hovers just above his right shoulder, wings catching the light. The sky is soft golden-hour light. The title text is bold, warm, playful.
 
 **Physical Sensory Element:**
 Flutter's wings on the cover have **holographic foil** — shimmers when tilted in light.
@@ -141,7 +141,7 @@ A **small peek-through window** in this spread — when held up to light, a hidd
 > *He rubs it with his thumb when feelings get big.*
 
 **Illustration Brief:**
-Close-up on Theo's small hand — warm brown fingers gently holding a smooth oval gray worry stone. His thumb is mid-rub across the surface. The other hand holds his worn gray backpack strap. His face in soft background — eyes down, expression calm and inward. Flutter rests gently on his wrist, wings closed, a steady presence.
+Close-up on Theo's small hand — light olive fingers gently holding a smooth oval gray worry stone. His thumb is mid-rub across the surface. The other hand holds his worn gray backpack strap. His face in soft background — eyes down, expression calm and inward. Flutter rests gently on his wrist, wings closed, a steady presence.
 
 **Physical Sensory Element:**
 **Actual smooth stone texture** patch embedded — a small oval area on the illustration that is polished smooth. Children can rub it just like Theo does.

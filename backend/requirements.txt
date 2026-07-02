@@ -1,10 +1,10 @@
-fastapi==0.115.12
-uvicorn[standard]==0.34.0
+fastapi==0.136.1
+uvicorn[standard]==0.46.0
 sqlalchemy==2.0.36
-python-jose[cryptography]==3.3.0
+python-jose[cryptography]==3.5.0
 bcrypt==4.2.1
-python-multipart==0.0.20
+python-multipart==0.0.28
 python-dotenv==1.0.1
-requests==2.32.3
-pydantic[email]==2.10.6
-anthropic==0.40.0
+requests==2.34.0
+pydantic[email]==2.13.4
+anthropic==0.103.1

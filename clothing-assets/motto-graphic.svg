@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <!-- Deep space background -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%"   stop-color="#1a0a3a"/>
+      <stop offset="60%"  stop-color="#0d0520"/>
+      <stop offset="100%" stop-color="#04010e"/>
+    </radialGradient>
+    <!-- Aurora sweep across top -->
+    <linearGradient id="aurora" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B" stop-opacity="0.35"/>
+      <stop offset="20%"  stop-color="#FFD166" stop-opacity="0.3"/>
+      <stop offset="40%"  stop-color="#6FDEBC" stop-opacity="0.35"/>
+      <stop offset="60%"  stop-color="#6EC6F5" stop-opacity="0.3"/>
+      <stop offset="80%"  stop-color="#C3A9F5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FF8FAB" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- "Different" rainbow text gradient -->
+    <linearGradient id="diffGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="20%"  stop-color="#FFD166"/>
+      <stop offset="40%"  stop-color="#6FDEBC"/>
+      <stop offset="60%"  stop-color="#6EC6F5"/>
+      <stop offset="80%"  stop-color="#C3A9F5"/>
+      <stop offset="100%" stop-color="#FF8FAB"/>
+    </linearGradient>
+    <!-- "Is a Superpower." gradient -->
+    <linearGradient id="supGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#C3A9F5"/>
+      <stop offset="50%"  stop-color="#FFD166"/>
+      <stop offset="100%" stop-color="#6EC6F5"/>
+    </linearGradient>
+    <!-- Infinity glow -->
+    <radialGradient id="infGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFD166" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FFD166" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Star glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ══ BACKGROUND ══ -->
+  <rect width="1080" height="1080" fill="url(#bgGrad)"/>
+
+  <!-- Aurora sweep -->
+  <ellipse cx="540" cy="200" rx="700" ry="180" fill="url(#aurora)" opacity="0.6"/>
+  <ellipse cx="540" cy="880" rx="600" ry="120" fill="url(#aurora)" opacity="0.4"/>
+
+  <!-- Stars scattered -->
+  <circle cx="80"  cy="60"  r="2"   fill="white" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="200" cy="110" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="340" cy="45"  r="2.5" fill="#FFD166" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="500" cy="90"  r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="650" cy="55"  r="2"   fill="white" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="780" cy="120" r="1.5" fill="#C3A9F5" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="920" cy="70"  r="2"   fill="white" opacity="0.6"/>
+  <circle cx="1020" cy="40" r="1.5" fill="#6EC6F5" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="140" cy="950" r="2"   fill="white" opacity="0.5"/>
+  <circle cx="300" cy="1010" r="1.5" fill="#FF8FAB" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="750" cy="990" r="2"   fill="white" opacity="0.6"/>
+  <circle cx="960" cy="1020" r="1.5" fill="#6FDEBC" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="60"  cy="500" r="1.5" fill="white" opacity="0.4"/>
+  <circle cx="1050" cy="400" r="2" fill="white" opacity="0.5"/>
+  <circle cx="30"  cy="700" r="1.5" fill="#C3A9F5" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="1060" cy="650" r="2"  fill="#FFD166" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- Rainbow arc decoration top -->
+  <path d="M 100,320 Q 540,50 980,320"
+        fill="none" stroke="url(#diffGrad)" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+  <path d="M 140,330 Q 540,80 940,330"
+        fill="none" stroke="url(#diffGrad)" stroke-width="2.5" opacity="0.2" stroke-linecap="round"/>
+
+  <!-- ══ INFINITY SYMBOL — center background glow ══ -->
+  <ellipse cx="540" cy="540" rx="240" ry="240" fill="url(#infGlow)"/>
+  <!-- Large infinity path -->
+  <path d="M 340,540 C 340,480 380,450 430,450 C 480,450 520,490 540,540
+           C 560,590 600,630 650,630 C 700,630 740,600 740,540
+           C 740,480 700,450 650,450 C 600,450 560,490 540,540
+           C 520,590 480,630 430,630 C 380,630 340,600 340,540 Z"
+        fill="none" stroke="url(#supGrad)" stroke-width="6" opacity="0.25" filter="url(#softGlow)"/>
+  <path d="M 340,540 C 340,480 380,450 430,450 C 480,450 520,490 540,540
+           C 560,590 600,630 650,630 C 700,630 740,600 740,540
+           C 740,480 700,450 650,450 C 600,450 560,490 540,540
+           C 520,590 480,630 430,630 C 380,630 340,600 340,540 Z"
+        fill="none" stroke="url(#diffGrad)" stroke-width="3" opacity="0.5"/>
+
+  <!-- ══ SMALL SUPER THEO SILHOUETTE (top center) ══ -->
+  <g transform="translate(440, 155) scale(1.1)" opacity="0.9">
+    <!-- Cape -->
+    <path d="M28,42 Q22,80 16,108 Q40,116 64,108 Q58,80 52,42"
+          fill="url(#diffGrad)" opacity="0.9"/>
+    <!-- Body -->
+    <rect x="26" y="42" width="28" height="36" rx="7" fill="#C3A9F5"/>
+    <!-- Arms -->
+    <path d="M26,46 Q18,54 14,64" stroke="#C3A9F5" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M54,46 Q62,52 66,62" stroke="#C3A9F5" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <!-- Hands -->
+    <circle cx="13" cy="66" r="6" fill="#A06830"/>
+    <circle cx="67" cy="64" r="6" fill="#A06830"/>
+    <!-- Legs -->
+    <rect x="29" y="76" width="10" height="16" rx="5" fill="#C3A9F5"/>
+    <rect x="41" y="76" width="10" height="16" rx="5" fill="#C3A9F5"/>
+    <!-- Boots -->
+    <rect x="26" y="89" width="15" height="10" rx="5" fill="#E82030"/>
+    <rect x="39" y="89" width="15" height="10" rx="5" fill="#2060E8"/>
+    <!-- Head -->
+    <circle cx="40" cy="28" r="18" fill="#A06830"/>
+    <!-- Chubby cheeks -->
+    <circle cx="26" cy="34" r="7" fill="#C07830" opacity="0.25"/>
+    <circle cx="54" cy="34" r="7" fill="#C07830" opacity="0.25"/>
+    <!-- Hair -->
+    <path d="M22,20 C22,8 30,4 40,2 C50,4 58,8 58,20 C55,12 48,8 40,8 C32,8 25,12 22,20 Z"
+          fill="#1a1208"/>
+    <!-- Eyes — dark green -->
+    <ellipse cx="33" cy="27" rx="4.5" ry="5" fill="white"/>
+    <ellipse cx="47" cy="27" rx="4.5" ry="5" fill="white"/>
+    <circle cx="33.5" cy="27.5" r="3" fill="#1a6a30"/>
+    <circle cx="47.5" cy="27.5" r="3" fill="#1a6a30"/>
+    <circle cx="33.5" cy="27.5" r="1.5" fill="#0a0a18"/>
+    <circle cx="47.5" cy="27.5" r="1.5" fill="#0a0a18"/>
+    <circle cx="35" cy="25.5" r="1.2" fill="white"/>
+    <circle cx="49" cy="25.5" r="1.2" fill="white"/>
+    <!-- Smile -->
+    <path d="M34,36 Q40,42 46,36" stroke="#7A4018" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Infinity on chest -->
+    <path d="M33,54 C33,51 36,50 37,52 C38,50 41,51 41,54 C41,57 38,58 37,56 C36,58 33,57 33,54"
+          fill="none" stroke="#FFD166" stroke-width="1.2"/>
+  </g>
+
+  <!-- ══ MAIN TEXT ══ -->
+
+  <!-- "Different" — huge, rainbow, with glow -->
+  <text x="540" y="490"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="188" font-weight="bold" letter-spacing="-4"
+        fill="url(#diffGrad)"
+        filter="url(#textGlow)">Different</text>
+
+  <!-- Thin separator line -->
+  <line x1="180" y1="530" x2="900" y2="530" stroke="url(#diffGrad)" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- "Is a" — medium, purple/gold -->
+  <text x="540" y="620"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="88" font-weight="bold" letter-spacing="8"
+        fill="url(#supGrad)"
+        filter="url(#softGlow)">Is a</text>
+
+  <!-- "Superpower." — large, white with glow -->
+  <text x="540" y="740"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="136" font-weight="bold" letter-spacing="2"
+        fill="white"
+        filter="url(#textGlow)">Superpower.</text>
+
+  <!-- ══ DECORATIVE DOTS (puzzle-piece-style) ══ -->
+  <circle cx="185" cy="735" r="8" fill="#FF6B6B" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="895" cy="735" r="8" fill="#6EC6F5" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="165" cy="485" r="6" fill="#FFD166" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="915" cy="485" r="6" fill="#C3A9F5" opacity="0.6" filter="url(#glow)"/>
+
+  <!-- ══ BOTTOM BRANDING ══ -->
+  <!-- Brand line -->
+  <line x1="200" y1="820" x2="880" y2="820" stroke="url(#diffGrad)" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Theodore's World wordmark -->
+  <text x="540" y="870"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="32" font-weight="bold" letter-spacing="6"
+        fill="url(#supGrad)" opacity="0.9">THEODORE'S WORLD</text>
+
+  <!-- Tagline -->
+  <text x="540" y="906"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" letter-spacing="4" font-weight="500"
+        fill="#C3A9F5" opacity="0.7">Celebrate Every Mind</text>
+
+  <!-- Corner infinity accents -->
+  <text x="60"  y="1040" font-family="Georgia, serif" font-size="28" fill="#C3A9F5" opacity="0.4">∞</text>
+  <text x="1010" y="1040" font-family="Georgia, serif" font-size="28" fill="#C3A9F5" opacity="0.4" text-anchor="middle">∞</text>
+  <text x="60"  y="90"  font-family="Georgia, serif" font-size="28" fill="#FFD166" opacity="0.4">∞</text>
+  <text x="1010" y="90"  font-family="Georgia, serif" font-size="28" fill="#FFD166" opacity="0.4" text-anchor="middle">∞</text>
+</svg>
