@@ -4671,9 +4671,7 @@ function closeOnboard() {
   localStorage.setItem('tw_onboarded','1');
 }
 function maybeShowOnboard() {
-  if (!localStorage.getItem('tw_onboarded')) {
-    setTimeout(()=>{ document.getElementById('onboard-overlay').style.display='flex'; }, 1200);
-  }
+  // Welcome pop-up disabled — visitors go straight to the site
 }
 
 // ====== INIT ======
