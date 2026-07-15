@@ -492,12 +492,16 @@ GLOBAL STYLE: {STYLE}
 
 Write the prompt now:"""
 
-    response = client.messages.create(
-        model="claude-opus-4-8",
-        max_tokens=400,
+    response = client.beta.messages.create(
+        model="claude-fable-5",
+        max_tokens=4000,
+        betas=["server-side-fallback-2026-06-01"],
+        fallbacks=[{"model": "claude-opus-4-8"}],
         messages=[{"role": "user", "content": prompt_request}]
     )
-    return response.content[0].text.strip()
+    if response.stop_reason == "refusal":
+        raise RuntimeError("Claude declined this image prompt request — try rewording the scene description")
+    return next(b.text for b in response.content if b.type == "text").strip()
 
 
 FACE_CACHE = Path(__file__).parent / "theo_face_description.txt"
@@ -516,9 +520,11 @@ def analyze_theo_face(client: anthropic.Anthropic) -> str:
     img.save(buf, format="JPEG", quality=95)
     img_data = base64.b64encode(buf.getvalue()).decode("utf-8")
 
-    response = client.messages.create(
-        model="claude-opus-4-8",
-        max_tokens=350,
+    response = client.beta.messages.create(
+        model="claude-fable-5",
+        max_tokens=4000,
+        betas=["server-side-fallback-2026-06-01"],
+        fallbacks=[{"model": "claude-opus-4-8"}],
         messages=[{
             "role": "user",
             "content": [
@@ -535,7 +541,9 @@ def analyze_theo_face(client: anthropic.Anthropic) -> str:
             ]
         }]
     )
-    desc = response.content[0].text.strip()
+    if response.stop_reason == "refusal":
+        raise RuntimeError("Claude declined the face analysis request — check the reference image")
+    desc = next(b.text for b in response.content if b.type == "text").strip()
     # Save to cache so every run uses identical wording
     FACE_CACHE.write_text(desc, encoding="utf-8")
     log(f"Face description saved to cache: {desc[:100]}...")
