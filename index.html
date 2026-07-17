@@ -1303,11 +1303,6 @@ body.dark .lb-row{border-color:#3a3a5a;}
      oninput="twSearchLive(this.value)" onkeydown="if(event.key==='Escape')twCloseSearch()">
    <div id="search-results" class="search-dropdown" role="listbox" aria-label="Search results"></div>
   </div>
-  <div class="font-ctrl" title="Font size">
-   <button class="font-btn" onclick="changeFontSize(-1)" aria-label="Decrease font size">A-</button>
-   <button class="font-btn" onclick="changeFontSize(1)" aria-label="Increase font size">A+</button>
-  </div>
-  <button class="dark-btn" id="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" title="Dark mode">🌙</button>
   <button id="pwa-install-btn" class="nav-btn" onclick="installPWA()" style="display:none;background:var(--mint);border-color:var(--mint);color:#1a5c45;" aria-label="Install app">📲 Install App</button>
   <div id="nav-auth-btn">
    <button class="nav-btn signin" onclick="openM('auth-overlay')" aria-label="Sign in or join">Sign In / Join</button>
@@ -4150,27 +4145,6 @@ async function sendStoryReflection(){
   }catch(e){thinking.textContent='🦋 Sorry, Theodore is resting right now. Try again in a moment!';}
   ra.scrollTop=ra.scrollHeight;
 }
-
-// ====== DARK MODE ======
-function toggleDark(){
-  document.body.classList.toggle('dark');
-  const on=document.body.classList.contains('dark');
-  localStorage.setItem('tw_dark',on?'1':'0');
-  document.getElementById('dark-toggle').textContent=on?'☀️':'🌙';
-}
-(function(){
-  if(localStorage.getItem('tw_dark')==='1'){
-    document.body.classList.add('dark');
-    const btn=document.getElementById('dark-toggle');
-    if(btn)btn.textContent='☀️';
-  }
-})();
-
-// ====== FONT SIZE ======
-let FS=parseInt(localStorage.getItem('tw_fs')||'16');
-function applyFontSize(){document.documentElement.style.setProperty('--fs',FS+'px');}
-function changeFontSize(d){FS=Math.min(22,Math.max(12,FS+d));localStorage.setItem('tw_fs',FS);applyFontSize();}
-applyFontSize();
 
 // ====== AI TOOLS — API wrappers ======
 async function aiToolFetch(endpoint,data){
