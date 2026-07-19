@@ -666,6 +666,7 @@ footer strong{color:var(--sun);}
 .char-card{min-width:170px;max-width:170px;background:white;border-radius:var(--r);padding:18px 14px;
   box-shadow:var(--sh);text-align:center;scroll-snap-align:center;flex-shrink:0;transition:transform .3s;}
 .char-card:hover{transform:translateY(-5px) scale(1.03);}
+.char-card img.char-avatar{object-fit:cover;object-position:center top;display:block;}
 .char-card .char-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 10px;display:flex;
   align-items:center;justify-content:center;font-size:2rem;}
 .char-card h4{font-family:'Baloo 2',cursive;font-size:.9rem;margin-bottom:3px;}
@@ -1385,84 +1386,7 @@ body.dark .lb-row{border-color:#3a3a5a;}
  <div class="hero">
   <div class="hero-mascot-wrap">
    <div class="hero-mascot">
-    <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-     <!-- Super Theo — Age 8, per locked Character Bible: light olive skin, smooth swoop hair, silver-gray eyes (transformed), navy cape, pink-to-lavender suit -->
-     <defs>
-      <radialGradient id="skinH" cx="45%" cy="35%" r="65%"><stop offset="0%" stop-color="#F6CFA8"/><stop offset="100%" stop-color="#E8B184"/></radialGradient>
-      <linearGradient id="suit" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF8FAB"/><stop offset="100%" stop-color="#C3A9F5"/></linearGradient>
-      <linearGradient id="cape" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1B2A6B"/><stop offset="100%" stop-color="#2d3a7a"/></linearGradient>
-      <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1208"/><stop offset="100%" stop-color="#0d0a04"/></linearGradient>
-     </defs>
-     <!-- Cape (animated billowing) -->
-     <path d="M68,100 Q58,162 44,228 Q100,248 156,228 Q142,162 132,100" fill="url(#cape)" opacity=".85">
-      <animate attributeName="d" values="M68,100 Q58,162 44,228 Q100,248 156,228 Q142,162 132,100;M68,100 Q53,167 40,232 Q100,252 160,232 Q147,167 132,100;M68,100 Q58,162 44,228 Q100,248 156,228 Q142,162 132,100" dur="3s" repeatCount="indefinite"/>
-     </path>
-     <!-- Body/Suit — compact, square-ish kid torso -->
-     <rect x="70" y="100" width="60" height="70" rx="14" fill="url(#suit)"/>
-     <!-- Infinity symbol on chest -->
-     <path d="M89,128 C89,123 95,121 97,125 C99,121 105,123 105,128 C105,133 99,135 97,131 C95,135 89,133 89,128" fill="none" stroke="#FFD166" stroke-width="2"/>
-     <!-- Puzzle piece accent -->
-     <rect x="108" y="117" width="14" height="14" rx="2.5" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-     <!-- Arms — chubby, short kid arms -->
-     <path d="M70,107 Q52,119 44,140" stroke="url(#suit)" stroke-width="18" fill="none" stroke-linecap="round"/>
-     <path d="M130,107 Q148,117 158,132" stroke="url(#suit)" stroke-width="18" fill="none" stroke-linecap="round"/>
-     <!-- Chubby hands -->
-     <circle cx="42" cy="144" r="12" fill="url(#skinH)"/>
-     <circle cx="160" cy="135" r="11" fill="url(#skinH)"/>
-     <!-- Fist lines left -->
-     <path d="M36,141 Q39,137 43,141" stroke="#D9A87E" stroke-width="1.2" fill="none"/>
-     <path d="M40,141 Q43,137 47,141" stroke="#D9A87E" stroke-width="1.2" fill="none"/>
-     <!-- Fingers right -->
-     <line x1="160" y1="126" x2="160" y2="122" stroke="url(#skinH)" stroke-width="3.5" stroke-linecap="round"/>
-     <line x1="155" y1="127" x2="153" y2="123" stroke="url(#skinH)" stroke-width="3.5" stroke-linecap="round"/>
-     <line x1="165" y1="127" x2="167" y2="123" stroke="url(#skinH)" stroke-width="3.5" stroke-linecap="round"/>
-     <!-- Legs — short, stubby kid legs -->
-     <rect x="76" y="166" width="22" height="32" rx="10" fill="url(#suit)"/>
-     <rect x="102" y="166" width="22" height="32" rx="10" fill="url(#suit)"/>
-     <!-- Boots (mismatched: red left, blue right) -->
-     <rect x="71" y="192" width="30" height="20" rx="10" fill="#E82030"/>
-     <rect x="71" y="204" width="32" height="12" rx="6" fill="#B01020"/>
-     <rect x="99" y="192" width="30" height="20" rx="10" fill="#2060E8"/>
-     <rect x="99" y="204" width="32" height="12" rx="6" fill="#1040B0"/>
-     <!-- Boot shines -->
-     <ellipse cx="82" cy="197" rx="7" ry="3" fill="rgba(255,255,255,0.2)"/>
-     <ellipse cx="110" cy="197" rx="7" ry="3" fill="rgba(255,255,255,0.2)"/>
-     <!-- HEAD — big, round, childlike — age 7 key proportion -->
-     <circle cx="100" cy="62" r="38" fill="url(#skinH)"/>
-     <!-- Chubby cheeks — prominent for age 7 -->
-     <circle cx="68" cy="76" r="14" fill="#F49B9B" opacity="0.35"/>
-     <circle cx="132" cy="76" r="14" fill="#F49B9B" opacity="0.35"/>
-     <!-- Ears -->
-     <ellipse cx="62" cy="64" rx="7" ry="9" fill="#EDBE93"/>
-     <ellipse cx="138" cy="64" rx="7" ry="9" fill="#EDBE93"/>
-     <!-- Hair — smooth dark Superman-style side swoop (never curly) -->
-     <path d="M62,42 C62,22 76,12 100,9 C124,12 138,22 138,42 C132,28 118,22 100,20 C82,22 68,28 62,42 Z" fill="url(#hair)"/>
-     <path d="M68,42 C72,30 86,24 100,24 C114,24 128,30 132,42" fill="none" stroke="#0d0a04" stroke-width="3" stroke-linecap="round"/>
-     <path d="M124,30 C112,22 94,22 78,34 C86,24 104,18 118,24 C122,26 124,28 124,30 Z" fill="#1a1208"/>
-     <!-- EYES — BIG, luminous silver-gray (Super Theo form), child proportions -->
-     <ellipse cx="86" cy="64" rx="9" ry="10" fill="white"/>
-     <ellipse cx="114" cy="64" rx="9" ry="10" fill="white"/>
-     <!-- Luminous silver-gray irises (transformed) -->
-     <circle cx="87" cy="65" r="6.5" fill="#C8D0DC"/>
-     <circle cx="115" cy="65" r="6.5" fill="#C8D0DC"/>
-     <circle cx="87" cy="65" r="6.5" fill="none" stroke="#A9B4C4" stroke-width="1"/>
-     <circle cx="115" cy="65" r="6.5" fill="none" stroke="#A9B4C4" stroke-width="1"/>
-     <!-- Pupils -->
-     <circle cx="87" cy="65" r="3.5" fill="#0a0a18"/>
-     <circle cx="115" cy="65" r="3.5" fill="#0a0a18"/>
-     <!-- Big eye shine — child sparkle -->
-     <circle cx="90" cy="60" r="2.5" fill="white"/>
-     <circle cx="118" cy="60" r="2.5" fill="white"/>
-     <circle cx="84" cy="69" r="1" fill="rgba(255,255,255,0.5)"/>
-     <circle cx="112" cy="69" r="1" fill="rgba(255,255,255,0.5)"/>
-     <!-- Eyebrows — soft, gentle -->
-     <path d="M77,51 Q87,46 96,50" stroke="#1a1208" stroke-width="2" fill="none" stroke-linecap="round"/>
-     <path d="M104,50 Q113,46 122,51" stroke="#1a1208" stroke-width="2" fill="none" stroke-linecap="round"/>
-     <!-- Small button nose -->
-     <ellipse cx="100" cy="74" rx="3.5" ry="2.5" fill="rgba(0,0,0,0.1)"/>
-     <!-- Smile — gentle, warm, slightly shy -->
-     <path d="M87,84 Q100,94 113,84" stroke="#C08A62" stroke-width="2" fill="none" stroke-linecap="round"/>
-    </svg>
+    <img src="characters/hero-theo.jpg" alt="Theo" style="width:100%;height:100%;object-fit:cover;border-radius:24px;box-shadow:0 10px 30px rgba(110,198,245,.4);">
     <!-- Flutter butterfly -->
     <div class="flutter-wrap">
      <svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
@@ -1537,12 +1461,12 @@ body.dark .lb-row{border-color:#3a3a5a;}
   <h2 style="font-family:'Baloo 2',cursive;font-size:1.6rem;text-align:center;color:var(--navy);margin-bottom:4px;">Meet the Heroes & Villains 🦸</h2>
   <p style="text-align:center;color:#666;font-size:.88rem;margin-bottom:16px;">Scroll to explore the world of Super Theo!</p>
   <div class="char-scroll">
-   <div class="char-card hero-type"><div class="char-avatar">🦸</div><h4>Super Theo</h4><p>The Spectrum Guardian — his focus, empathy, and eye for detail were always there. Three words unlocked it all: “I am enough.”</p></div>
-   <div class="char-card hero-type"><div class="char-avatar">🦋</div><h4>Flutter</h4><p>Super Theo's one and only sidekick — a magical butterfly who has always been with Theo, and blazed bright gold the night he found his powers!</p></div>
-   <div class="char-card villain-type"><div class="char-avatar">🧪</div><h4>Dr. Norm</h4><p>The Conformist — wants everyone to be "normal" and erases uniqueness!</p></div>
-   <div class="char-card villain-type"><div class="char-avatar">📢</div><h4>Sensory Siren</h4><p>Queen of Overwhelm — bombards with noise, lights & chaos!</p></div>
-   <div class="char-card villain-type"><div class="char-avatar">🎭</div><h4>Mask Master</h4><p>The Identity Thief — forces kids to hide who they really are!</p></div>
-   <div class="char-card villain-type"><div class="char-avatar">🕳️</div><h4>The Isolator</h4><p>Architect of Loneliness — builds walls between people!</p></div>
+   <div class="char-card hero-type"><img class="char-avatar" src="characters/av-supertheo.jpg" alt="Super Theo"><h4>Super Theo</h4><p>The Spectrum Guardian — his focus, empathy, and eye for detail were always there. Three words unlocked it all: “I am enough.”</p></div>
+   <div class="char-card hero-type"><img class="char-avatar" src="characters/av-flutter.jpg" alt="Flutter"><h4>Flutter</h4><p>Super Theo's one and only sidekick — a magical butterfly who has always been with Theo, and blazed bright gold the night he found his powers!</p></div>
+   <div class="char-card villain-type"><img class="char-avatar" src="characters/av-norm.jpg" alt="Dr. Norm"><h4>Dr. Norm</h4><p>The Conformist — wants everyone to be "normal" and erases uniqueness!</p></div>
+   <div class="char-card villain-type"><img class="char-avatar" src="characters/av-siren.jpg" alt="Sensory Siren"><h4>Sensory Siren</h4><p>Queen of Overwhelm — bombards with noise, lights & chaos!</p></div>
+   <div class="char-card villain-type"><img class="char-avatar" src="characters/av-mask.jpg" alt="Mask Master"><h4>Mask Master</h4><p>The Identity Thief — forces kids to hide who they really are!</p></div>
+   <div class="char-card villain-type"><img class="char-avatar" src="characters/av-isolator.jpg" alt="The Isolator"><h4>The Isolator</h4><p>Architect of Loneliness — builds walls between people!</p></div>
   </div>
  </div>
 
@@ -4741,70 +4665,7 @@ if('serviceWorker' in navigator){
    <circle cx="42" cy="19" r="1.5" fill="white"/>
   </svg>
   <div id="theo-figure" onclick="theoTap()" title="Tap Super Theo!">
-   <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-     <linearGradient id="tfs" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6EC6F5"/><stop offset="50%" stop-color="#C3A9F5"/><stop offset="100%" stop-color="#FF8FAB"/></linearGradient>
-     <linearGradient id="tfc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF6B6B"/><stop offset="25%" stop-color="#FFD166"/><stop offset="50%" stop-color="#6FDEBC"/><stop offset="75%" stop-color="#6EC6F5"/><stop offset="100%" stop-color="#C3A9F5"/></linearGradient>
-     <linearGradient id="tfh" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5C3D2E"/><stop offset="100%" stop-color="#3E2723"/></linearGradient>
-    </defs>
-    <!-- Cape -->
-    <path d="M70,95 Q60,160 45,230 Q100,250 155,230 Q140,160 130,95" fill="url(#tfc)" opacity=".85">
-     <animate attributeName="d" values="M70,95 Q60,160 45,230 Q100,250 155,230 Q140,160 130,95;M70,95 Q55,165 40,235 Q100,255 160,235 Q145,165 130,95;M70,95 Q60,160 45,230 Q100,250 155,230 Q140,160 130,95" dur="3s" repeatCount="indefinite"/>
-    </path>
-    <!-- Body/Suit -->
-    <rect x="72" y="95" width="56" height="80" rx="12" fill="url(#tfs)"/>
-    <!-- Suit details -->
-    <circle cx="90" cy="120" r="6" fill="rgba(255,255,255,.3)"/>
-    <circle cx="110" cy="135" r="5" fill="rgba(255,255,255,.25)"/>
-    <!-- Arms -->
-    <path d="M72,100 Q55,115 48,138" stroke="url(#tfs)" stroke-width="14" fill="none" stroke-linecap="round"/>
-    <path d="M128,100 Q145,110 155,128" stroke="url(#tfs)" stroke-width="14" fill="none" stroke-linecap="round"/>
-    <!-- Hands -->
-    <circle cx="46" cy="140" r="10" fill="#D4A06A"/>
-    <circle cx="157" cy="130" r="10" fill="#D4A06A"/>
-    <!-- Fingers right hand -->
-    <line x1="157" y1="122" x2="157" y2="118" stroke="#D4A06A" stroke-width="3" stroke-linecap="round"/>
-    <line x1="153" y1="123" x2="151" y2="118" stroke="#D4A06A" stroke-width="3" stroke-linecap="round"/>
-    <line x1="161" y1="123" x2="163" y2="118" stroke="#D4A06A" stroke-width="3" stroke-linecap="round"/>
-    <!-- Legs -->
-    <rect x="78" y="172" width="18" height="48" rx="8" fill="url(#tfs)"/>
-    <rect x="104" y="172" width="18" height="48" rx="8" fill="url(#tfs)"/>
-    <!-- Mismatched boots -->
-    <rect x="74" y="214" width="26" height="18" rx="9" fill="#FF6B6B"/>
-    <rect x="100" y="214" width="26" height="18" rx="9" fill="#6EC6F5"/>
-    <!-- Head -->
-    <circle cx="100" cy="68" r="36" fill="#D4A06A"/>
-    <!-- Hair -->
-    <path d="M64,58 Q70,28 100,25 Q130,28 136,58 Q130,42 100,38 Q70,42 64,58" fill="url(#tfh)"/>
-    <!-- Eyes white -->
-    <ellipse cx="87" cy="68" rx="7" ry="8" fill="white"/>
-    <ellipse cx="113" cy="68" rx="7" ry="8" fill="white"/>
-    <!-- Pupils -->
-    <circle cx="89" cy="69" r="4" fill="#2D2D3A"/>
-    <circle cx="115" cy="69" r="4" fill="#2D2D3A"/>
-    <!-- Eye shine -->
-    <circle cx="90" cy="67" r="1.5" fill="white"/>
-    <circle cx="116" cy="67" r="1.5" fill="white"/>
-    <!-- Eyelids for blink -->
-    <rect class="theo-eyelid" x="80" y="60" width="14" height="16" rx="6" fill="#D4A06A"/>
-    <rect class="theo-eyelid" x="106" y="60" width="14" height="16" rx="6" fill="#D4A06A"/>
-    <!-- Eyebrows (gentle, friendly) -->
-    <path d="M82,59 Q87,55 92,58" stroke="#5C3D2E" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path d="M108,58 Q113,55 118,59" stroke="#5C3D2E" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <!-- Blush -->
-    <ellipse cx="78" cy="78" rx="9" ry="5" fill="rgba(255,140,80,.2)"/>
-    <ellipse cx="122" cy="78" rx="9" ry="5" fill="rgba(255,140,80,.2)"/>
-    <!-- Smile (closed) -->
-    <path class="theo-mc" d="M88,80 Q100,90 112,80" stroke="#2D2D3A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <!-- Mouth open (talking) -->
-    <g class="theo-mo">
-     <ellipse cx="100" cy="82" rx="10" ry="6" fill="#c07840"/>
-     <ellipse cx="100" cy="82" rx="7.5" ry="4" fill="#8B2222"/>
-     <ellipse cx="100" cy="80" rx="7.5" ry="2" fill="white"/>
-    </g>
-    <!-- Infinity symbol on chest -->
-    <path id="theo-emblem" d="M92,125 C92,120 98,118 100,122 C102,118 108,120 108,125 C108,130 102,132 100,128 C98,132 92,130 92,125" fill="none" stroke="#FFD166" stroke-width="2.5"/>
-   </svg>
+   <img src="characters/chat-supertheo.jpg" alt="Super Theo" style="width:100%;height:100%;object-fit:cover;border-radius:18px;box-shadow:0 8px 24px rgba(27,42,107,.45);">
   </div>
   <div id="theo-status">
     <div id="theo-status-dot"></div>
