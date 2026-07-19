@@ -1389,37 +1389,7 @@ body.dark .lb-row{border-color:#3a3a5a;}
     <img src="characters/hero-theo.png" alt="Theo" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(110,198,245,.45));">
     <!-- Flutter butterfly -->
     <div class="flutter-wrap">
-     <svg viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(40,35)">
-       <!-- Left wings -->
-       <ellipse cx="-18" cy="-12" rx="18" ry="14" fill="#FFD166" opacity=".9">
-        <animate attributeName="rx" values="18;14;18" dur="0.6s" repeatCount="indefinite"/>
-       </ellipse>
-       <ellipse cx="-14" cy="8" rx="13" ry="10" fill="#C3A9F5" opacity=".85">
-        <animate attributeName="rx" values="13;10;13" dur="0.6s" repeatCount="indefinite"/>
-       </ellipse>
-       <!-- Right wings -->
-       <ellipse cx="18" cy="-12" rx="18" ry="14" fill="#FFD166" opacity=".9">
-        <animate attributeName="rx" values="18;14;18" dur="0.6s" repeatCount="indefinite"/>
-       </ellipse>
-       <ellipse cx="14" cy="8" rx="13" ry="10" fill="#C3A9F5" opacity=".85">
-        <animate attributeName="rx" values="13;10;13" dur="0.6s" repeatCount="indefinite"/>
-       </ellipse>
-       <!-- Body -->
-       <ellipse cx="0" cy="0" rx="4" ry="16" fill="#5B2D8E"/>
-       <!-- Eyes -->
-       <circle cx="-3" cy="-10" r="2.5" fill="white"/><circle cx="3" cy="-10" r="2.5" fill="white"/>
-       <circle cx="-2.5" cy="-9.5" r="1.2" fill="#20B2AA"/><circle cx="3.5" cy="-9.5" r="1.2" fill="#20B2AA"/>
-       <!-- Antennae -->
-       <line x1="-2" y1="-16" x2="-8" y2="-26" stroke="#2D2D3A" stroke-width="1.5" stroke-linecap="round"/>
-       <line x1="2" y1="-16" x2="8" y2="-26" stroke="#2D2D3A" stroke-width="1.5" stroke-linecap="round"/>
-       <circle cx="-8" cy="-26" r="2.5" fill="#FFD166"/>
-       <circle cx="8" cy="-26" r="2.5" fill="#FFD166"/>
-       <!-- Wing sparkles -->
-       <circle cx="-18" cy="-14" r="2" fill="white" opacity=".5"><animate attributeName="opacity" values=".5;1;.5" dur="1.5s" repeatCount="indefinite"/></circle>
-       <circle cx="20" cy="-10" r="1.5" fill="white" opacity=".4"><animate attributeName="opacity" values=".4;.9;.4" dur="1.8s" repeatCount="indefinite"/></circle>
-      </g>
-     </svg>
+     <img src="characters/flutter.png" alt="Flutter" style="width:100%;filter:drop-shadow(0 6px 14px rgba(255,209,102,.5));">
     </div>
     <!-- Sparkle trail -->
     <div class="sparkle-trail" style="top:10px;right:-30px;background:var(--sun);animation-delay:0s"></div>
@@ -4637,33 +4607,7 @@ if('serviceWorker' in navigator){
 <div id="theo-float">
   <div id="theo-bubble">Hi! Tap me! 💙</div>
   <!-- Flutter butterfly companion — tappable, flies beside Theo -->
-  <svg id="theo-flutter" onclick="flutterTap()" title="Flutter!" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-   <defs>
-    <linearGradient id="tfwl" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C3A9F5"/><stop offset="100%" stop-color="#FF8FAB"/></linearGradient>
-    <linearGradient id="tfwr" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6EC6F5"/><stop offset="100%" stop-color="#6FDEBC"/></linearGradient>
-   </defs>
-   <!-- Left wings -->
-   <ellipse cx="22" cy="28" rx="18" ry="12" fill="url(#tfwl)" opacity=".9" transform="rotate(-25,22,28)"/>
-   <ellipse cx="18" cy="52" rx="14" ry="9" fill="url(#tfwl)" opacity=".75" transform="rotate(15,18,52)"/>
-   <!-- Right wings -->
-   <ellipse cx="58" cy="28" rx="18" ry="12" fill="url(#tfwr)" opacity=".9" transform="rotate(25,58,28)"/>
-   <ellipse cx="62" cy="52" rx="14" ry="9" fill="url(#tfwr)" opacity=".75" transform="rotate(-15,62,52)"/>
-   <!-- Wing shimmer details -->
-   <ellipse cx="22" cy="28" rx="8" ry="5" fill="rgba(255,255,255,.25)" transform="rotate(-25,22,28)"/>
-   <ellipse cx="58" cy="28" rx="8" ry="5" fill="rgba(255,255,255,.25)" transform="rotate(25,58,28)"/>
-   <!-- Body -->
-   <ellipse cx="40" cy="40" rx="5" ry="18" fill="#2D2D3A"/>
-   <!-- Head -->
-   <circle cx="40" cy="20" r="6" fill="#2D2D3A"/>
-   <!-- Antennae -->
-   <line x1="37" y1="15" x2="30" y2="6" stroke="#2D2D3A" stroke-width="1.5" stroke-linecap="round"/>
-   <line x1="43" y1="15" x2="50" y2="6" stroke="#2D2D3A" stroke-width="1.5" stroke-linecap="round"/>
-   <circle cx="30" cy="6" r="2.5" fill="#FFD166"/>
-   <circle cx="50" cy="6" r="2.5" fill="#FFD166"/>
-   <!-- Eyes -->
-   <circle cx="38" cy="19" r="1.5" fill="white"/>
-   <circle cx="42" cy="19" r="1.5" fill="white"/>
-  </svg>
+  <img id="theo-flutter" src="characters/flutter.png" onclick="flutterTap()" title="Flutter!" alt="Flutter" style="cursor:pointer;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(255,209,102,.55));">
   <div id="theo-figure" onclick="theoTap()" title="Tap Super Theo!">
    <img src="characters/chat-supertheo.png" alt="Super Theo" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(27,42,107,.5));">
   </div>
