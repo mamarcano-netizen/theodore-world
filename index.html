@@ -3994,6 +3994,8 @@ document.addEventListener('DOMContentLoaded',function(){
     window.goPage=function(page,ref){
       originalGoPage(page,ref);
       if(page==='storybook')setTimeout(sbInit,50);
+      const tf=document.getElementById('theo-float');
+      if(tf)tf.style.display=(page==='storybook')?'none':'';
     };
   }
 });
