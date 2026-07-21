@@ -1945,8 +1945,8 @@ body.dark .lb-row{border-color:#3a3a5a;}
 .sb-progress-label{font-size:.82rem;color:rgba(255,255,255,.55);font-family:'Nunito',sans-serif;margin-top:4px;}
 .sb-page-frame{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18);transition:opacity .35s ease,transform .35s ease;}
 .sb-page-frame.sb-fade{opacity:0;transform:translateY(12px);}
-.sb-img-area{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.sb-img-area img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:0;}
+.sb-img-area{position:relative;min-height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.sb-img-area img{position:static;display:block;width:100%;height:auto;max-height:74vh;object-fit:contain;}
 .sb-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;}
 .sb-img-emoji{font-size:7rem;line-height:1;filter:drop-shadow(0 8px 24px rgba(0,0,0,.2));animation:sbFloat 3s ease-in-out infinite;}
 .sb-img-caption{font-size:.9rem;color:rgba(255,255,255,.85);font-family:'Nunito',sans-serif;font-style:italic;text-align:center;padding:0 24px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.4);}
@@ -3898,24 +3898,66 @@ function sbGetNarrationText(){
   return (SB_PAGES[sbCurrent].chapter+'. '+(SB_PAGES[sbCurrent].title||'').replace(/<[^>]+>/g,'')+'. '+tmp.textContent).replace(/\s+/g,' ').trim();
 }
 
-function sbToggleRead(){
+const SB_TTS='https://theodores-world-api.onrender.com/api/tts';
+let sbAudio=null;
+
+function sbChunks(text){
+  const parts=text.match(/[^.!?]+[.!?]+["']?|[^.!?]+$/g)||[text];
+  const out=[];let cur='';
+  for(const s of parts){
+    if((cur+' '+s).length>440&&cur){out.push(cur.trim());cur=s;}
+    else cur=(cur+' '+s);
+  }
+  if(cur.trim())out.push(cur.trim());
+  return out;
+}
+
+async function sbToggleRead(){
   if(sbSpeaking){sbStopRead();return;}
-  if(!window.speechSynthesis){alert('Sorry, your browser does not support text-to-speech.');return;}
   const btn=document.getElementById('sbReadBtn');
-  const utt=new SpeechSynthesisUtterance(sbGetNarrationText());
-  utt.rate=0.88;utt.pitch=1.05;
-  utt.onend=()=>{sbSpeaking=false;if(btn){btn.textContent='▶ Read to Me';btn.classList.remove('playing');}};
-  utt.onerror=()=>{sbSpeaking=false;if(btn){btn.textContent='▶ Read to Me';btn.classList.remove('playing');}};
-  window.speechSynthesis.speak(utt);
   sbSpeaking=true;
-  if(btn){btn.textContent='⏹ Stop';btn.classList.add('playing');}
+  if(btn){btn.textContent='✨ Waking Theo up…';btn.classList.add('playing');}
+  try{
+    const chunks=sbChunks(sbGetNarrationText());
+    const urls=[];
+    for(const c of chunks){
+      const r=await fetch(SB_TTS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:c})});
+      if(!r.ok)throw new Error('tts '+r.status);
+      urls.push(URL.createObjectURL(await r.blob()));
+    }
+    if(!sbSpeaking){urls.forEach(u=>URL.revokeObjectURL(u));return;}
+    if(btn)btn.textContent='⏹ Stop';
+    let i=0;
+    const playNext=()=>{
+      i++;
+      if(i<urls.length&&sbSpeaking){sbAudio=new Audio(urls[i]);sbAudio.onended=playNext;sbAudio.play();}
+      else{urls.forEach(u=>URL.revokeObjectURL(u));sbFinishRead();}
+    };
+    sbAudio=new Audio(urls[0]);
+    sbAudio.onended=playNext;
+    await sbAudio.play();
+  }catch(e){
+    if(!sbSpeaking)return;
+    if(window.speechSynthesis){
+      const utt=new SpeechSynthesisUtterance(sbGetNarrationText());
+      utt.rate=0.88;utt.pitch=1.05;
+      utt.onend=sbFinishRead;utt.onerror=sbFinishRead;
+      window.speechSynthesis.speak(utt);
+      if(btn)btn.textContent='⏹ Stop';
+    } else sbFinishRead();
+  }
+}
+
+function sbFinishRead(){
+  sbSpeaking=false;sbAudio=null;
+  const btn=document.getElementById('sbReadBtn');
+  if(btn){btn.textContent='▶ Read to Me';btn.classList.remove('playing');}
 }
 
 function sbStopRead(){
-  window.speechSynthesis.cancel();
-  sbSpeaking=false;
-  const btn=document.getElementById('sbReadBtn');
-  if(btn){btn.textContent='▶ Read to Me';btn.classList.remove('playing');}
+  if(sbAudio){try{sbAudio.pause();}catch(e){}}
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
+  sbFinishRead();
 }
 
 function sbToggleAuto(){
