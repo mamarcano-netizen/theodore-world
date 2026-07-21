@@ -30,7 +30,7 @@ Forty-seven. He'd counted them before. Still forty-seven. Good.
 
 "Theo!" his mom called from downstairs. "Breakfast is getting cold!"
 
-Theo sat up in bed and looked around his room. His backpack was already packed — he'd done it three times last night to make sure. Gray, a little worn at the corners, covered in his favorite patches and pins. The butterfly pin near the top zipper. The gold star. The rainbow patch. And right in the middle, the one his dad had given him before he moved away: a small silver button with an infinity symbol on it. ∞
+Theo sat up in bed and looked around his room. His backpack was already packed — he'd done it three times last night to make sure. Gray, a little worn at the corners, covered in his favorite patches and pins. The butterfly pin near the top zipper. The gold star. The rainbow patch. And right in the middle, the one his dad had given him: a small silver button with an infinity symbol on it. ∞ His dad had pressed it into his hand one evening on the front steps and said, "Infinity means forever, buddy. You go on forever — exactly as you are."
 
 Theo pressed his thumb against it the way he always did. It felt cool and smooth.
 
@@ -183,8 +183,8 @@ He kept it in his spiral notebook, in the tiny careful handwriting he used for t
 **Things That Are Different:**
 
 - Marcus stopped organizing his pencils. (Thursday)
-- Priya stopped drawing birds in her notebook margins. (Friday)
-- James stopped bouncing his knee during reading time — he used to do it every day. (Monday)
+- Adriana stopped drawing birds in her notebook margins. (Friday)
+- Michael stopped bouncing his knee during reading time — he used to do it every day. (Monday)
 - The girl with the red braids — her name was Destiny — stopped rocking in her chair. She used to do a tiny rocking thing when she was thinking. Now she just... sits. (Tuesday)
 - No one is being loud about the things they love anymore. (All week)
 
@@ -273,7 +273,7 @@ Flutter's wings pulsed once — amber, then back to gold.
 
 Theo looked at the infinity button. Still glowing.
 
-He thought about Marcus's pencil pile. About Destiny not rocking in her chair. About the way James's eyes had gone slightly blank during reading time, like something had been turned down.
+He thought about Marcus's pencil pile. About Destiny not rocking in her chair. About the way Michael's eyes had gone slightly blank during reading time, like something had been turned down.
 
 He thought about Dr. Norm's flat gray eyes.
 
@@ -385,7 +385,7 @@ Theo didn't move from in front of the machine. "You knew?"
 
 "Nothing is wrong." Dr. Norm gestured around the immaculate office. "I am making things *right.* I am removing the friction. The unnecessary pieces. The — " he said the next word the way someone might say something they'd found on the bottom of their shoe — "the *differences.*"
 
-"Those aren't friction," Theo said. His voice was calm. Very calm — the deep, still calm he felt when he was completely certain about something. "Marcus's pencils. Destiny's rocking. Priya's birds. Those are how they think. Those are how they're okay."
+"Those aren't friction," Theo said. His voice was calm. Very calm — the deep, still calm he felt when he was completely certain about something. "Marcus's pencils. Destiny's rocking. Adriana's birds. Those are how they think. Those are how they're okay."
 
 "They're distractions."
 
@@ -535,9 +535,9 @@ Not in a way any adult could easily name. It wasn't written in the attendance re
 
 Marcus had his pencils arranged by length again. He'd come in early, before the bell, and sorted them while no one was watching. But Theo had been watching. And he'd given Marcus a small, understanding nod.
 
-Priya was drawing birds in her notebook margin again — this time a whole flock, tiny and detailed and swooping off the edge of the page.
+Adriana was drawing birds in her notebook margin again — this time a whole flock, tiny and detailed and swooping off the edge of the page.
 
-James's knee was bouncing during reading time, the quiet, rhythmic way it always had.
+Michael's knee was bouncing during reading time, the quiet, rhythmic way it always had.
 
 And Destiny, in her chair near the window, was doing the small rocking thing she did when she was thinking — barely perceptible, perfectly her.
 
@@ -549,11 +549,11 @@ Ms. Okafor was back, and she brought a new class project: a wall called *Our Dif
 
 Marcus wrote: *I can find patterns in things that look random.*
 
-Priya wrote: *I notice the details in things other people don't see.*
+Adriana wrote: *I notice the details in things other people don't see.*
 
 Destiny wrote: *I know when someone is sad before they say it.*
 
-James wrote: *When I really love something I can learn everything about it in like two days.*
+Michael wrote: *When I really love something I can learn everything about it in like two days.*
 
 Theo sat with his card for a long time.
 
