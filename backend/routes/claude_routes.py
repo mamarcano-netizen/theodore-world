@@ -31,7 +31,7 @@ def get_client():
         raise HTTPException(status_code=503, detail="Claude AI not configured")
     return anthropic.Anthropic(api_key=key)
 
-MODEL = "claude-sonnet-5"
+MODEL = "claude-sonnet-5-5"
 
 
 def check_content_safe(content: str) -> tuple[bool, str]:
@@ -137,7 +137,7 @@ CRISIS RESPONSE — VERY IMPORTANT:
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=600,
         system=system,
         messages=messages,
@@ -218,7 +218,7 @@ Questions should educate and build understanding, not stereotype."""
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=2000,
         system=system,
         messages=[{"role": "user", "content": prompt}],
@@ -274,7 +274,7 @@ Respond ONLY with valid JSON:
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=800,
         system=system,
         messages=[{"role": "user", "content": prompt}],
@@ -311,7 +311,7 @@ Respond with a warm, thoughtful reply that deepens their understanding."""
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=300,
         system=system,
         messages=[{"role": "user", "content": prompt}],
@@ -351,7 +351,7 @@ Never diagnose or replace professional medical advice."""
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=800,
         system=system,
         messages=messages,
@@ -390,7 +390,7 @@ Pronouns: {he_she_they}/{him_her_them}/{his_her_their}."""
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=800,
         system=system,
         messages=[{"role": "user", "content": f"Write a social story about: {req.scenario}"}],
@@ -446,7 +446,7 @@ Respond ONLY with valid JSON:
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=1500,
         system=system,
         messages=[{"role": "user", "content": prompt}],
@@ -495,7 +495,7 @@ Respond ONLY with valid JSON:
 
     response = client.messages.create(
         model=MODEL,
-        thinking={"type": "disabled"},
+        thinking={"type": "between_tools"},
         max_tokens=1200,
         system=system,
         messages=[{"role": "user", "content": prompt}],
