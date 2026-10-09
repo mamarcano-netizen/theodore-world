@@ -41,14 +41,22 @@ def clean_for_speech(text: str) -> str:
 
 router = APIRouter(prefix="/api/tts", tags=["tts"])
 
-VOICE_ID = "NwINhsyo77xkEB8vHO6q"  # Theodore's custom voice
-ELEVENLABS_URL = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
+# Named voices. Anything not in here falls back to Theo, so existing callers
+# that send no voice keep working exactly as before.
+VOICES = {
+    "theo": "NwINhsyo77xkEB8vHO6q",  # Theodore's custom child voice
+    "gigi": "lrS79WFEmhRNou58slKI",  # Gigi Glow, Margarita's brand mascot
+}
+DEFAULT_VOICE = "theo"
+
+VOICE_ID = VOICES[DEFAULT_VOICE]  # kept for backwards compatibility
 
 logger = logging.getLogger(__name__)
 
 
 class TTSRequest(BaseModel):
     text: str
+    voice: str | None = None  # "theo" (default) or "gigi"
 
 
 @router.post("")
@@ -57,7 +65,16 @@ def speak(req: TTSRequest):
     if not key:
         raise HTTPException(status_code=503, detail="TTS not configured — ELEVENLABS_API_KEY missing")
 
-    logger.warning(f"TTS called — key present: {bool(key)}, key prefix: {key[:8]}...")
+    voice_name = (req.voice or DEFAULT_VOICE).strip().lower()
+    if voice_name not in VOICES:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unknown voice '{voice_name}'. Choose one of: {', '.join(VOICES)}",
+        )
+    voice_id = VOICES[voice_name]
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+
+    logger.warning(f"TTS called — voice: {voice_name}, key present: {bool(key)}")
 
     text = clean_for_speech(req.text)[:500]
 
@@ -76,7 +93,7 @@ def speak(req: TTSRequest):
     }
 
     try:
-        resp = requests.post(ELEVENLABS_URL, headers=headers, json=body, timeout=20)
+        resp = requests.post(url, headers=headers, json=body, timeout=20)
         if not resp.ok:
             error_body = resp.text[:500]
             logger.error(f"ElevenLabs {resp.status_code}: {error_body}")
