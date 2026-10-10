@@ -46,6 +46,7 @@ router = APIRouter(prefix="/api/tts", tags=["tts"])
 VOICES = {
     "theo": "NwINhsyo77xkEB8vHO6q",  # Theodore's custom child voice
     "gigi": "lrS79WFEmhRNou58slKI",  # Gigi Glow, Margarita's brand mascot
+    "dad":  "nPczCjzI2devNBz1zQrb",  # ElevenLabs stock "Brian" — the husband in Gigi skits
 }
 DEFAULT_VOICE = "theo"
 
@@ -56,7 +57,7 @@ logger = logging.getLogger(__name__)
 
 class TTSRequest(BaseModel):
     text: str
-    voice: str | None = None  # "theo" (default) or "gigi"
+    voice: str | None = None  # "theo" (default), "gigi" or "dad"
 
 
 @router.post("")
