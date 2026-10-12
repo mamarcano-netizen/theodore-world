@@ -46,7 +46,7 @@ router = APIRouter(prefix="/api/tts", tags=["tts"])
 VOICES = {
     "theo": "NwINhsyo77xkEB8vHO6q",  # Theodore's custom child voice
     "gigi": "lrS79WFEmhRNou58slKI",  # Gigi Glow, Margarita's brand mascot
-    "dad":  "nPczCjzI2devNBz1zQrb",  # ElevenLabs stock "Brian" — the husband in Gigi skits
+    "dad":  "l1IeEkHnTrrRQVG1INll",  # Theo's Dad — Anthony's pick 2026-10-11, used as the husband in Gigi skits
 }
 DEFAULT_VOICE = "theo"
 
