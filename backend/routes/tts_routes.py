@@ -9,7 +9,7 @@ import os
 import re
 import logging
 import requests
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
@@ -107,3 +107,35 @@ def speak(req: TTSRequest):
     except requests.exceptions.RequestException as e:
         logger.error(f"TTS connection error: {e}")
         raise HTTPException(status_code=502, detail=f"TTS connection error: {str(e)}")
+
+
+@router.post("/sts")
+async def speech_to_speech(audio: UploadFile = File(...), voice: str = Form(DEFAULT_VOICE)):
+    """Re-voice a spoken clip in one of our voices, keeping its exact timing (for lip-synced video)."""
+    key = os.getenv("ELEVENLABS_API_KEY", "").strip()
+    if not key:
+        raise HTTPException(status_code=503, detail="TTS not configured — ELEVENLABS_API_KEY missing")
+    voice_name = (voice or DEFAULT_VOICE).strip().lower()
+    if voice_name not in VOICES:
+        raise HTTPException(status_code=400, detail=f"Unknown voice '{voice_name}'. Choose one of: {', '.join(VOICES)}")
+    data = await audio.read()
+    if len(data) > 10_000_000:
+        raise HTTPException(status_code=413, detail="clip too large (10 MB max)")
+    logger.warning(f"STS called — voice: {voice_name}, bytes: {len(data)}")
+    try:
+        resp = requests.post(
+            f"https://api.elevenlabs.io/v1/speech-to-speech/{VOICES[voice_name]}",
+            headers={"xi-api-key": key, "Accept": "audio/mpeg"},
+            files={"audio": (audio.filename or "clip.wav", data, audio.content_type or "audio/wav")},
+            data={"model_id": "eleven_multilingual_sts_v2",
+                  "voice_settings": '{"stability": 0.5, "similarity_boost": 0.8}'},
+            timeout=60,
+        )
+        if not resp.ok:
+            logger.error(f"ElevenLabs STS {resp.status_code}: {resp.text[:500]}")
+            raise HTTPException(status_code=502, detail=f"ElevenLabs STS {resp.status_code}: {resp.text[:500]}")
+        return StreamingResponse(iter([resp.content]), media_type="audio/mpeg",
+                                 headers={"Cache-Control": "no-store"})
+    except requests.exceptions.RequestException as e:
+        logger.error(f"STS connection error: {e}")
+        raise HTTPException(status_code=502, detail=f"STS connection error: {str(e)}")
