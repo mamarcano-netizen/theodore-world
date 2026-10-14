@@ -47,6 +47,9 @@ VOICES = {
     "theo": "NwINhsyo77xkEB8vHO6q",  # Theodore's custom child voice
     "gigi": "lrS79WFEmhRNou58slKI",  # Gigi Glow, Margarita's brand mascot
     "dad":  "l1IeEkHnTrrRQVG1INll",  # Theo's Dad — Anthony's pick 2026-10-11, used as the husband in Gigi skits
+    "maskmaster": "rpRZ09MSRlbcxlODcM7g",  # Mask Master — Anthony's pick 2026-10-13
+    "drnorm": "EvUgtx3kYQgPDzm8j2T5",  # Dr. Norm — Anthony's pick 2026-10-13
+    "siren": "qFiwFsyxAuEiEdXjNDFR",  # Sensory Siren — Anthony's pick 2026-10-13
 }
 DEFAULT_VOICE = "theo"
 
