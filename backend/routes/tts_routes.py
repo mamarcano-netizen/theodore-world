@@ -50,6 +50,8 @@ VOICES = {
     "maskmaster": "rpRZ09MSRlbcxlODcM7g",  # Mask Master — Anthony's pick 2026-10-13
     "drnorm": "EvUgtx3kYQgPDzm8j2T5",  # Dr. Norm — Anthony's pick 2026-10-13
     "siren": "qFiwFsyxAuEiEdXjNDFR",  # Sensory Siren — Anthony's pick 2026-10-13
+    "okafor": "Zh85HWuPxYLHloh3jVDk",  # Ms. Okafor — Anthony's pick 2026-10-13
+    "isolator": "mhRbUxYeRXCN8Sfaq6Ks",  # The Isolator — Anthony's pick 2026-10-13
 }
 DEFAULT_VOICE = "theo"
 
