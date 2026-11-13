@@ -46,12 +46,12 @@ Review the post and respond ONLY with valid JSON: {"safe": true or false, "reaso
 Flag: hate speech, harassment, explicit content, dangerous medical advice, spam, anything harmful to children or vulnerable families.
 Do NOT flag: emotional venting, autism challenges, criticism of institutions, strong language used respectfully, sensitive personal stories."""
         response = client.messages.create(
-            model="claude-haiku-4-5-20251001",
+            model="claude-haiku-5-5",
             max_tokens=100,
             system=system,
             messages=[{"role": "user", "content": f"Review this post:\n\n{content}"}],
         )
-        result = json.loads(re.sub(r"```(?:json)?\s*", "", response.content[0].text).strip().rstrip("`").strip())
+        result = json.loads(re.sub(r"```(?:json)?\s*", "", next(b.text for b in response.content if b.type == "text")).strip().rstrip("`").strip())
         return result.get("safe", True), result.get("reason", "")
     except Exception:
         return True, ""
@@ -142,7 +142,7 @@ CRISIS RESPONSE — VERY IMPORTANT:
         system=system,
         messages=messages,
     )
-    return {"reply": response.content[0].text}
+    return {"reply": next(b.text for b in response.content if b.type == "text")}
 
 
 # ─── Content Moderation ──────────────────────────────────────────────────────
@@ -171,14 +171,14 @@ Do NOT flag: venting about autism challenges, emotional posts, criticism of inst
 strong language used respectfully, or sensitive personal stories shared in good faith."""
 
     response = client.messages.create(
-        model="claude-haiku-4-5-20251001",  # Use fast/cheap model for moderation
+        model="claude-haiku-5-5",  # Use fast/cheap model for moderation
         max_tokens=150,
         system=system,
         messages=[{"role": "user", "content": f"Review this community post:\n\n{req.content}"}],
     )
 
     try:
-        result = parse_json(response.content[0].text)
+        result = parse_json(next(b.text for b in response.content if b.type == "text"))
     except json.JSONDecodeError:
         result = {"safe": True, "reason": "", "severity": "none"}
 
@@ -225,7 +225,7 @@ Questions should educate and build understanding, not stereotype."""
     )
 
     try:
-        questions = parse_json(response.content[0].text)
+        questions = parse_json(next(b.text for b in response.content if b.type == "text"))
     except json.JSONDecodeError:
         raise HTTPException(status_code=500, detail="Failed to generate quiz questions")
 
@@ -281,7 +281,7 @@ Respond ONLY with valid JSON:
     )
 
     try:
-        path = parse_json(response.content[0].text)
+        path = parse_json(next(b.text for b in response.content if b.type == "text"))
     except json.JSONDecodeError:
         raise HTTPException(status_code=500, detail="Failed to generate learning path")
 
@@ -317,7 +317,7 @@ Respond with a warm, thoughtful reply that deepens their understanding."""
         messages=[{"role": "user", "content": prompt}],
     )
 
-    return {"reply": response.content[0].text}
+    return {"reply": next(b.text for b in response.content if b.type == "text")}
 
 
 # ─── Parent Support Chat ──────────────────────────────────────────────────────
@@ -357,7 +357,7 @@ Never diagnose or replace professional medical advice."""
         messages=messages,
     )
 
-    return {"reply": response.content[0].text}
+    return {"reply": next(b.text for b in response.content if b.type == "text")}
 
 
 # ─── Social Story Generator ──────────────────────────────────────────────────
@@ -395,7 +395,7 @@ Pronouns: {he_she_they}/{him_her_them}/{his_her_their}."""
         system=system,
         messages=[{"role": "user", "content": f"Write a social story about: {req.scenario}"}],
     )
-    return {"story": response.content[0].text}
+    return {"story": next(b.text for b in response.content if b.type == "text")}
 
 
 # ─── IEP Goal Helper ─────────────────────────────────────────────────────────
@@ -453,7 +453,7 @@ Respond ONLY with valid JSON:
     )
 
     try:
-        result = parse_json(response.content[0].text)
+        result = parse_json(next(b.text for b in response.content if b.type == "text"))
     except json.JSONDecodeError:
         raise HTTPException(status_code=500, detail="Failed to generate IEP suggestions")
 
@@ -502,7 +502,7 @@ Respond ONLY with valid JSON:
     )
 
     try:
-        result = parse_json(response.content[0].text)
+        result = parse_json(next(b.text for b in response.content if b.type == "text"))
     except json.JSONDecodeError:
         raise HTTPException(status_code=500, detail="Failed to generate sensory profile")
 
