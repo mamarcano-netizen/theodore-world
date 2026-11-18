@@ -1,5 +1,7 @@
+import hmac
 import os
-from fastapi import APIRouter, Depends, HTTPException
+from typing import Optional
+from fastapi import APIRouter, Depends, Header, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from pydantic import BaseModel
@@ -13,8 +15,15 @@ class BootstrapRequest(BaseModel):
     email: str
 
 @router.post("/bootstrap")
-def bootstrap_admin(req: BootstrapRequest, db: Session = Depends(get_db)):
-    """One-time: promotes a user to admin if no admins exist yet."""
+def bootstrap_admin(
+    req: BootstrapRequest,
+    db: Session = Depends(get_db),
+    x_admin_token: Optional[str] = Header(default=None),
+):
+    """One-time: promotes a user to admin if no admins exist yet. Requires the ADMIN_BOOTSTRAP_TOKEN secret."""
+    expected = os.environ.get("ADMIN_BOOTSTRAP_TOKEN", "")
+    if not expected or not x_admin_token or not hmac.compare_digest(x_admin_token, expected):
+        raise HTTPException(status_code=403, detail="Admin setup is locked.")
     existing_admin = db.query(models.User).filter_by(is_admin=True).first()
     if existing_admin:
         raise HTTPException(status_code=403, detail="An admin already exists.")

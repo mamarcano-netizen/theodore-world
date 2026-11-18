@@ -5,3 +5,93 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
+
+[[redirects]]
+  from = "/backend/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/chapter-book/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/sensory-book/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/brand/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/clothing-assets/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/upload.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/demo.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/make_pdf.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/generate_theo_images.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/demo.bat"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/launch.bat"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/chatbot-system-prompt.txt"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/theo_face_description.txt"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/super-theo-character-gallery.html"
+  to = "/404.html"
+  status = 404
+  force = true
