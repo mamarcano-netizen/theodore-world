@@ -4680,7 +4680,24 @@ if('serviceWorker' in navigator){
 
 <!-- ====== ASK THEO PAGE ====== -->
 <!-- ====== SUPER THEO — floating character (always on screen, bottom-left) ====== -->
+<style>
+#theo-float{width:84px;}
+@media(min-width:1500px){#theo-float{width:120px;}}
+#theo-tuck{position:absolute;top:-8px;left:-8px;width:32px;height:32px;border-radius:50%;border:2px solid #fff;background:#1a2456;color:#fff;font-size:17px;font-weight:700;line-height:1;cursor:pointer;pointer-events:auto;box-shadow:0 2px 8px rgba(0,0,0,.25);padding:0;}
+#theo-untuck{display:none;position:fixed;bottom:20px;left:16px;z-index:9990;width:54px;height:54px;border-radius:50%;border:3px solid #fff;background:linear-gradient(135deg,#C3A9F5,#6EC6F5);box-shadow:0 4px 14px rgba(26,36,86,.3);cursor:pointer;padding:0;overflow:hidden;}
+#theo-untuck img{width:100%;height:100%;object-fit:cover;object-position:center 8%;display:block;}
+body.theo-tucked #theo-float{display:none;}
+body.theo-tucked #theo-untuck{display:block;}
+@media(max-width:768px){#theo-float,#theo-untuck{display:none !important;}}
+@media(prefers-reduced-motion:reduce){#theo-float #theo-figure{animation:none;}}
+</style>
+<script>
+function theoTuck(on){document.body.classList.toggle('theo-tucked',on);try{localStorage.setItem('theoTucked',on?'1':'0');}catch(e){}}
+try{if(localStorage.getItem('theoTucked')==='1')document.body.classList.add('theo-tucked');}catch(e){}
+</script>
+<button id="theo-untuck" onclick="theoTuck(false)" aria-label="Bring Super Theo back" title="Bring Theo back"><img src="characters/chat-supertheo.png" alt=""></button>
 <div id="theo-float">
+  <button id="theo-tuck" onclick="theoTuck(true)" aria-label="Tuck Super Theo away" title="Tuck Theo away">×</button>
   <div id="theo-bubble">Hi! Tap me! 💙</div>
   <!-- Flutter butterfly companion — tappable, flies beside Theo -->
   <img id="theo-flutter" src="characters/flutter.png" onclick="flutterTap()" title="Flutter!" alt="Flutter" style="cursor:pointer;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(255,209,102,.55));">
